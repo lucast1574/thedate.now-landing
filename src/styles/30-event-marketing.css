@@ -1,0 +1,548 @@
+.festival-site {
+  background: #fff9ed;
+  color: #463466;
+  --festival-violet: #7451ac;
+  --festival-ink: #463466;
+  --festival-paper: #fff9ed;
+  --festival-pink: #e45c87;
+  --festival-gold: #f4b93c;
+  overflow: clip;
+  font-family: var(--font-sans), sans-serif;
+}
+.festival-site .party-header {
+  padding-block: 32px;
+  border-bottom: 1px solid #7451ac;
+}
+.festival-site .party-header nav {
+  gap: 24px;
+}
+.festival-site .party-nav-action {
+  background: #463466;
+  color: #fff9ed;
+  border-radius: 32px;
+  padding: 12px 20px;
+}
+.festival-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding-block: 80px 96px;
+}
+.festival-copy > p:first-child {
+  font-size: 14px;
+  margin-bottom: 24px;
+  color: #7451ac;
+}
+.festival-copy h1 {
+  font-family: var(--font-party), sans-serif;
+  font-size: clamp(64px, 6.5vw, 100px);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+  margin: 0 0 32px;
+}
+.festival-copy > p {
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 470px;
+}
+.festival-copy > small {
+  font-size: 12px;
+  display: block;
+  line-height: 1.6;
+  margin-top: 24px;
+}
+.festival-actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.festival-actions > a:last-child {
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.festival-site .party-button {
+  display: inline-flex;
+  gap: 24px;
+  align-items: center;
+  padding: 18px 24px;
+  border-radius: 40px;
+  background: #7451ac;
+  color: #fff9ed;
+  border: 0;
+  font-size: 14px;
+}
+.festival-site .party-button:hover,
+.festival-site .party-button:focus-visible {
+  background: #463466;
+}
+.festival-site a:focus-visible {
+  background: #f4b93c;
+  color: #463466;
+}
+.festival-stage {
+  margin: 0;
+  position: relative;
+  min-height: 560px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+.festival-orbit {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #7451ac;
+  z-index: -2;
+}
+.festival-orbit:before,
+.festival-orbit:after {
+  content: "";
+  position: absolute;
+  background: #f4b93c;
+  width: 100px;
+  height: 100px;
+  clip-path: polygon(
+    50% 0,
+    60% 35%,
+    95% 15%,
+    70% 48%,
+    100% 60%,
+    65% 65%,
+    65% 100%,
+    45% 75%,
+    15% 100%,
+    28% 65%,
+    0 48%,
+    37% 40%
+  );
+}
+.festival-orbit:before {
+  top: 0;
+  left: 0;
+  transform: rotate(-20deg);
+}
+.festival-orbit:after {
+  right: -8px;
+  bottom: 0;
+  width: 80px;
+  height: 80px;
+  transform: rotate(30deg);
+}
+.festival-ticket {
+  position: relative;
+  background: #e45c87;
+  width: 80%;
+  min-height: 440px;
+  transform: rotate(8deg);
+  padding: 32px;
+  color: #463466;
+  display: flex;
+  flex-direction: column;
+}
+.festival-ticket > span:first-child {
+  font-size: 12px;
+}
+.festival-ticket > .ui-icon {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 40px;
+  height: 40px;
+}
+.festival-ticket strong {
+  font-family: var(--font-party), sans-serif;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.055em;
+  font-size: 60px;
+  margin: 48px 0 16px;
+}
+.festival-ticket > p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.festival-ticket > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: auto;
+  padding-top: 24px;
+}
+.festival-tear {
+  border-top: 2px dashed #463466;
+  margin-top: 24px;
+  padding-top: 16px;
+  font-size: 11px;
+  text-align: center;
+}
+.festival-response {
+  position: absolute;
+  left: 0;
+  bottom: 56px;
+  background: #f4b93c;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 24px;
+  transform: rotate(-8deg);
+  border-radius: 16px;
+}
+.festival-response > .ui-icon {
+  width: 32px;
+  height: 32px;
+}
+.festival-response span {
+  font-family: var(--font-party), sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+.festival-response small {
+  display: block;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+.festival-stage figcaption {
+  position: absolute;
+  bottom: -16px;
+  font-size: 11px;
+}
+.festival-site .party-marquee {
+  background: #f4b93c;
+  color: #463466;
+  transform: rotate(-2deg);
+  margin: 16px -16px 0;
+  padding-block: 20px;
+  border-block: 1px solid #463466;
+}
+.festival-site .party-marquee-track {
+  animation: none;
+}
+.festival-site .party-marquee-track span {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.festival-site .party-occasions {
+  padding-block: 96px;
+}
+.festival-site .party-section-head {
+  margin-bottom: 48px;
+}
+.festival-site .party-section-head h2,
+.festival-site .party-how h2,
+.festival-control h2,
+.festival-site .marketing-questions h2 {
+  font-family: var(--font-party), sans-serif;
+  font-weight: 850;
+  font-size: clamp(40px, 4.5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+.festival-site .party-section-head h2 em,
+.festival-site .party-how h2 em {
+  font-style: normal;
+  color: inherit;
+}
+.festival-site .party-eyebrow {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+}
+.festival-site .party-occasion-grid {
+  gap: 24px;
+}
+.festival-site .party-occasion-grid article {
+  border: 0;
+  border-radius: 24px;
+  padding: 32px;
+  min-height: 340px;
+}
+.festival-site .party-occasion-grid article > span {
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.festival-site .party-occasion-grid article > b {
+  margin-block: 32px;
+}
+.festival-site .occasion-birthday {
+  background: #f4b93c;
+}
+.festival-site .occasion-party {
+  background: #7451ac;
+  color: #fff9ed;
+}
+.festival-site .occasion-gather {
+  background: #e45c87;
+}
+.festival-site .party-occasion-grid article p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: inherit;
+}
+.festival-site .party-occasion-grid article h3 {
+  font-size: 30px;
+  color: inherit;
+}
+.festival-site .party-occasion-grid article > b {
+  color: inherit;
+}
+.festival-control {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  padding-bottom: 96px;
+}
+.festival-control > div > p {
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 450px;
+}
+.festival-control h2 {
+  margin: 24px 0;
+}
+.festival-control .party-link {
+  margin-top: 24px;
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+}
+.festival-tools {
+  display: grid;
+  gap: 0;
+}
+.festival-tools article {
+  padding: 24px 0 24px 56px;
+  border-top: 1px solid #7451ac;
+  position: relative;
+}
+.festival-tools article > .ui-icon {
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 32px;
+  height: 32px;
+  color: #7451ac;
+}
+.festival-tools h3 {
+  font-size: 20px;
+  font-weight: 750;
+  margin: 0 0 12px;
+}
+.festival-tools p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+.festival-site .party-how {
+  background: #7451ac;
+  color: #fff9ed;
+  border-radius: 64px 64px 0 0;
+  padding-block: 80px;
+}
+.festival-site .party-how .party-eyebrow,
+.festival-site .party-steps p {
+  color: #fff9ed;
+}
+.festival-site .party-steps article {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid #fff9ed;
+  padding: 24px 0;
+}
+.festival-site .party-steps article > span {
+  background: #f4b93c;
+  color: #463466;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+.festival-site .party-steps h3 {
+  color: #fff9ed;
+  font-size: 26px;
+}
+.festival-site .party-final {
+  border-color: #fff9ed;
+}
+.festival-site .party-final > span {
+  font-size: 32px;
+  color: #fff9ed;
+}
+.festival-site .party-final .party-button {
+  background: #f4b93c;
+  color: #463466;
+}
+.festival-site .party-final .party-button:hover {
+  background: #e45c87;
+}
+.festival-site .party-footer {
+  padding-block: 32px;
+  border-top: 1px solid #7451ac;
+}
+.festival-site .marketing-questions h2 {
+  margin: 24px 0 0;
+}
+.festival-site .marketing-questions {
+  padding-block: 80px;
+}
+@media (max-width: 1000px) {
+  .festival-hero {
+    gap: 32px;
+  }
+  .festival-copy h1 {
+    font-size: 72px;
+  }
+  .festival-ticket {
+    padding: 24px;
+    min-height: 420px;
+  }
+  .festival-ticket strong {
+    font-size: 48px;
+  }
+  .festival-stage {
+    min-height: 520px;
+  }
+  .festival-control {
+    gap: 48px;
+  }
+}
+@media (max-width: 650px) {
+  .festival-site .party-header {
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-block: 24px;
+  }
+  .festival-site .party-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 16px;
+    justify-content: space-between;
+  }
+  .festival-site .party-header nav a {
+    display: inline-flex;
+    font-size: 11px;
+  }
+  .festival-site .party-header nav a:first-child {
+    display: none;
+  }
+  .festival-site .party-nav-action {
+    padding: 8px 16px;
+  }
+  .festival-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-block: 48px 64px;
+  }
+  .festival-copy h1 {
+    font-size: clamp(58px, 12.8vw, 82px);
+  }
+  .festival-copy > p {
+    font-size: 15px;
+  }
+  .festival-actions {
+    gap: 24px;
+  }
+  .festival-stage {
+    max-width: 440px;
+    width: 100%;
+    min-height: 540px;
+    margin: auto;
+  }
+  .festival-ticket {
+    min-height: 440px;
+    width: 78%;
+  }
+  .festival-ticket strong {
+    font-size: 52px;
+  }
+  .festival-response {
+    left: 0;
+    bottom: 48px;
+    padding: 16px;
+  }
+  .festival-orbit:after {
+    right: 0;
+  }
+  .festival-site .party-occasions {
+    padding-block: 64px;
+  }
+  .festival-site .party-occasion-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .festival-site .party-occasion-grid article {
+    min-height: 280px;
+    padding: 24px;
+  }
+  .festival-site .party-occasion-grid article > b {
+    margin-block: 24px;
+  }
+  .festival-site .party-occasion-grid article h3 {
+    font-size: 32px;
+  }
+  .festival-control {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 64px;
+  }
+  .festival-site .party-how {
+    border-radius: 32px 32px 0 0;
+    padding-block: 64px;
+  }
+  .festival-site .party-steps {
+    grid-template-columns: 1fr;
+  }
+  .festival-site .party-final {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .festival-site .party-final > span {
+    font-size: 28px;
+  }
+  .festival-site .party-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .festival-site .marketing-questions {
+    padding-block: 64px;
+  }
+  .festival-site .party-section-head {
+    display: block;
+  }
+  .festival-site .party-section-head > p {
+    margin-top: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .festival-site *,
+  .wedding-atlas * {
+    scroll-behavior: auto;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Dark violet text retains contrast on the saturated pink invitation. */
+.festival-ticket > span,
+.festival-ticket > p,
+.festival-ticket > div,
+.festival-site .occasion-gather {
+  color: #241638;
+}
+.festival-site .party-footer > span {
+  color: #463466;
+}

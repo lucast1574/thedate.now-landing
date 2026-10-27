@@ -1,0 +1,69 @@
+.ui-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.12em;
+  flex-shrink: 0;
+}
+.flyer-element .ui-icon {
+  width: 1em;
+  height: 1em;
+}
+.invite-section > span .ui-icon {
+  width: 1em;
+  height: 1em;
+}
+.party-chips span,
+.party-button,
+.party-link,
+.party-nav-action,
+.hero-actions .button,
+.hero-actions .text-link,
+.nav-action {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+.party-doodle .ui-icon {
+  width: 1em;
+  height: 1em;
+}
+.party-occasion-grid b .ui-icon {
+  width: 1em;
+  height: 1em;
+}
+.party-paper-confetti .ui-icon {
+  width: 1em;
+  height: 1em;
+}
+.party-rsvp > span .ui-icon {
+  width: 18px;
+  height: 18px;
+}
+.ribbon-words {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+.party-marquee-track > span {
+  display: inline-flex;
+  align-items: center;
+}
+.ribbon-words .ui-icon {
+  width: 24px;
+  height: 24px;
+}
+.wedding-hero-art:after {
+  content: none;
+}
+.editor-toolbar-actions button,
+.editor-upload {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.seating-tools button .ui-icon {
+  margin-right: 4px;
+}

@@ -1,0 +1,220 @@
+.wedding-paper-mark {
+  width: 84px;
+  height: 84px;
+  color: #aa795d;
+  margin: 19px 0 12px;
+}
+.wedding-paper-overline {
+  font-size: 8px;
+  color: #9b755d;
+}
+.wedding-paper-border strong {
+  font:
+    500 52px/1.1 var(--font-serif),
+    serif;
+  margin: 13px 0 11px;
+  white-space: nowrap;
+}
+.wedding-paper-border strong i {
+  font-weight: 400;
+  color: #ae8064;
+}
+.wedding-paper-rule {
+  height: 1px;
+  width: 52px;
+  background: #ba957b;
+  margin: 6px 0 20px;
+}
+.wedding-paper-date {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+.wedding-paper-foot {
+  font-size: 7px;
+  margin-top: auto;
+  color: #a98067;
+}
+.wedding-hero-note {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: rotate(-6deg);
+  font:
+    italic 19px var(--font-serif),
+    serif;
+  color: #9a8e7c;
+  white-space: nowrap;
+}
+@keyframes wedding-reveal {
+  from {
+    opacity: 0;
+    translate: 0 22px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@media (max-width: 1020px) {
+  .wedding .hero {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding-top: 86px;
+    padding-bottom: 80px;
+  }
+  .wedding .hero h1 {
+    font-size: clamp(78px, 10vw, 120px);
+  }
+  .wedding-hero-art {
+    height: 550px;
+  }
+  .wedding-paper {
+    width: 360px;
+  }
+}
+@media (max-width: 600px) {
+  .wedding {
+    overflow-x: hidden;
+  }
+  .wedding .topbar .brand-wedding {
+    font-size: 20px;
+  }
+  .brand-wedding {
+    gap: 5px;
+  }
+  .wedding-mark {
+    width: 27px;
+    height: 27px;
+  }
+  .brand-wedding-title {
+    letter-spacing: 0.025em;
+  }
+  .brand-wedding-subtitle {
+    font-size: 6px;
+    letter-spacing: 0.15em;
+  }
+  .wedding .topbar nav {
+    gap: 0;
+  }
+  .wedding .topbar .nav-action {
+    padding: 10px 12px;
+    white-space: nowrap;
+  }
+  .wedding .hero {
+    padding-top: 75px;
+    gap: 25px;
+  }
+  .wedding .hero h1 {
+    font-size: clamp(57px, 13.5vw, 79px);
+    margin: 32px 0;
+  }
+  .wedding-hero-art {
+    height: 430px;
+  }
+  .wedding-paper {
+    width: 275px;
+    height: 365px;
+  }
+  .wedding-paper-front {
+    padding: 14px;
+  }
+  .wedding-paper-border {
+    padding: 17px 8px 14px;
+  }
+  .wedding-paper-kicker {
+    font-size: 7px;
+  }
+  .wedding-paper-mark {
+    width: 65px;
+    height: 65px;
+    margin: 12px 0 10px;
+  }
+  .wedding-paper-border strong {
+    font-size: 39px;
+    margin: 10px 0;
+  }
+  .wedding-paper-date {
+    font-size: 8px;
+  }
+  .wedding-hero-note {
+    font-size: 14px;
+    right: 8px;
+    bottom: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wedding-paper-front {
+    animation: none;
+  }
+}
+.event-mode {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: 1px solid #d5ccbe;
+  border-radius: 4px;
+  padding: 13px 16px;
+  margin: 0;
+}
+.event-mode legend {
+  padding: 0 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5e574f;
+}
+.event-mode label {
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+.event-mode input[type="radio"] {
+  width: auto;
+  accent-color: #a66c54;
+  margin: 0;
+}
+.map-status {
+  margin: -6px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #745945;
+}
+.map-status.loading {
+  color: #706962;
+}
+.map-status a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.invitation .details {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.invitation .details > div {
+  min-width: 0;
+  padding: 0 12px;
+}
+.invitation .details > div:nth-child(2) {
+  border-right: 1px solid #cfc2ad;
+}
+.invitation .details strong {
+  font-size: clamp(21px, 2.5vw, 30px);
+  overflow-wrap: anywhere;
+}
+.invite-place-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 99px;
+  padding: 13px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.invite-place-link:hover {
+  background: var(--accent);
+  color: white;
+}

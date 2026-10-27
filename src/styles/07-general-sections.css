@@ -1,0 +1,170 @@
+.occasion-gather {
+  background: #ffe9ac;
+}
+.party-occasion-grid article > span {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+.party-occasion-grid b {
+  font-size: 125px;
+  line-height: 1;
+  position: absolute;
+  right: 16px;
+  top: 48px;
+  color: #f28baa;
+  transform: rotate(-15deg);
+}
+.occasion-party b {
+  color: #ad8ddd;
+}
+.occasion-gather b {
+  color: #e9bd4d;
+}
+.party-occasion-grid h3 {
+  font:
+    600 42px var(--font-serif),
+    serif;
+  letter-spacing: -0.035em;
+  position: relative;
+  margin: 130px 0 7px;
+}
+.party-occasion-grid p {
+  font-size: 13px;
+  line-height: 1.55;
+  max-width: 270px;
+  position: relative;
+}
+.party-how {
+  background: #322a56;
+  color: #fff8ed;
+  padding: 115px 0 100px;
+}
+.party-how .party-eyebrow {
+  color: #ffca80;
+}
+.party-how h2 em {
+  color: #ffa6be;
+}
+.party-how-intro {
+  margin-bottom: 70px;
+}
+.party-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 55px;
+}
+.party-steps article {
+  border-top: 1px solid #796d98;
+  padding-top: 21px;
+}
+.party-steps article > span {
+  font-size: 12px;
+  color: #ffc978;
+  font-weight: 800;
+}
+.party-steps h3 {
+  font:
+    500 38px var(--font-serif),
+    serif;
+  margin: 27px 0 7px;
+}
+.party-steps p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #d0c8df;
+  max-width: 285px;
+}
+.party-final {
+  margin-top: 85px;
+  padding-top: 35px;
+  border-top: 1px solid #796d98;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.party-final > span {
+  font:
+    italic 32px var(--font-serif),
+    serif;
+}
+.party-final .party-button {
+  background: #f26b91;
+  color: #30254e;
+}
+.party-footer {
+  min-height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.party-footer .brand {
+  font-size: 27px;
+}
+.party-footer .brand-mark {
+  width: 32px;
+  height: 32px;
+}
+.party-footer > span,
+.party-footer > a:last-child {
+  font-size: 12px;
+}
+.party-footer > span {
+  color: #7a7180;
+}
+@keyframes party-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes party-float {
+  50% {
+    transform: translateY(-13px) rotate(10deg);
+  }
+}
+@keyframes party-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 1050px) {
+  .party-shell {
+    width: min(100% - 52px, 800px);
+  }
+  .party-header nav a:first-child {
+    display: none;
+  }
+  .party-hero {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 85px;
+  }
+  .party-stage {
+    width: min(610px, 100%);
+    margin: 30px auto 0;
+  }
+  .party-copy h1 {
+    font-size: clamp(75px, 11vw, 120px);
+  }
+  .party-chips {
+    margin-top: 40px;
+  }
+  .party-section-head {
+    align-items: start;
+  }
+  .party-occasion-grid {
+    gap: 10px;
+  }
+  .party-occasion-grid article {
+    padding: 20px;
+  }
+  .party-occasion-grid h3 {
+    font-size: 33px;
+  }
+}

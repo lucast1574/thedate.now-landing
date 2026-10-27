@@ -1,0 +1,221 @@
+.party-stage:before {
+  content: "";
+  position: absolute;
+  inset: 45px -20px 25px 10px;
+  background: #f9dbdf;
+  border-radius: 50% 40% 55% 45%;
+  transform: rotate(-13deg);
+}
+.party-paper {
+  width: 340px;
+  height: 455px;
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  border-radius: 13px;
+  box-shadow: 0 24px 50px #7750632b;
+}
+.party-paper-back {
+  background: #e8ceff;
+  transform: translate(-45%, -46%) rotate(10deg);
+}
+.party-paper-front {
+  background: #fff8e9;
+  transform: translate(-50%, -50%) rotate(-7deg);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f6ddc6;
+}
+.party-paper-top,
+.party-paper-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+.party-paper-top span:last-child {
+  font-size: 28px;
+  color: #ed6988;
+}
+.party-paper-kicker {
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: #b15274;
+  margin-top: 57px;
+}
+.party-paper-front strong {
+  font:
+    600 72px/0.88 var(--font-serif),
+    serif;
+  letter-spacing: -0.055em;
+  margin: 15px 0;
+  color: #382b63;
+}
+.party-paper-front strong i {
+  color: #e35b82;
+  font-weight: 500;
+}
+.party-paper-confetti {
+  margin: auto 0 5px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 34px;
+  color: #ed7294;
+}
+.party-paper-confetti span:nth-child(2) {
+  color: #f2c74c;
+  font-size: 17px;
+}
+.party-paper-confetti span:nth-child(3) {
+  color: #7762b5;
+}
+.party-paper-bottom {
+  border-top: 1px solid #d5c4c7;
+  padding-top: 20px;
+}
+.party-doodle {
+  position: absolute;
+  z-index: 2;
+  font-size: 55px;
+  line-height: 1;
+  animation: party-float 4s ease-in-out infinite;
+}
+.party-doodle-one {
+  top: 8%;
+  left: 6%;
+  color: #e05f89;
+}
+.party-doodle-two {
+  right: 1%;
+  top: 10%;
+  color: #ecbc4e;
+  animation-delay: 1s;
+}
+.party-doodle-three {
+  right: 0;
+  bottom: 12%;
+  color: #735aad;
+  animation-delay: 2s;
+}
+.party-rsvp,
+.party-address {
+  position: absolute;
+  z-index: 3;
+  background: #fff;
+  border-radius: 17px;
+  box-shadow: 0 12px 28px #59476c24;
+}
+.party-rsvp {
+  left: 0;
+  bottom: 65px;
+  padding: 12px 19px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: rotate(7deg);
+}
+.party-rsvp > span {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  background: #dbf6dd;
+  color: #288851;
+  font-size: 17px;
+}
+.party-rsvp b,
+.party-rsvp small {
+  display: block;
+}
+.party-rsvp b {
+  font-size: 12px;
+}
+.party-rsvp small {
+  font-size: 10px;
+  color: #8b8294;
+  margin-top: 2px;
+}
+.party-address {
+  right: 0;
+  top: 50px;
+  padding: 12px 15px;
+  font-size: 11px;
+  font-weight: 800;
+  transform: rotate(6deg);
+}
+.party-address span {
+  color: #df527d;
+  margin-left: 8px;
+}
+.party-marquee {
+  background: #fbcd64;
+  color: #322146;
+  overflow: hidden;
+  transform: rotate(-1.5deg);
+  width: 102%;
+  margin-left: -1%;
+  white-space: nowrap;
+}
+.party-marquee div {
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  padding: 17px 0;
+  width: max-content;
+  animation: party-slide 30s linear infinite;
+}
+.party-occasions {
+  padding-top: 125px;
+  padding-bottom: 135px;
+}
+.party-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+.party-section-head h2,
+.party-how h2 {
+  font:
+    500 clamp(58px, 6vw, 90px)/0.9 var(--font-serif),
+    serif;
+  letter-spacing: -0.055em;
+  margin: 20px 0 0;
+}
+.party-section-head > p {
+  max-width: 360px;
+  color: #615968;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.party-occasion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.party-occasion-grid article {
+  min-height: 325px;
+  border-radius: 22px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.party-occasion-grid article:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 16px 30px #4c326317;
+}
+.occasion-birthday {
+  background: #fce0e7;
+}
+.occasion-party {
+  background: #e6dafa;
+}

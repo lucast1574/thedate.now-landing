@@ -1,0 +1,221 @@
+/* Brief brand introduction; never waits for assets or blocks content. */
+.brand-entrance[hidden] {
+  display: none;
+}
+.brand-entrance {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  display: none;
+  place-items: center;
+  overflow: clip;
+  pointer-events: none;
+  background: var(--entrance-bg);
+  color: var(--entrance-ink);
+  animation: brand-entrance-exit 0.5s 1.25s cubic-bezier(0.7, 0, 0.3, 1)
+    forwards;
+}
+.brand-entrance-art {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 26px;
+  width: min(84vw, 520px);
+  text-align: center;
+}
+.brand-entrance-logo {
+  position: relative;
+  z-index: 1;
+  animation: brand-entrance-logo 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.brand-entrance-caption {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  margin: 0;
+  animation: brand-entrance-copy 0.6s 0.25s both;
+}
+.brand-entrance-skip {
+  position: absolute;
+  right: max(24px, 5vw);
+  bottom: max(28px, env(safe-area-inset-bottom));
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: 14px 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.brand-entrance-skip svg {
+  width: 18px;
+  height: 18px;
+}
+.brand-entrance-skip:focus-visible,
+.brand-entrance-skip:hover {
+  outline: none;
+  box-shadow: none;
+  background: var(--entrance-accent);
+  color: var(--entrance-bg);
+}
+.brand-entrance-line {
+  width: 72px;
+  height: 2px;
+  background: var(--entrance-accent);
+  transform-origin: left;
+  animation: brand-entrance-line 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes brand-entrance-logo {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes brand-entrance-copy {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes brand-entrance-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes brand-entrance-exit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-entrance {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+.entrance-wedding {
+  --entrance-bg: #f5eee1;
+  --entrance-ink: #5a5144;
+  --entrance-accent: #aa8051;
+}
+.entrance-event {
+  --entrance-bg: #302145;
+  --entrance-ink: #fff9ed;
+  --entrance-accent: #f3c86b;
+}
+.brand-entrance .brand {
+  margin: 0;
+  justify-content: center;
+}
+.brand-entrance .brand-wedding-title {
+  font-size: clamp(20px, 4.5vw, 34px);
+}
+.brand-entrance .brand-wedding-subtitle {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+.brand-entrance .brand-wordmark {
+  color: #fff9ed;
+  font-size: clamp(32px, 7vw, 58px);
+}
+.brand-entrance .brand-general .brand-mark {
+  width: 64px;
+  height: 64px;
+}
+.entrance-frame {
+  position: absolute;
+  inset: -70px 16%;
+  border: 1px solid currentColor;
+  opacity: 0.15;
+  pointer-events: none;
+  animation: entrance-frame-open 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.entrance-frame-two {
+  inset: -56px 12%;
+  animation-delay: 0.1s;
+}
+.entrance-wedding .entrance-frame {
+  border-radius: 48% 48% 2px 2px;
+}
+.entrance-event .entrance-frame {
+  border: 1px dashed #f3c86b;
+  rotate: -12deg;
+  border-radius: 24px;
+}
+.entrance-event .entrance-frame-two {
+  rotate: 12deg;
+  inset: -50px 8%;
+  border-style: solid;
+}
+@keyframes entrance-frame-open {
+  from {
+    transform: scale(0.75) rotate(-8deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0);
+    opacity: 0.2;
+  }
+}
+@media (max-width: 480px) {
+  .brand-entrance .brand {
+    gap: 12px;
+  }
+  .brand-entrance .brand-wedding .wedding-mark {
+    width: 38px;
+    height: 38px;
+  }
+  .brand-entrance .brand-general .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+  .entrance-frame {
+    inset: -65px 9%;
+  }
+}
+
+/* The head bootstrap covers the very first paint, independently of hydration. */
+html[data-brand-arrival] .brand-entrance {
+  display: grid;
+}
+html[data-brand-arrival]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 599;
+  pointer-events: none;
+  animation: brand-entrance-exit 0.5s 1.25s cubic-bezier(0.7, 0, 0.3, 1)
+    forwards;
+}
+html[data-brand-arrival="wedding"]::before {
+  background: #f5eee1;
+}
+html[data-brand-arrival="event"]::before {
+  background: #302145;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-brand-arrival]::before {
+    display: none !important;
+  }
+}

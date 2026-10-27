@@ -1,0 +1,215 @@
+.guest-hint {
+  font-size: 12px;
+  color: #80776e;
+  line-height: 1.5;
+}
+.guest-list > div {
+  grid-template-columns: 1.2fr 1fr 70px 70px 85px;
+}
+.guest-list a {
+  color: #a46e55;
+  font-weight: 700;
+}
+@media (max-width: 850px) {
+  .guest-list > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* The stationery mark connects both experiences without the old starburst. */
+.brand {
+  gap: 11px;
+  letter-spacing: -0.045em;
+}
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+.brand-mark circle {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+.brand-mark path:last-child {
+  fill: #fffdf8;
+  stroke: none;
+}
+.brand-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+}
+.brand-wordmark small {
+  font:
+    italic 400 0.52em var(--font-serif),
+    serif;
+  letter-spacing: 0.01em;
+  margin-right: 2px;
+}
+.brand-wedding .brand-mark {
+  color: #9e765a;
+}
+.brand-wedding .dot {
+  color: #a66c54;
+}
+.invite-top .brand-mark {
+  width: 31px;
+  height: 31px;
+}
+.footer .brand-mark {
+  width: 30px;
+  height: 30px;
+}
+/* A separate, more playful home for everyday events. */
+.party-site {
+  --accent: #df527d;
+  --party-ink: #252039;
+  --party-purple: #5e4b9c;
+  --party-pink: #f05c89;
+  --party-yellow: #ffd978;
+  background: #fff9f0;
+  color: var(--party-ink);
+  overflow: hidden;
+}
+.party-shell {
+  width: min(1250px, calc(100% - 96px));
+  margin-inline: auto;
+}
+.party-header {
+  height: 101px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8ddd2;
+  position: relative;
+  z-index: 2;
+}
+.party-header .brand {
+  font-size: 31px;
+}
+.brand-general .brand-mark {
+  color: var(--party-purple);
+}
+.brand-general .brand-mark circle {
+  fill: var(--party-pink);
+  stroke: var(--party-pink);
+}
+.party-header nav {
+  gap: 30px;
+}
+.party-header nav a:not(.party-nav-action) {
+  transition: color 0.2s;
+}
+.party-header nav a:hover {
+  color: #cc436d;
+}
+.party-nav-action {
+  background: var(--party-ink);
+  color: #fff !important;
+  border-radius: 99px;
+  padding: 14px 20px;
+}
+.party-hero {
+  min-height: 700px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding-top: 42px;
+  padding-bottom: 78px;
+}
+.party-copy {
+  position: relative;
+  z-index: 1;
+  animation: party-enter 0.75s both;
+}
+.party-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #aa4868;
+}
+.party-sparkle {
+  font-size: 22px;
+  vertical-align: -3px;
+  margin-right: 8px;
+  color: #e45d83;
+}
+.party-copy h1 {
+  font:
+    600 clamp(74px, 8vw, 127px)/0.83 var(--font-serif),
+    serif;
+  letter-spacing: -0.063em;
+  margin: 39px 0 30px;
+}
+.party-copy h1 em,
+.party-section-head h2 em,
+.party-how h2 em {
+  font-weight: 500;
+  color: var(--party-pink);
+}
+.party-copy > p:not(.party-eyebrow) {
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 510px;
+  color: #5d5469;
+}
+.party-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 34px;
+}
+.party-button {
+  background: var(--party-purple);
+  color: #fff;
+  border-radius: 99px;
+  padding: 18px 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 21px;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 12px 24px #54408824;
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s;
+}
+.party-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 28px #54408838;
+}
+.party-link {
+  font-size: 13px;
+  font-weight: 800;
+  border-bottom: 1px solid var(--party-ink);
+  padding: 8px 0;
+}
+.party-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+.party-chips span {
+  border: 1px solid #dfd0d5;
+  border-radius: 99px;
+  padding: 9px 13px;
+  font-size: 11px;
+  font-weight: 800;
+  background: #ffffffa8;
+}
+.party-chips span:nth-child(2) {
+  background: #fee3eb;
+}
+.party-chips span:nth-child(3) {
+  background: #fff0c9;
+}
+.party-stage {
+  position: relative;
+  height: 570px;
+  animation: party-enter 0.85s 0.15s both;
+}

@@ -1,0 +1,271 @@
+/* Override large desktop artwork and typography with proportions for narrow screens. */
+@media (max-width: 700px) {
+  .party-shell,
+  .wedding .shell {
+    width: calc(100% - 40px);
+  }
+  .party-header,
+  .wedding .topbar {
+    min-height: 76px;
+    height: auto;
+    padding: 16px 0;
+    gap: 12px;
+  }
+  .party-header .brand {
+    font-size: 26px;
+  }
+  .party-header nav,
+  .wedding .topbar nav {
+    gap: 0;
+  }
+  .party-header nav a:not(.party-nav-action),
+  .wedding .topbar nav a:not(.nav-action) {
+    display: none;
+  }
+  .party-nav-action,
+  .wedding .nav-action {
+    padding: 10px 12px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .wedding .topbar .brand-wedding {
+    font-size: clamp(17px, 4.5vw, 21px);
+  }
+  .party-hero,
+  .wedding .hero {
+    min-height: 0;
+    padding-top: 42px;
+    padding-bottom: 40px;
+    gap: 20px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .party-copy,
+  .wedding-hero-copy {
+    min-width: 0;
+  }
+  .party-site .party-copy h1 {
+    font-size: clamp(48px, 12.8vw, 82px);
+    line-height: 1;
+    margin: 24px 0;
+  }
+  .wedding .hero h1 {
+    font-size: clamp(45px, 12.5vw, 76px);
+    line-height: 1.02;
+    margin: 26px 0;
+    letter-spacing: -0.045em;
+  }
+  .party-eyebrow,
+  .wedding .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+  }
+  .party-copy > p:not(.party-eyebrow),
+  .wedding .hero-copy {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .party-hero-actions,
+  .wedding .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .party-button,
+  .wedding .hero-actions .button {
+    padding: 16px 18px;
+    min-height: 50px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .party-link,
+  .wedding .text-link {
+    justify-content: center;
+    align-self: center;
+  }
+  .party-chips {
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .party-chips span {
+    font-size: 11px;
+    padding: 6px 9px;
+  }
+  .party-stage {
+    height: 390px;
+    margin-top: 12px;
+    width: 100%;
+    min-width: 0;
+  }
+  .party-paper {
+    width: min(245px, 76%);
+    height: 320px;
+  }
+  .party-paper-front {
+    padding: 18px;
+  }
+  .party-paper-front strong {
+    font-size: clamp(40px, 12vw, 58px);
+  }
+  .party-paper-kicker {
+    margin-top: 32px;
+  }
+  .party-rsvp {
+    left: 0;
+    bottom: 20px;
+    transform: rotate(-3deg);
+    padding: 12px;
+  }
+  .party-address {
+    right: 0;
+    top: 18px;
+    font-size: 8px;
+    padding: 10px;
+  }
+  .party-doodle {
+    font-size: 28px;
+  }
+  .party-doodle-one {
+    left: 0;
+  }
+  .party-doodle-two {
+    right: 0;
+  }
+  .wedding-hero-art {
+    height: 380px;
+    margin-top: 12px;
+  }
+  .wedding-paper {
+    width: min(260px, 80%);
+    height: 335px;
+  }
+  .wedding-paper-back {
+    transform: translate(16px, -5px) rotate(7deg);
+  }
+  .wedding-paper-front {
+    transform: translate(-7px, 0) rotate(-3deg);
+    padding: 12px;
+  }
+  .wedding-paper-border {
+    padding: 15px 6px 12px;
+  }
+  .wedding-paper-kicker {
+    font-size: 6px;
+    letter-spacing: 0.16em;
+  }
+  .wedding-paper-mark {
+    width: 56px;
+    height: 56px;
+    margin: 12px 0;
+  }
+  .wedding-paper-border strong {
+    font-size: clamp(28px, 8.4vw, 39px);
+    white-space: normal;
+  }
+  .wedding-paper-foot {
+    font-size: 6px;
+  }
+  .wedding-hero-note {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 12px;
+    white-space: normal;
+    transform: none;
+  }
+  .party-occasions {
+    padding: 52px 0;
+  }
+  .party-site .party-section-head h2,
+  .party-site .party-how h2,
+  .wedding .features h2 {
+    font-size: clamp(34px, 10vw, 52px);
+    line-height: 1.1;
+  }
+  .party-section-head > p {
+    max-width: none;
+  }
+  .party-occasion-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .party-occasion-grid article {
+    min-height: 220px;
+    padding: 24px;
+  }
+  .party-occasion-grid b {
+    font-size: 70px;
+    top: 28px;
+    right: 20px;
+  }
+  .party-site .party-occasion-grid h3 {
+    font-size: 32px;
+    margin-top: 64px;
+  }
+  .party-occasion-grid p {
+    max-width: 260px;
+  }
+  .party-how,
+  .wedding .features {
+    padding: 52px 0;
+  }
+  .party-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .party-final {
+    margin-top: 40px;
+    align-items: stretch;
+  }
+  .party-final > span {
+    font-size: 30px;
+  }
+  .wedding .features-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+  .wedding .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wedding .cards article {
+    min-width: 0;
+    padding: 24px;
+  }
+  .wedding .cards p {
+    overflow-wrap: anywhere;
+  }
+  .wedding .footer,
+  .party-footer {
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 24px 0;
+  }
+  .wedding .footer > span {
+    flex-basis: 100%;
+  }
+  .party-marquee {
+    font-size: 24px;
+    padding: 16px 0;
+  }
+}
+@media (max-width: 360px) {
+  .party-shell,
+  .wedding .shell {
+    width: calc(100% - 32px);
+  }
+  .party-header .brand {
+    font-size: 23px;
+    gap: 6px;
+  }
+  .party-header .brand-mark {
+    width: 25px;
+    height: 25px;
+  }
+  .wedding .topbar .brand-wedding {
+    font-size: 16px;
+  }
+  .brand-wedding-subtitle {
+    font-size: 5px;
+  }
+}

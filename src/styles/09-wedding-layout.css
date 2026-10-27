@@ -1,0 +1,215 @@
+.brand-general .brand-mark .party-cone {
+  fill: #7451ac;
+  stroke: #463466;
+  stroke-width: 1.6;
+}
+.brand-general .brand-mark .party-stripe {
+  fill: none;
+  stroke: #fff9ed;
+  stroke-width: 3;
+}
+.brand-general .brand-mark .party-burst {
+  fill: none;
+  stroke: #e45c87;
+  stroke-width: 2;
+}
+.brand-general .brand-mark .party-dot-pink {
+  fill: #ed5d8a;
+  stroke: none;
+}
+.brand-general .brand-mark .party-dot-gold {
+  fill: #f4b93c;
+  stroke: none;
+}
+.brand-general .brand-mark .party-dot-purple {
+  fill: #7150aa;
+  stroke: none;
+}
+.office-brand span {
+  margin-left: 0;
+  color: inherit;
+}
+.office-brand .brand {
+  font-size: 29px;
+}
+.office-brand .brand-mark {
+  width: 35px;
+  height: 35px;
+}
+.office-wedding .office-brand .brand {
+  color: #28221d;
+}
+.office-general .office-brand .brand {
+  color: #352848;
+}
+.party-site .party-copy h1,
+.party-site .party-section-head h2,
+.party-site .party-how h2,
+.party-site .party-occasion-grid h3,
+.party-site .party-steps h3,
+.party-site .party-paper-front strong,
+.party-site .party-final > span {
+  font-family: var(--font-party), sans-serif;
+  font-style: normal;
+}
+.party-site .party-copy h1 {
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.075em;
+}
+.party-site .party-section-head h2,
+.party-site .party-how h2 {
+  font-weight: 800;
+  line-height: 1.02;
+}
+.party-site .party-occasion-grid h3,
+.party-site .party-steps h3 {
+  font-weight: 800;
+}
+.party-site .party-copy h1 em,
+.party-site .party-section-head h2 em,
+.party-site .party-how h2 em {
+  font-style: normal;
+}
+/* Keep the celebration ribbon continuous at every viewport width. */
+.party-marquee .party-marquee-track {
+  display: flex;
+  width: max-content;
+}
+.party-marquee-track span {
+  flex: none;
+  padding-right: 2em;
+}
+.office-general .auth-panel h1,
+.office-general .office-kicker {
+  font-family: var(--font-party), sans-serif;
+}
+/* Wedding identity: a floral seal shared by the wordmark and invitation. */
+.brand-wedding {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: normal;
+}
+.brand-wedding-type {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+.wedding-mark {
+  width: 39px;
+  height: 39px;
+  flex: none;
+  color: #a76f51;
+}
+.brand-wedding-title {
+  font-family: var(--font-wedding-logo), serif;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.075em;
+  white-space: nowrap;
+  color: #302720;
+}
+.brand-wedding-subtitle {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+  color: #a07860;
+  margin-left: 2px;
+}
+.office-wedding .office-brand .brand-wedding-title {
+  color: #302720;
+}
+.office-wedding .office-brand .brand-wedding-subtitle {
+  color: #a07860;
+}
+.wedding .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: 20px;
+  min-height: 720px;
+  padding-top: 65px;
+  padding-bottom: 85px;
+}
+.wedding-hero-copy {
+  position: relative;
+  z-index: 1;
+}
+.wedding .hero h1 {
+  font-size: clamp(74px, 7.2vw, 112px);
+  margin: 42px 0 36px;
+}
+.wedding .hero-copy {
+  max-width: 540px;
+}
+.wedding-hero-art {
+  height: 540px;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+}
+.wedding-hero-art:before {
+  content: "";
+  position: absolute;
+  width: 94%;
+  aspect-ratio: 1;
+  z-index: -2;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e9d7c6 0, #eadccf 42%, #eadccf00 71%);
+  opacity: 0.8;
+}
+.wedding-hero-art:after {
+  content: "✧";
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font:
+    50px var(--font-serif),
+    serif;
+  color: #b48666;
+}
+.wedding-paper {
+  position: absolute;
+  width: min(360px, 80%);
+  height: 480px;
+  box-shadow: 0 26px 55px #5d453023;
+}
+.wedding-paper-back {
+  background: #d9bba6;
+  transform: translate(27px, -8px) rotate(9deg);
+  border: 1px solid #cfad94;
+}
+.wedding-paper-front {
+  background: #fdfbf6;
+  transform: translate(-12px, 0) rotate(-4deg);
+  padding: 20px;
+  animation: wedding-reveal 0.85s both;
+}
+.wedding-paper-border {
+  height: 100%;
+  border: 1px solid #d8bfa9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 12px 20px;
+  color: #46392f;
+}
+.wedding-paper-kicker,
+.wedding-paper-overline,
+.wedding-paper-date,
+.wedding-paper-foot {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
