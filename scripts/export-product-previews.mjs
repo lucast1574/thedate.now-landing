@@ -2,7 +2,7 @@ import { createRequire } from "node:module";
 import { resolve, join } from "node:path";
 import { mkdir, writeFile, readFile, copyFile } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
-import { webcrypto } from "node:crypto";
+import { webcrypto, createHash } from "node:crypto";
 const root = resolve(process.argv[2] || "../frontend"),
   require = createRequire(join(root, "package.json"));
 const { loadSource } = require(join(root, "tests/support/load-source.cjs"));
@@ -99,10 +99,8 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
         `@font-face{font-family:Preview-${name};src:url(data:font/woff2;base64,${fonts[name]}) format('woff2');font-weight:200 800;}`,
     )
     .join("");
-  await writeFile(
-    join(folder, t.id + ".svg"),
-    `<svg xmlns="http://www.w3.org/2000/svg" width="720" height="${canvas.height}" viewBox="0 0 720 ${canvas.height}" role="img" aria-label="${esc(t.name)}"><style>${css}</style><rect width="720" height="${canvas.height}" fill="${canvas.background}"/>${art}${draw}</svg>`,
-  );
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="720" height="${canvas.height}" viewBox="0 0 720 ${canvas.height}" role="img" aria-label="${esc(t.name)}"><style>${css}</style><rect width="720" height="${canvas.height}" fill="${canvas.background}"/>${art}${draw}</svg>`;
+  await writeFile(join(folder, t.id + ".svg"), svg);
   entries.push({
     id: t.id,
     name: t.name,
@@ -111,7 +109,7 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
     description: t.tagline,
     accent: t.accent,
     background: t.background,
-    image: `/previews/templates/${t.id}.svg`,
+    image: `/previews/templates/${t.id}.svg?v=${createHash("sha256").update(svg).digest("hex").slice(0, 12)}`,
     width: 720,
     height: canvas.height,
   });

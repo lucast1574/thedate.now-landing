@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readFileSync, existsSync } from "node:fs";
 import assert from "node:assert/strict";
 import test from "node:test";
@@ -101,9 +102,13 @@ test("all 48 catalogue previews exist as self contained SVG assets", () => {
   for (const kind of ["wedding", "general"])
     assert.equal(catalog.templates.filter((t) => t.kind === kind).length, 24);
   for (const item of catalog.templates) {
-    assert.ok(existsSync(`public${item.image}`));
-    const svg = readFileSync(`public${item.image}`, "utf8");
+    assert.ok(existsSync(`public${item.image.split("?")[0]}`));
+    const svg = readFileSync(`public${item.image.split("?")[0]}`, "utf8");
     assert.ok(svg.includes("<svg"));
+    assert.equal(
+      new URLSearchParams(item.image.split("?")[1]).get("v"),
+      createHash("sha256").update(svg).digest("hex").slice(0, 12),
+    );
     assert.doesNotMatch(svg, /<script|<foreignObject|href="https?:/i);
   }
 });
@@ -116,6 +121,13 @@ test("workspace scenes use real table and gift markup with no interactive contro
   assert.ok(preview.seating.includes('class="venue-area venue-area-dance'));
   assert.ok(preview.seating.includes("8/10"));
   assert.ok(preview.seating.includes("person-glyph"));
+  for (const [, asset, id] of preview.seating.matchAll(
+    /<use href="([^"#]+)#([^"]+)"/g,
+  )) {
+    assert.ok(asset.includes("?v="));
+    const sprite = readFileSync(`public${asset.split("?")[0]}`, "utf8");
+    assert.ok(sprite.includes(`id="${id}"`));
+  }
   assert.ok(preview.overview.includes("Personas ubicadas"));
   assert.equal(preview.gifts.length, 3);
   for (const html of [preview.seating, ...preview.gifts])

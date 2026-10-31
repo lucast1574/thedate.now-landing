@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { createRequire } from "node:module";
 import { resolve, join } from "node:path";
 import { readFile, writeFile } from "node:fs/promises";
@@ -6,6 +7,15 @@ const root = resolve(process.argv[2] || "../frontend"),
 const { loadSource } = require(join(root, "tests/support/load-source.cjs")),
   { createElement: h } = require("react"),
   { renderToStaticMarkup: render } = require("react-dom/server");
+const symbolSources = await Promise.all(
+  ["shirt", "gift", "martini", "door-open"].map((name) =>
+    readFile(resolve(`node_modules/lucide-static/icons/${name}.svg`), "utf8"),
+  ),
+);
+const spriteVersion = createHash("sha256")
+  .update(symbolSources.join(""))
+  .digest("hex")
+  .slice(0, 12);
 const { default: Seating } = loadSource(
   "src/features/manager/seating-canvas.tsx",
   { root },
@@ -101,6 +111,10 @@ const readonly = (s) =>
     .replace(/<a\b[^>]*>/g, "<span>")
     .replaceAll("</a>", "</span>")
     .replaceAll("tienda.example", "Tienda elegida")
+    .replaceAll(
+      "/symbols/lucide-1.61.svg#",
+      `/symbols/lucide-1.61.svg?v=${spriteVersion}#`,
+    )
     .replace(/\s(?:tabindex|aria-label|disabled|type)="[^"]*"/g, "");
 const seating = readonly(
   render(
