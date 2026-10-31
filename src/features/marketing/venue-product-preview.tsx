@@ -1,3 +1,4 @@
+import ResponsiveCopy from "./responsive-copy";
 import Icon from "@/components/icon";
 import preview from "./workspace-preview-data.json";
 export default function VenueProductPreview({ wedding }: { wedding: boolean }) {
@@ -11,9 +12,11 @@ export default function VenueProductPreview({ wedding }: { wedding: boolean }) {
           {wedding ? "Su salón, en su lugar." : "Un lugar para cada persona."}
         </h2>
         <p>
-          Mesas circulares o rectangulares, personas confirmadas y espacios para
-          la pista, el bar o la entrada. Así se organiza en{" "}
-          {wedding ? "el estudio" : "tu espacio"}.
+          <ResponsiveCopy mobile="Mesas, invitados y pista de baile. Cada cosa en su lugar.">
+            Mesas circulares o rectangulares, personas confirmadas y espacios
+            para la pista, el bar o la entrada. Así se organiza en{" "}
+            {wedding ? "el estudio" : "tu espacio"}.
+          </ResponsiveCopy>
         </p>
       </header>
       <figure className="workspace-product-preview venue-product-preview">

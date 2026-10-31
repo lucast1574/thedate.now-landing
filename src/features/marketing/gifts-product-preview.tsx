@@ -1,3 +1,4 @@
+import ResponsiveCopy from "./responsive-copy";
 import Icon from "@/components/icon";
 import preview from "./workspace-preview-data.json";
 export default function GiftsProductPreview({ wedding }: { wedding: boolean }) {
@@ -13,11 +14,13 @@ export default function GiftsProductPreview({ wedding }: { wedding: boolean }) {
             : "Regalos que sí van contigo."}
         </h2>
         <p>
-          {wedding
-            ? "Reúnan sus ideas en una lista que forma parte de la invitación. Cada invitado puede elegir un regalo y ver cuáles ya están reservados."
-            : "Reúne tus ideas en una lista dentro de la invitación. Tu gente puede elegir un regalo y ver qué opciones siguen disponibles."}
+          <ResponsiveCopy mobile="Una lista dentro de la invitación. Cada regalo se reserva una sola vez.">
+            {wedding
+              ? "Reúnan sus ideas en una lista que forma parte de la invitación. Cada invitado puede elegir un regalo y ver cuáles ya están reservados."
+              : "Reúne tus ideas en una lista dentro de la invitación. Tu gente puede elegir un regalo y ver qué opciones siguen disponibles."}
+          </ResponsiveCopy>
         </p>
-        <p>
+        <p className="showcase-detail">
           Una elección personal, sin regalos repetidos. La compra se hace por
           separado en la tienda.
         </p>

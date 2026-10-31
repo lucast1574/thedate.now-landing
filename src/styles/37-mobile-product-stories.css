@@ -1,0 +1,197 @@
+.copy-mobile {
+  display: none;
+}
+@media (max-width: 760px) {
+  .copy-desktop,
+  .product-showcase .showcase-detail {
+    display: none;
+  }
+  .copy-mobile {
+    display: inline;
+  }
+  .product-showcase h2 {
+    font-size: clamp(29px, 7.6vw, 36px);
+    margin-bottom: 18px;
+  }
+  .product-showcase p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .product-showcase figcaption {
+    max-width: 34ch;
+    line-height: 1.5;
+  }
+  .showcase-notes {
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .showcase-notes p {
+    margin: 0;
+  }
+  .showcase-notes strong {
+    font-size: 14px;
+  }
+  .product-craft > div > a,
+  .product-organize > div > a {
+    margin-top: 12px;
+  }
+  .product-venue > header {
+    margin-bottom: 22px;
+  }
+  .venue-product-window {
+    padding: 18px 12px;
+    box-shadow: none;
+  }
+  .workspace-product-preview .seating-overview {
+    margin-bottom: 20px;
+  }
+  .workspace-product-preview .seating-overview > div > p {
+    display: none;
+  }
+  .workspace-product-preview .seating-overview-counts {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .venue-product-toolbar {
+    display: none;
+  }
+  .workspace-product-preview .seating-scroll {
+    padding: 6px;
+  }
+  .workspace-product-preview .seating-board {
+    aspect-ratio: auto;
+    height: 410px;
+    min-height: 0;
+  }
+  .workspace-product-preview .venue-label {
+    display: none;
+  }
+  .workspace-product-preview .seating-table {
+    animation-name: mobile-table-place;
+    width: 30%;
+    height: 27%;
+    gap: 7px;
+    padding: 7px 3px;
+  }
+  .workspace-product-preview .seating-table:nth-of-type(3) {
+    left: 2% !important;
+    top: 5% !important;
+  }
+  .workspace-product-preview .seating-table:nth-of-type(4) {
+    left: 67% !important;
+    top: 5% !important;
+  }
+  .workspace-product-preview .seating-table:nth-of-type(5) {
+    left: 2% !important;
+    top: 62% !important;
+  }
+  .workspace-product-preview .seating-table strong {
+    font-size: 11px;
+  }
+  .workspace-product-preview .table-shape {
+    font-size: 12px;
+  }
+  .workspace-product-preview .table-round {
+    width: 48px;
+  }
+  .workspace-product-preview .table-rectangle {
+    width: 62px;
+  }
+  .workspace-product-preview .table-people {
+    gap: 2px;
+    max-width: 54px;
+  }
+  .workspace-product-preview .table-people .person-glyph {
+    width: 6px;
+    height: 10px;
+  }
+  .workspace-product-preview .venue-area {
+    animation-name: mobile-area-place;
+    padding: 5px;
+    gap: 7px;
+  }
+  .workspace-product-preview .venue-area > strong {
+    font-size: 10px;
+  }
+  .workspace-product-preview .venue-area > .ui-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .workspace-product-preview .venue-area-dance {
+    left: 36% !important;
+    top: 35% !important;
+    width: 28% !important;
+    height: 27% !important;
+  }
+  .workspace-product-preview .venue-area-bar {
+    left: 72% !important;
+    top: 70% !important;
+    width: 25% !important;
+    height: 17% !important;
+  }
+  .workspace-product-preview .venue-area-entrance {
+    left: 38% !important;
+    top: 82% !important;
+    width: 27% !important;
+    height: 15% !important;
+  }
+  .venue-product-add {
+    display: none;
+  }
+  .venue-product-selection {
+    animation: none;
+    opacity: 1;
+    translate: none;
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    margin-top: 14px;
+    padding: 14px;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: none;
+  }
+  .venue-product-selection > strong {
+    font-size: 13px;
+  }
+  .venue-product-selection > span {
+    font-size: 11px;
+    align-self: center;
+  }
+  .venue-product-selection > i {
+    font-size: 12px;
+  }
+  .venue-product-footer {
+    font-size: 11px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .gift-product-heading > span,
+  .gift-card-content > p {
+    display: none;
+  }
+}
+
+@keyframes mobile-table-place {
+  0%,
+  12%,
+  100% {
+    translate: 0 0;
+  }
+  28%,
+  65% {
+    translate: 4px -6px;
+  }
+}
+@keyframes mobile-area-place {
+  0%,
+  15%,
+  100% {
+    translate: 0 0;
+  }
+  35%,
+  75% {
+    translate: -4px 5px;
+  }
+}
