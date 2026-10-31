@@ -1,3 +1,4 @@
+import ResourceLinks from "../resource-links";
 import ProductShowcase from "../product-showcase";
 import BrandEntrance from "../brand-entrance";
 import MarketingFAQ from "../questions";
@@ -23,6 +24,7 @@ export default function GeneralLanding() {
       <GeneralHow />
       <MarketingFAQ />
       <GeneralFooter />
+      <ResourceLinks />
       <MarketingSchema />
     </main>
   );

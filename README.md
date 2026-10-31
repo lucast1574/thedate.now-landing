@@ -40,3 +40,11 @@ have no sitemap entries. Dates reflect this content update, not request time.
 There are no invented reviews, ratings or price claims. Search Console rankings
 and indexing were not measured; these changes improve the crawlable information
 and technical foundations without promising search positions.
+
+The venue and gift scenes now export the real SeatingCanvas, SeatingOverview and
+GuestGiftCard markup using `node scripts/export-workspace-previews.mjs /path/to/frontend`.
+The export replaces interactive controls with inert markup, uses fictional people
+and generates scoped copies of the product styles. Regenerate and format the
+JSON/CSS after changing these product views. Marketing photographs are licensed
+Unsplash samples, credited in public/previews/licenses/photography.txt; they never
+enter the studio's template media library.

@@ -69,7 +69,7 @@ export default function EditorPreviewArt({ wedding }: { wedding: boolean }) {
       <div className="scene-dress" data-animated aria-hidden="true">
         <Icon name="lucide:shirt" />
         <strong>Elegante</strong>
-        <span>Evita estos colores</span>
+        <span>Preferimos evitar estos tonos</span>
         <div>
           {[
             ["Blanco", "#ffffff"],

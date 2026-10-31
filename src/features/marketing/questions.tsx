@@ -1,4 +1,3 @@
-import { productTopics } from "./topic-data";
 import Icon from "@/components/icon";
 export const weddingQuestions = [
   [
@@ -55,26 +54,6 @@ export default function MarketingFAQ({
         </h2>
       </div>
       <div>
-        <a
-          className="marketing-guide-link"
-          href={
-            wedding
-              ? "/invitaciones-digitales-de-boda"
-              : "/invitaciones-digitales-para-eventos"
-          }
-        >
-          {wedding
-            ? "Guía para crear y compartir su invitación de boda"
-            : "Guía para crear y compartir tu invitación digital"}
-        </a>
-        <nav className="topic-links" aria-label="Explorar las herramientas">
-          {productTopics(wedding).map((t) => (
-            <a key={t.slug} href={`/${t.slug}`}>
-              {t.title}
-              <Icon name="arrow" />
-            </a>
-          ))}
-        </nav>
         {(wedding ? weddingQuestions : generalQuestions).map(
           ([question, answer]) => (
             <details key={question}>

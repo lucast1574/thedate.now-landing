@@ -27,6 +27,20 @@ for (const name of ["serif", "sans"]) {
     await readFile(join(root, `public/fonts/invitation-${name}.woff2`))
   ).toString("base64");
 }
+const samples = {};
+for (const kind of ["wedding", "general"]) {
+  try {
+    samples[kind] = (
+      await readFile(
+        resolve(
+          `public/previews/photos/${kind === "general" ? "event" : "wedding"}.jpg`,
+        ),
+      )
+    ).toString("base64");
+  } catch {
+    /* Keep the export usable without marketing photographs. */
+  }
+}
 const entries = [];
 for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
   const canvas = templateCanvas(t),
@@ -38,6 +52,10 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
       const centerX = e.x + e.width / 2,
         centerY = e.y + e.height / 2,
         rotate = `rotate(${e.rotation} ${centerX} ${centerY})`;
+      if (e.type === "image" && samples[t.kind]) {
+        const mask = `photo-${t.id}-${e.id}`;
+        return `<g transform="${rotate}"><defs><linearGradient id="${mask}"><stop offset="0" stop-color="white"/><stop offset="1" stop-color="white"/></linearGradient><linearGradient id="${mask}-fade" x2="0" y2="1"><stop offset=".65" stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient><mask id="${mask}-mask"><rect x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" fill="url(#${mask}-fade)"/></mask></defs><image x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" preserveAspectRatio="xMidYMid slice" href="data:image/jpeg;base64,${samples[t.kind]}" ${e.photoTreatment === "fade" ? 'mask="url(#' + mask + '-mask)"' : ""}/>${e.photoTreatment === "cinema" ? `<rect x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" fill="#000" opacity=".35"/>` : ""}</g>`;
+      }
       if (e.type === "image")
         return `<g transform="${rotate}"><rect x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" rx="14" fill="${t.accent}" opacity=".1"/>${renderToStaticMarkup(createElement(Icon, { name: "image" })).replace("<svg ", `<svg x="${centerX - 26}" y="${centerY - 42}" width="52" height="52" color="${t.accent}" `)}<text x="${centerX}" y="${centerY + 38}" font-size="20" text-anchor="middle" fill="${t.accent}">Tu fotografía</text></g>`;
       if (e.type !== "text") return "";
@@ -94,6 +112,8 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
     accent: t.accent,
     background: t.background,
     image: `/previews/templates/${t.id}.svg`,
+    width: 720,
+    height: canvas.height,
   });
 }
 await writeFile(

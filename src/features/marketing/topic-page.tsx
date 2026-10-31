@@ -123,8 +123,8 @@ export default async function TopicPage({ slug }: { slug: string }) {
                     <Image
                       unoptimized
                       src={t.image}
-                      width="720"
-                      height="960"
+                      width={t.width}
+                      height={t.height}
                       loading="lazy"
                       decoding="async"
                       alt={`Composición ${t.name}`}

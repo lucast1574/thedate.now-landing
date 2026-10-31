@@ -1,6 +1,6 @@
 {
   "sourceRepository": "lucast1574/thedate.now-front",
-  "sourceCommit": "1e4995c791a096b50ffbb31e53f0fd227030063f",
+  "sourceCommit": "8a0c86b56a2d69503af24d0549a29e18001bee19",
   "templates": [
     {
       "id": "wedding-flyer-floral",
@@ -10,7 +10,9 @@
       "description": "Láminas con flores y tipografía elegante",
       "accent": "#9c6449",
       "background": "#fff9ed",
-      "image": "/previews/templates/wedding-flyer-floral.svg"
+      "image": "/previews/templates/wedding-flyer-floral.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-editorial",
@@ -20,7 +22,9 @@
       "description": "Una historia con aire editorial",
       "accent": "#44573e",
       "background": "#f1f4ec",
-      "image": "/previews/templates/wedding-flyer-editorial.svg"
+      "image": "/previews/templates/wedding-flyer-editorial.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-night",
@@ -30,7 +34,9 @@
       "description": "Elegancia nocturna y detalles en oro",
       "accent": "#d7bc83",
       "background": "#222a32",
-      "image": "/previews/templates/wedding-flyer-night.svg"
+      "image": "/previews/templates/wedding-flyer-night.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-rose",
@@ -40,7 +46,9 @@
       "description": "Un marco delicado, como una carta guardada",
       "accent": "#915269",
       "background": "#fff2f4",
-      "image": "/previews/templates/wedding-flyer-rose.svg"
+      "image": "/previews/templates/wedding-flyer-rose.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-olive",
@@ -50,7 +58,9 @@
       "description": "Ramas de olivo y papel de lino",
       "accent": "#566448",
       "background": "#f3f1e7",
-      "image": "/previews/templates/wedding-flyer-olive.svg"
+      "image": "/previews/templates/wedding-flyer-olive.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-arch",
@@ -60,7 +70,9 @@
       "description": "Una silueta arquitectónica en tonos arena",
       "accent": "#936b51",
       "background": "#f4e9dc",
-      "image": "/previews/templates/wedding-flyer-arch.svg"
+      "image": "/previews/templates/wedding-flyer-arch.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-monogram",
@@ -70,7 +82,9 @@
       "description": "Iniciales protagonistas y mucho aire",
       "accent": "#6b5147",
       "background": "#faf7f1",
-      "image": "/previews/templates/wedding-flyer-monogram.svg"
+      "image": "/previews/templates/wedding-flyer-monogram.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-coast",
@@ -80,7 +94,9 @@
       "description": "Azul bruma y una composición serena",
       "accent": "#3c6677",
       "background": "#edf3f4",
-      "image": "/previews/templates/wedding-flyer-coast.svg"
+      "image": "/previews/templates/wedding-flyer-coast.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-vine",
@@ -90,7 +106,9 @@
       "description": "Un jardín nocturno en verde y marfil",
       "accent": "#ece7d0",
       "background": "#304333",
-      "image": "/previews/templates/wedding-flyer-vine.svg"
+      "image": "/previews/templates/wedding-flyer-vine.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-paris",
@@ -100,7 +118,9 @@
       "description": "Tipografía editorial y detalles de autor",
       "accent": "#34313d",
       "background": "#fcf7ee",
-      "image": "/previews/templates/wedding-flyer-paris.svg"
+      "image": "/previews/templates/wedding-flyer-paris.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-ruby",
@@ -110,7 +130,9 @@
       "description": "Granate, luz cálida y un marco clásico",
       "accent": "#f4d8bd",
       "background": "#642e42",
-      "image": "/previews/templates/wedding-flyer-ruby.svg"
+      "image": "/previews/templates/wedding-flyer-ruby.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-sunrise",
@@ -120,7 +142,9 @@
       "description": "Un sol delicado sobre papel cálido",
       "accent": "#a65a36",
       "background": "#f8ebda",
-      "image": "/previews/templates/wedding-flyer-sunrise.svg"
+      "image": "/previews/templates/wedding-flyer-sunrise.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-party",
@@ -130,7 +154,9 @@
       "description": "Texto grande, estrellas y celebración",
       "accent": "#7451ac",
       "background": "#fff1f6",
-      "image": "/previews/templates/general-flyer-party.svg"
+      "image": "/previews/templates/general-flyer-party.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-meet",
@@ -140,7 +166,9 @@
       "description": "Un lienzo sencillo para tu evento",
       "accent": "#247785",
       "background": "#eff9fa",
-      "image": "/previews/templates/general-flyer-meet.svg"
+      "image": "/previews/templates/general-flyer-meet.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-conference",
@@ -150,7 +178,9 @@
       "description": "Conferencias, lanzamientos y encuentros",
       "accent": "#165fbc",
       "background": "#eef4ff",
-      "image": "/previews/templates/general-flyer-conference.svg"
+      "image": "/previews/templates/general-flyer-conference.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-birthday",
@@ -160,7 +190,9 @@
       "description": "Un cartel de cumpleaños con carácter",
       "accent": "#ba454f",
       "background": "#fff0e9",
-      "image": "/previews/templates/general-flyer-birthday.svg"
+      "image": "/previews/templates/general-flyer-birthday.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-disco",
@@ -170,7 +202,9 @@
       "description": "Estrellas y ritmo para una noche larga",
       "accent": "#ddd3fb",
       "background": "#352457",
-      "image": "/previews/templates/general-flyer-disco.svg"
+      "image": "/previews/templates/general-flyer-disco.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-summer",
@@ -180,7 +214,9 @@
       "description": "Sol, color y ganas de encontrarnos",
       "accent": "#154c54",
       "background": "#f3c66f",
-      "image": "/previews/templates/general-flyer-summer.svg"
+      "image": "/previews/templates/general-flyer-summer.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-ticket",
@@ -190,7 +226,9 @@
       "description": "Una invitación con espíritu de ticket",
       "accent": "#24484c",
       "background": "#f5f0dd",
-      "image": "/previews/templates/general-flyer-ticket.svg"
+      "image": "/previews/templates/general-flyer-ticket.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-gala",
@@ -200,7 +238,9 @@
       "description": "Azul noche y líneas en oro",
       "accent": "#e8cd90",
       "background": "#1f2b3c",
-      "image": "/previews/templates/general-flyer-gala.svg"
+      "image": "/previews/templates/general-flyer-gala.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-launch",
@@ -210,7 +250,9 @@
       "description": "Un lanzamiento que se anuncia en grande",
       "accent": "#c1e663",
       "background": "#222c29",
-      "image": "/previews/templates/general-flyer-launch.svg"
+      "image": "/previews/templates/general-flyer-launch.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-brunch",
@@ -220,7 +262,9 @@
       "description": "Un encuentro cálido entre ramas y lino",
       "accent": "#577060",
       "background": "#faf1e3",
-      "image": "/previews/templates/general-flyer-brunch.svg"
+      "image": "/previews/templates/general-flyer-brunch.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-dinner",
@@ -230,7 +274,9 @@
       "description": "Terracota y una mesa por compartir",
       "accent": "#e7ddd6",
       "background": "#8f422f",
-      "image": "/previews/templates/general-flyer-dinner.svg"
+      "image": "/previews/templates/general-flyer-dinner.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-opening",
@@ -240,7 +286,9 @@
       "description": "Una bienvenida bajo un arco azul",
       "accent": "#f8e8d6",
       "background": "#274f5e",
-      "image": "/previews/templates/general-flyer-opening.svg"
+      "image": "/previews/templates/general-flyer-opening.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-gallery",
@@ -250,7 +298,9 @@
       "description": "Nuestra foto abre una historia editorial",
       "accent": "#6e4e43",
       "background": "#fff8ef",
-      "image": "/previews/templates/wedding-flyer-gallery.svg"
+      "image": "/previews/templates/wedding-flyer-gallery.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-split",
@@ -260,7 +310,9 @@
       "description": "Retrato lateral y nombres en una columna",
       "accent": "#3d554d",
       "background": "#f0f3ed",
-      "image": "/previews/templates/wedding-flyer-split.svg"
+      "image": "/previews/templates/wedding-flyer-split.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-ribbon",
@@ -270,7 +322,9 @@
       "description": "Una fotografía enmarcada por un lazo",
       "accent": "#8c5366",
       "background": "#fcf1f4",
-      "image": "/previews/templates/wedding-flyer-ribbon.svg"
+      "image": "/previews/templates/wedding-flyer-ribbon.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-typographic",
@@ -280,7 +334,9 @@
       "description": "Nombres grandes y retrato de cierre",
       "accent": "#403b64",
       "background": "#f6f3ff",
-      "image": "/previews/templates/wedding-flyer-typographic.svg"
+      "image": "/previews/templates/wedding-flyer-typographic.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-polaroid",
@@ -290,7 +346,9 @@
       "description": "Una fotografía como recuerdo de papel",
       "accent": "#85633e",
       "background": "#fff7e9",
-      "image": "/previews/templates/wedding-flyer-polaroid.svg"
+      "image": "/previews/templates/wedding-flyer-polaroid.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-landscape",
@@ -300,7 +358,9 @@
       "description": "Una fotografía panorámica entre los detalles",
       "accent": "#31657a",
       "background": "#eff8fb",
-      "image": "/previews/templates/wedding-flyer-landscape.svg"
+      "image": "/previews/templates/wedding-flyer-landscape.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-cinematic",
@@ -310,7 +370,9 @@
       "description": "Retrato cinematográfico sobre azul noche",
       "accent": "#ead8b5",
       "background": "#20252f",
-      "image": "/previews/templates/wedding-flyer-cinematic.svg"
+      "image": "/previews/templates/wedding-flyer-cinematic.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-mosaic",
@@ -320,7 +382,9 @@
       "description": "Retrato y detalles en una composición asimétrica",
       "accent": "#74614d",
       "background": "#f6f0e7",
-      "image": "/previews/templates/wedding-flyer-mosaic.svg"
+      "image": "/previews/templates/wedding-flyer-mosaic.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-seal",
@@ -330,7 +394,9 @@
       "description": "Un sello delicado y una foto al pie",
       "accent": "#8b544e",
       "background": "#fcf2ec",
-      "image": "/previews/templates/wedding-flyer-seal.svg"
+      "image": "/previews/templates/wedding-flyer-seal.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-waves",
@@ -340,7 +406,9 @@
       "description": "Un arco abierto y una imagen del encuentro",
       "accent": "#38665f",
       "background": "#edf5f0",
-      "image": "/previews/templates/wedding-flyer-waves.svg"
+      "image": "/previews/templates/wedding-flyer-waves.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-confetti",
@@ -350,7 +418,9 @@
       "description": "Destellos y fotografía para celebrar",
       "accent": "#9b5a36",
       "background": "#fff3df",
-      "image": "/previews/templates/wedding-flyer-confetti.svg"
+      "image": "/previews/templates/wedding-flyer-confetti.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "wedding-flyer-grid",
@@ -360,7 +430,9 @@
       "description": "Una retícula sobria para una historia contemporánea",
       "accent": "#515860",
       "background": "#f5f6f7",
-      "image": "/previews/templates/wedding-flyer-grid.svg"
+      "image": "/previews/templates/wedding-flyer-grid.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-gallery",
@@ -370,7 +442,9 @@
       "description": "Una gran fotografía para abrir el encuentro",
       "accent": "#224f86",
       "background": "#f0f6fc",
-      "image": "/previews/templates/general-flyer-gallery.svg"
+      "image": "/previews/templates/general-flyer-gallery.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-split",
@@ -380,7 +454,9 @@
       "description": "Fotografía lateral y una columna de mensajes",
       "accent": "#775127",
       "background": "#fcf5e8",
-      "image": "/previews/templates/general-flyer-split.svg"
+      "image": "/previews/templates/general-flyer-split.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-ribbon",
@@ -390,7 +466,9 @@
       "description": "Una imagen central y detalles con lazo",
       "accent": "#a13e65",
       "background": "#fff0f5",
-      "image": "/previews/templates/general-flyer-ribbon.svg"
+      "image": "/previews/templates/general-flyer-ribbon.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-typographic",
@@ -400,7 +478,9 @@
       "description": "Tipografía protagonista y un retrato al pie",
       "accent": "#b8f04b",
       "background": "#172b27",
-      "image": "/previews/templates/general-flyer-typographic.svg"
+      "image": "/previews/templates/general-flyer-typographic.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-polaroid",
@@ -410,7 +490,9 @@
       "description": "Una fotografía instantánea para el próximo recuerdo",
       "accent": "#8055a6",
       "background": "#f6efff",
-      "image": "/previews/templates/general-flyer-polaroid.svg"
+      "image": "/previews/templates/general-flyer-polaroid.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-landscape",
@@ -420,7 +502,9 @@
       "description": "Una panorámica para un encuentro al aire libre",
       "accent": "#356c48",
       "background": "#f0f7e8",
-      "image": "/previews/templates/general-flyer-landscape.svg"
+      "image": "/previews/templates/general-flyer-landscape.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-cinematic",
@@ -430,7 +514,9 @@
       "description": "Un cartel nocturno con tu imagen protagonista",
       "accent": "#f4c965",
       "background": "#1e2435",
-      "image": "/previews/templates/general-flyer-cinematic.svg"
+      "image": "/previews/templates/general-flyer-cinematic.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-mosaic",
@@ -440,7 +526,9 @@
       "description": "Composición asimétrica con foto y detalles",
       "accent": "#ae5238",
       "background": "#fff1e7",
-      "image": "/previews/templates/general-flyer-mosaic.svg"
+      "image": "/previews/templates/general-flyer-mosaic.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-seal",
@@ -450,7 +538,9 @@
       "description": "Un marco con carácter para un gran logro",
       "accent": "#346370",
       "background": "#edf7f7",
-      "image": "/previews/templates/general-flyer-seal.svg"
+      "image": "/previews/templates/general-flyer-seal.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-waves",
@@ -460,7 +550,9 @@
       "description": "Una imagen amplia y trazos de horizonte",
       "accent": "#175e73",
       "background": "#e4f7fa",
-      "image": "/previews/templates/general-flyer-waves.svg"
+      "image": "/previews/templates/general-flyer-waves.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-confetti",
@@ -470,7 +562,9 @@
       "description": "Fotografía, estrellas y mucha celebración",
       "accent": "#b13e79",
       "background": "#fff0f8",
-      "image": "/previews/templates/general-flyer-confetti.svg"
+      "image": "/previews/templates/general-flyer-confetti.svg",
+      "width": 720,
+      "height": 1280
     },
     {
       "id": "general-flyer-grid",
@@ -480,7 +574,9 @@
       "description": "Retícula editorial para presentar el encuentro",
       "accent": "#344657",
       "background": "#f1f4f6",
-      "image": "/previews/templates/general-flyer-grid.svg"
+      "image": "/previews/templates/general-flyer-grid.svg",
+      "width": 720,
+      "height": 1280
     }
   ]
 }

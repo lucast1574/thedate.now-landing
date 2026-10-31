@@ -1,3 +1,5 @@
+import GiftsProductPreview from "./gifts-product-preview";
+import VenueProductPreview from "./venue-product-preview";
 import Image from "next/image";
 import ShowcaseMotion from "./showcase-motion";
 import Icon from "@/components/icon";
@@ -12,8 +14,8 @@ export default function ProductShowcase({
   const kind = wedding ? "wedding" : "general",
     templates = catalog.templates.filter((t) => t.kind === kind);
   const choices = wedding
-    ? ["wedding-flyer-olive", "wedding-flyer-rose", "wedding-flyer-night"]
-    : ["general-flyer-party", "general-flyer-confetti", "general-flyer-gala"];
+    ? ["wedding-flyer-olive", "wedding-flyer-cinematic", "wedding-flyer-night"]
+    : ["general-flyer-party", "general-flyer-cinematic", "general-flyer-gala"];
   const selected = choices.map(
     (id, n) => templates.find((t) => t.id === id) || templates[n],
   );
@@ -62,8 +64,8 @@ export default function ProductShowcase({
                   unoptimized
                   src={t.image}
                   alt=""
-                  width="720"
-                  height="960"
+                  width={t.width}
+                  height={t.height}
                   loading="lazy"
                   decoding="async"
                 />
@@ -176,6 +178,8 @@ export default function ProductShowcase({
           </a>
         </div>
       </section>
+      <VenueProductPreview wedding={wedding} />
+      <GiftsProductPreview wedding={wedding} />
     </div>
   );
 }

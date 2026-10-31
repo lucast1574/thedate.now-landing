@@ -107,3 +107,21 @@ test("all 48 catalogue previews exist as self contained SVG assets", () => {
     assert.doesNotMatch(svg, /<script|<foreignObject|href="https?:/i);
   }
 });
+
+test("workspace scenes use real table and gift markup with no interactive controls", () => {
+  const preview = JSON.parse(
+    readFileSync("src/features/marketing/workspace-preview-data.json", "utf8"),
+  );
+  assert.ok(preview.seating.includes('class="seating-table'));
+  assert.ok(preview.seating.includes('class="venue-area venue-area-dance'));
+  assert.ok(preview.seating.includes("8/10"));
+  assert.ok(preview.seating.includes("person-glyph"));
+  assert.ok(preview.overview.includes("Personas ubicadas"));
+  assert.equal(preview.gifts.length, 3);
+  for (const html of [preview.seating, ...preview.gifts])
+    assert.doesNotMatch(html, /<button|<input|<select|<a\b|tabindex=/i);
+  assert.ok(preview.gifts.some((html) => html.includes("Tu elección")));
+  assert.ok(
+    preview.gifts.some((html) => html.includes("Otro invitado lo eligió")),
+  );
+});

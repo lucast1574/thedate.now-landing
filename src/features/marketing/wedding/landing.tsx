@@ -1,3 +1,4 @@
+import ResourceLinks from "../resource-links";
 import ProductShowcase from "../product-showcase";
 import BrandEntrance from "../brand-entrance";
 import WeddingHeader from "./header";
@@ -21,6 +22,7 @@ export default function WeddingLanding() {
       <WeddingStory />
       <MarketingFAQ wedding />
       <WeddingFooter />
+      <ResourceLinks wedding />
       <MarketingSchema wedding />
     </main>
   );

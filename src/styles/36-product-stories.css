@@ -1,0 +1,608 @@
+/* Real product frames, with a little movement around the work they do. */
+.product-venue > header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-bottom: 36px;
+}
+.product-venue > header > p {
+  margin-top: 0;
+}
+.workspace-product-preview {
+  --ui-border: #ded9cd;
+  --ui-surface: #fff;
+  --ui-soft: #f5f1e8;
+  --ui-muted: #73776b;
+  --ui-ink: #34382e;
+  --ui-accent: #766044;
+  --manager-accent: #766044;
+  --gift-accent: #766044;
+  --gift-ink: #34382e;
+  margin: 0;
+  min-width: 0;
+  container-type: inline-size;
+  font-family: var(--font-sans), sans-serif;
+}
+.showcase-event .workspace-product-preview {
+  --ui-accent: #7451ac;
+  --manager-accent: #7451ac;
+  --gift-accent: #7451ac;
+}
+.venue-product-window {
+  background: #fff;
+  border: 1px solid var(--ui-border);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 20px 50px #3027200b;
+}
+.workspace-product-preview .seating-overview {
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+.product-showcase .workspace-product-preview .seating-overview h2 {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+.product-showcase .workspace-product-preview .seating-overview p {
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 50ch;
+  margin: 0;
+}
+.workspace-product-preview .seating-overview-counts dd {
+  font-size: 24px;
+}
+.workspace-product-preview .seating-overview-counts dt {
+  font-size: 10px;
+}
+.venue-product-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  margin-bottom: 15px;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  color: var(--ui-ink);
+  font-size: 13px;
+}
+.venue-product-toolbar > span + span {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 11px;
+}
+.venue-product-board {
+  position: relative;
+}
+.workspace-product-preview .seating-scroll {
+  padding: 14px;
+  background: var(--ui-soft);
+  overflow: hidden;
+  border-radius: 10px;
+}
+.workspace-product-preview .seating-board {
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 1.6;
+}
+.workspace-product-preview .seating-table,
+.workspace-product-preview .venue-area {
+  cursor: default !important;
+  pointer-events: none;
+}
+.workspace-product-preview .seating-table {
+  animation: product-table-place 14s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  animation-play-state: paused;
+}
+.workspace-product-preview .seating-table:nth-of-type(3) {
+  animation-delay: -4s;
+}
+.workspace-product-preview .seating-table:nth-of-type(4) {
+  animation-delay: -8s;
+}
+.workspace-product-preview .venue-area {
+  animation: product-area-place 16s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.workspace-product-preview .seating-table.is-selected {
+  background: #ffffff90;
+  border-color: var(--manager-accent);
+}
+.venue-product-add {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--ui-accent);
+  color: white;
+}
+.venue-product-selection {
+  position: absolute;
+  left: 34%;
+  top: 20%;
+  width: 180px;
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--ui-border);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px #30272012;
+  animation: product-table-selection 14s ease-in-out infinite;
+}
+.venue-product-selection > strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+.venue-product-selection > span {
+  font-size: 10px;
+  color: var(--ui-muted);
+}
+.venue-product-selection > i {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  font-style: normal;
+  align-items: center;
+}
+.venue-product-selection .ui-icon {
+  width: 14px;
+  height: 14px;
+  color: #61775f;
+}
+.venue-product-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 18px;
+  font-size: 11px;
+  color: var(--ui-muted);
+}
+.venue-product-footer > span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.product-gifts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+.product-gifts > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+}
+.product-gifts > div > h2 {
+  grid-row: span 2;
+}
+.product-gifts > div > p {
+  margin-top: 0;
+}
+.gift-product-preview {
+  padding: 32px;
+  background: var(--preview-paper);
+  border-radius: 12px;
+}
+.gift-product-heading {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin: 0 0 30px;
+}
+.gift-product-heading > .ui-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--preview-accent);
+}
+.gift-product-heading > strong {
+  font-family: var(--font-serif), serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.showcase-event .gift-product-heading > strong {
+  font-family: var(--font-party), sans-serif;
+  font-weight: 800;
+}
+.gift-product-heading > span {
+  font-size: 12px;
+}
+.gift-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.gift-product-item {
+  min-width: 0;
+  animation: product-gift-arrival 14s ease-in-out infinite;
+}
+.gift-item-1 {
+  animation-delay: -4s;
+}
+.gift-item-2 {
+  animation-delay: -8s;
+}
+.workspace-product-preview .gift-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid var(--ui-border);
+  height: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+.workspace-product-preview .gift-product-link {
+  display: block;
+}
+.workspace-product-preview .gift-image {
+  aspect-ratio: 1.5;
+  background: #fff;
+  position: relative;
+}
+.workspace-product-preview .gift-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 18px;
+}
+.workspace-product-preview .gift-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+.product-showcase .workspace-product-preview .gift-card-content :is(h2, h3) {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0;
+  font-weight: 500;
+}
+.product-showcase .workspace-product-preview .gift-card-content p {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+.workspace-product-preview .gift-card-content > .gift-store-link {
+  margin-top: auto;
+}
+.workspace-product-preview .gift-primary,
+.workspace-product-preview .gift-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  font-size: 12px;
+  padding: 10px;
+  background: var(--ui-accent);
+  color: #fff;
+}
+.workspace-product-preview .gift-secondary {
+  background: #f1f5ee;
+  color: #4e6b47;
+}
+.workspace-product-preview .gift-card.is-reserved:not(.is-mine) .gift-primary {
+  background: #f2f1ed;
+  color: #777a70;
+}
+.gift-product-receipt {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  color: #49623e;
+  animation: product-reservation 14s ease-in-out infinite;
+}
+.gift-product-receipt > span {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.gift-product-receipt strong {
+  display: block;
+  font-weight: 500;
+}
+.marketing-resources {
+  display: flex;
+  justify-content: center;
+  gap: 12px 28px;
+  flex-wrap: wrap;
+  padding: 0 24px 35px;
+  font-size: 11px;
+  opacity: 0.7;
+}
+.marketing-resources a:focus-visible {
+  outline: none;
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@keyframes product-table-place {
+  0%,
+  12%,
+  100% {
+    translate: 0 0;
+  }
+  28%,
+  65% {
+    translate: 20px -15px;
+  }
+}
+@keyframes product-area-place {
+  0%,
+  15%,
+  100% {
+    translate: 0 0;
+  }
+  35%,
+  75% {
+    translate: -15px 10px;
+  }
+}
+@keyframes product-table-selection {
+  0%,
+  15%,
+  85%,
+  100% {
+    opacity: 0;
+    translate: 0 12px;
+  }
+  25%,
+  70% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes product-gift-arrival {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  45% {
+    translate: 0 -10px;
+  }
+}
+@keyframes product-reservation {
+  0%,
+  12%,
+  100% {
+    opacity: 0.25;
+    translate: 0 8px;
+  }
+  30%,
+  80% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@media (max-width: 760px) {
+  .product-venue > header,
+  .product-gifts > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .venue-product-window {
+    padding: 14px;
+  }
+  .workspace-product-preview .seating-overview {
+    display: grid;
+    gap: 15px;
+  }
+  .workspace-product-preview .seating-overview-counts {
+    gap: 25px;
+  }
+  .workspace-product-preview .seating-overview-counts dd {
+    font-size: 20px;
+  }
+  .product-showcase .workspace-product-preview .seating-overview h2 {
+    font-size: 20px;
+  }
+  .venue-product-toolbar {
+    padding: 12px;
+    font-size: 11px;
+  }
+  .venue-product-toolbar > span + span {
+    display: none;
+  }
+  .workspace-product-preview .seating-scroll {
+    padding: 8px;
+  }
+  .workspace-product-preview .seating-board {
+    min-height: 240px;
+  }
+  .workspace-product-preview .seating-table {
+    width: 19%;
+    height: 22%;
+    gap: 3px;
+    padding: 2px;
+  }
+  .workspace-product-preview .seating-table strong {
+    font-size: 8px;
+  }
+  .workspace-product-preview .table-shape {
+    font-size: 9px;
+    border-width: 1px;
+  }
+  .workspace-product-preview .table-people {
+    gap: 1px;
+  }
+  .workspace-product-preview .table-people .person-glyph {
+    width: 5px;
+    height: 8px;
+  }
+  .workspace-product-preview .venue-area {
+    padding: 2px;
+    gap: 4px;
+    border-radius: 4px;
+  }
+  .workspace-product-preview .venue-area > strong {
+    font-size: 7px;
+  }
+  .workspace-product-preview .venue-area > .ui-icon {
+    width: 12px;
+    height: 12px;
+  }
+  .workspace-product-preview .venue-area-dance > strong {
+    padding: 2px;
+  }
+  .venue-product-selection {
+    width: 125px;
+    padding: 12px;
+    gap: 8px;
+    left: 27%;
+    top: 23%;
+  }
+  .venue-product-selection > strong {
+    font-size: 11px;
+  }
+  .venue-product-selection > span {
+    font-size: 8px;
+  }
+  .venue-product-selection > i {
+    font-size: 9px;
+  }
+  .venue-product-add {
+    width: 28px;
+    height: 28px;
+    top: 17px;
+    left: 17px;
+  }
+  .venue-product-footer {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+  .gift-product-preview {
+    padding: 20px;
+    overflow: hidden;
+  }
+  .gift-product-grid {
+    display: flex;
+    width: calc(160% + 20px);
+    gap: 14px;
+  }
+  .gift-product-item {
+    flex: 1;
+  }
+  .gift-product-item:last-child {
+    display: none;
+  }
+  .gift-product-heading > strong {
+    font-size: 26px;
+  }
+  .workspace-product-preview .gift-card-content {
+    padding: 14px;
+    gap: 12px;
+  }
+  .product-showcase .workspace-product-preview .gift-card-content :is(h2, h3) {
+    font-size: 15px;
+  }
+  .workspace-product-preview .gift-image {
+    aspect-ratio: 1.2;
+  }
+  .workspace-product-preview .gift-card-meta {
+    gap: 5px;
+  }
+  .workspace-product-preview .gift-card-meta span {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .workspace-product-preview [data-animated] {
+    animation: none !important;
+  }
+  .venue-product-selection {
+    opacity: 1;
+  }
+}
+
+.workspace-product-preview .gift-primary,
+.workspace-product-preview .gift-secondary,
+.workspace-product-preview .gift-store-link {
+  cursor: default;
+  pointer-events: none;
+}
+
+.scene-dress i {
+  width: 26px;
+  height: 34px;
+  border-radius: 2px 2px 42% 42%;
+  box-shadow:
+    inset 5px 0 7px #ffffff50,
+    inset -3px 0 6px #00000012;
+  transform: rotate(-5deg);
+}
+.showcase-event .scene-dress i {
+  height: 27px;
+  border-radius: 0;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 35%,
+    85% 50%,
+    100% 65%,
+    100% 100%,
+    0 100%,
+    0 65%,
+    15% 50%,
+    0 35%
+  );
+  box-shadow: none;
+}
+
+.gift-product-item {
+  display: grid;
+}
+.gift-product-item > div {
+  grid-area: 1/1;
+}
+.gift-state-before {
+  animation: gift-choice-before 14s ease-in-out infinite;
+}
+.gift-state-after {
+  animation: gift-choice-after 14s ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes gift-choice-before {
+  0%,
+  20%,
+  100% {
+    opacity: 1;
+  }
+  35%,
+  85% {
+    opacity: 0;
+  }
+}
+@keyframes gift-choice-after {
+  0%,
+  20%,
+  100% {
+    opacity: 0;
+  }
+  35%,
+  85% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gift-state-before {
+    display: none;
+  }
+  .gift-state-after {
+    opacity: 1;
+  }
+}
