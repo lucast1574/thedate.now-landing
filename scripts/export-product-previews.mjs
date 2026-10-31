@@ -45,7 +45,7 @@ const entries = [];
 for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
   const canvas = templateCanvas(t),
     art = renderToStaticMarkup(
-      createElement(Artwork, { style: canvas.art, color: t.accent }),
+      createElement(Artwork, { style: canvas.art, color: t.accent, canvas }),
     ).replace("<svg ", `<svg width="720" height="${canvas.height}" `);
   const draw = canvas.elements
     .map((e) => {
