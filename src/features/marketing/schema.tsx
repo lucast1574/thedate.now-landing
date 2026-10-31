@@ -8,12 +8,35 @@ export default function MarketingSchema({
   const data = {
     "@context": "https://schema.org",
     "@graph": [
+      { "@type": "Organization", "@id": `${url}#organization`, name, url },
+      {
+        "@type": "WebApplication",
+        "@id": `${url}#application`,
+        name,
+        url: wedding
+          ? "https://studio.save.thedate.now"
+          : "https://crea.thedate.now",
+        applicationCategory: "DesignApplication",
+        operatingSystem: "Web",
+        inLanguage: "es",
+        publisher: { "@id": `${url}#organization` },
+        featureList: [
+          "24 plantillas de invitaciones",
+          "Aperturas animadas y música",
+          "Estilos globales y biblioteca de secciones",
+          "Envío por WhatsApp",
+          "Confirmaciones de asistencia",
+          "Organización de mesas",
+          "Lista de regalos con reservas",
+        ],
+      },
       {
         "@type": "WebSite",
         "@id": `${url}#website`,
         url,
         name,
         inLanguage: "es",
+        publisher: { "@id": `${url}#organization` },
       },
       {
         "@type": "WebPage",

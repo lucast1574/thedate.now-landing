@@ -1,3 +1,4 @@
+import { readFileSync, existsSync } from "node:fs";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { loadSource } from "./support/load-source.cjs";
@@ -17,7 +18,9 @@ test("marketing crawl rules expose only the landing on its own product host", as
     assert.equal(robots.sitemap, `${origin}/sitemap.xml`);
     assert.ok(robots.rules.disallow.includes("/rsvp/"));
     assert.ok(robots.rules.disallow.includes("/api/"));
-    assert.equal(sitemap.length, 2);
+    assert.equal(sitemap.length, 5);
+    assert.ok(sitemap.every((item) => item.lastModified === "2026-10-31"));
+    assert.equal(new Set(sitemap.map((item) => item.url)).size, 5);
     assert.ok(sitemap[1].url.startsWith(origin + "/invitaciones-digitales-"));
     assert.equal(sitemap[0].url, `${origin}/`);
   }
@@ -54,4 +57,53 @@ test("the two brands have distinct canonical URLs and social images", () => {
   );
   assert.equal(wedding.robots.index, true);
   assert.equal(event.twitter.card, "summary_large_image");
+});
+
+test("topic metadata and pages stay on their product host", async () => {
+  const { topics } = loadSource("src/features/marketing/topic-data.ts");
+  for (const item of topics) {
+    const host = item.kind === "wedding" ? "save.thedate.now" : "thedate.now";
+    const options = context(host);
+    options.mocks["next/navigation"] = {
+      notFound: () => {
+        throw new Error("not-found");
+      },
+    };
+    const { topicMetadata, default: TopicPage } = loadSource(
+      "src/features/marketing/topic-page.tsx",
+      options,
+    );
+    const metadata = await topicMetadata(item.slug);
+    assert.equal(metadata.alternates.canonical, `https://${host}/${item.slug}`);
+    assert.equal(metadata.robots.index, true);
+    assert.ok(await TopicPage({ slug: item.slug }));
+    for (const other of [
+      host === "thedate.now" ? "save.thedate.now" : "thedate.now",
+      "localhost:3135",
+    ]) {
+      const blocked = context(other);
+      blocked.mocks["next/navigation"] = options.mocks["next/navigation"];
+      const page = loadSource("src/features/marketing/topic-page.tsx", blocked);
+      assert.equal((await page.topicMetadata(item.slug)).robots.index, false);
+      await assert.rejects(
+        () => page.default({ slug: item.slug }),
+        /not-found/,
+      );
+    }
+  }
+});
+
+test("all 48 catalogue previews exist as self contained SVG assets", () => {
+  const catalog = JSON.parse(
+    readFileSync("src/features/marketing/template-preview-data.json", "utf8"),
+  );
+  assert.equal(new Set(catalog.templates.map((t) => t.id)).size, 48);
+  for (const kind of ["wedding", "general"])
+    assert.equal(catalog.templates.filter((t) => t.kind === kind).length, 24);
+  for (const item of catalog.templates) {
+    assert.ok(existsSync(`public${item.image}`));
+    const svg = readFileSync(`public${item.image}`, "utf8");
+    assert.ok(svg.includes("<svg"));
+    assert.doesNotMatch(svg, /<script|<foreignObject|href="https?:/i);
+  }
 });

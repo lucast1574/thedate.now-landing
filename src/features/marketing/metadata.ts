@@ -6,8 +6,8 @@ export function landingMetadata(wedding: boolean): Metadata {
     ? "Invitaciones digitales de boda | Save the Date"
     : "Invitaciones digitales para eventos | The Date";
   const description = wedding
-    ? "Creen una invitación digital de boda con sus fotos, horarios y ubicación. Compartan por WhatsApp y organicen invitados, cupos y confirmaciones en un solo lugar."
-    : "Crea invitaciones digitales para cumpleaños, fiestas y reuniones. Personaliza tu diseño, comparte por WhatsApp y organiza invitados y confirmaciones de asistencia.";
+    ? "24 plantillas de boda con animaciones, fotos y música. Diseñen su invitación digital y organicen WhatsApp, confirmaciones, mesas y regalos en Save the Date."
+    : "24 plantillas animadas para cumpleaños, fiestas y encuentros. Crea tu invitación digital con fotos y música; organiza WhatsApp, confirmaciones, mesas y regalos.";
   const images = [
     {
       url: `${url}${wedding ? "wedding" : "event"}-social.png`,

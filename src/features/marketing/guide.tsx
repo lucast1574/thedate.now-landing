@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Brand from "@/components/brand";
 import Icon from "@/components/icon";
+import { productTopics, contentUpdated } from "./topic-data";
 import { guides } from "./guide-data";
 import { publicOrigin } from "./public-origin";
 export async function guideMetadata(wedding: boolean): Promise<Metadata> {
@@ -50,6 +51,7 @@ export default async function InvitationGuide({
     name: item.title,
     description: item.description,
     inLanguage: "es",
+    dateModified: contentUpdated,
     isPartOf: { "@id": `${item.host}/#website` },
     breadcrumb: {
       "@type": "BreadcrumbList",
@@ -86,6 +88,14 @@ export default async function InvitationGuide({
             <p>{text}</p>
           </section>
         ))}
+        <nav className="topic-related" aria-label="Más sobre las invitaciones">
+          {productTopics(wedding).map((t) => (
+            <a key={t.slug} href={`/${t.slug}`}>
+              {t.title}
+              <Icon name="arrow" />
+            </a>
+          ))}
+        </nav>
         <div className="guide-action">
           <h2>
             {wedding

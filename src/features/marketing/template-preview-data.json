@@ -1,0 +1,486 @@
+{
+  "sourceRepository": "lucast1574/thedate.now-front",
+  "sourceCommit": "1e4995c791a096b50ffbb31e53f0fd227030063f",
+  "templates": [
+    {
+      "id": "wedding-flyer-floral",
+      "name": "Jardín de amor",
+      "kind": "wedding",
+      "category": "Románticas",
+      "description": "Láminas con flores y tipografía elegante",
+      "accent": "#9c6449",
+      "background": "#fff9ed",
+      "image": "/previews/templates/wedding-flyer-floral.svg"
+    },
+    {
+      "id": "wedding-flyer-editorial",
+      "name": "Nuestra portada",
+      "kind": "wedding",
+      "category": "Editoriales",
+      "description": "Una historia con aire editorial",
+      "accent": "#44573e",
+      "background": "#f1f4ec",
+      "image": "/previews/templates/wedding-flyer-editorial.svg"
+    },
+    {
+      "id": "wedding-flyer-night",
+      "name": "Noche de gala",
+      "kind": "wedding",
+      "category": "De noche",
+      "description": "Elegancia nocturna y detalles en oro",
+      "accent": "#d7bc83",
+      "background": "#222a32",
+      "image": "/previews/templates/wedding-flyer-night.svg"
+    },
+    {
+      "id": "wedding-flyer-rose",
+      "name": "Cartas de amor",
+      "kind": "wedding",
+      "category": "Románticas",
+      "description": "Un marco delicado, como una carta guardada",
+      "accent": "#915269",
+      "background": "#fff2f4",
+      "image": "/previews/templates/wedding-flyer-rose.svg"
+    },
+    {
+      "id": "wedding-flyer-olive",
+      "name": "Entre olivos",
+      "kind": "wedding",
+      "category": "Naturales",
+      "description": "Ramas de olivo y papel de lino",
+      "accent": "#566448",
+      "background": "#f3f1e7",
+      "image": "/previews/templates/wedding-flyer-olive.svg"
+    },
+    {
+      "id": "wedding-flyer-arch",
+      "name": "Bajo el arco",
+      "kind": "wedding",
+      "category": "Románticas",
+      "description": "Una silueta arquitectónica en tonos arena",
+      "accent": "#936b51",
+      "background": "#f4e9dc",
+      "image": "/previews/templates/wedding-flyer-arch.svg"
+    },
+    {
+      "id": "wedding-flyer-monogram",
+      "name": "Solo nosotros",
+      "kind": "wedding",
+      "category": "Editoriales",
+      "description": "Iniciales protagonistas y mucho aire",
+      "accent": "#6b5147",
+      "background": "#faf7f1",
+      "image": "/previews/templates/wedding-flyer-monogram.svg"
+    },
+    {
+      "id": "wedding-flyer-coast",
+      "name": "A orillas del mar",
+      "kind": "wedding",
+      "category": "Naturales",
+      "description": "Azul bruma y una composición serena",
+      "accent": "#3c6677",
+      "background": "#edf3f4",
+      "image": "/previews/templates/wedding-flyer-coast.svg"
+    },
+    {
+      "id": "wedding-flyer-vine",
+      "name": "Verde profundo",
+      "kind": "wedding",
+      "category": "Naturales",
+      "description": "Un jardín nocturno en verde y marfil",
+      "accent": "#ece7d0",
+      "background": "#304333",
+      "image": "/previews/templates/wedding-flyer-vine.svg"
+    },
+    {
+      "id": "wedding-flyer-paris",
+      "name": "Una historia en París",
+      "kind": "wedding",
+      "category": "Editoriales",
+      "description": "Tipografía editorial y detalles de autor",
+      "accent": "#34313d",
+      "background": "#fcf7ee",
+      "image": "/previews/templates/wedding-flyer-paris.svg"
+    },
+    {
+      "id": "wedding-flyer-ruby",
+      "name": "Amor en granate",
+      "kind": "wedding",
+      "category": "De noche",
+      "description": "Granate, luz cálida y un marco clásico",
+      "accent": "#f4d8bd",
+      "background": "#642e42",
+      "image": "/previews/templates/wedding-flyer-ruby.svg"
+    },
+    {
+      "id": "wedding-flyer-sunrise",
+      "name": "Luz de otoño",
+      "kind": "wedding",
+      "category": "Románticas",
+      "description": "Un sol delicado sobre papel cálido",
+      "accent": "#a65a36",
+      "background": "#f8ebda",
+      "image": "/previews/templates/wedding-flyer-sunrise.svg"
+    },
+    {
+      "id": "general-flyer-party",
+      "name": "Fiesta en color",
+      "kind": "general",
+      "category": "Fiestas",
+      "description": "Texto grande, estrellas y celebración",
+      "accent": "#7451ac",
+      "background": "#fff1f6",
+      "image": "/previews/templates/general-flyer-party.svg"
+    },
+    {
+      "id": "general-flyer-meet",
+      "name": "Nos encontramos",
+      "kind": "general",
+      "category": "Encuentros",
+      "description": "Un lienzo sencillo para tu evento",
+      "accent": "#247785",
+      "background": "#eff9fa",
+      "image": "/previews/templates/general-flyer-meet.svg"
+    },
+    {
+      "id": "general-flyer-conference",
+      "name": "Punto de encuentro",
+      "kind": "general",
+      "category": "Encuentros",
+      "description": "Conferencias, lanzamientos y encuentros",
+      "accent": "#165fbc",
+      "background": "#eef4ff",
+      "image": "/previews/templates/general-flyer-conference.svg"
+    },
+    {
+      "id": "general-flyer-birthday",
+      "name": "Hoy se celebra",
+      "kind": "general",
+      "category": "Fiestas",
+      "description": "Un cartel de cumpleaños con carácter",
+      "accent": "#ba454f",
+      "background": "#fff0e9",
+      "image": "/previews/templates/general-flyer-birthday.svg"
+    },
+    {
+      "id": "general-flyer-disco",
+      "name": "Bajo las luces",
+      "kind": "general",
+      "category": "Fiestas",
+      "description": "Estrellas y ritmo para una noche larga",
+      "accent": "#ddd3fb",
+      "background": "#352457",
+      "image": "/previews/templates/general-flyer-disco.svg"
+    },
+    {
+      "id": "general-flyer-summer",
+      "name": "Verano sin fin",
+      "kind": "general",
+      "category": "Fiestas",
+      "description": "Sol, color y ganas de encontrarnos",
+      "accent": "#154c54",
+      "background": "#f3c66f",
+      "image": "/previews/templates/general-flyer-summer.svg"
+    },
+    {
+      "id": "general-flyer-ticket",
+      "name": "Tu entrada",
+      "kind": "general",
+      "category": "Encuentros",
+      "description": "Una invitación con espíritu de ticket",
+      "accent": "#24484c",
+      "background": "#f5f0dd",
+      "image": "/previews/templates/general-flyer-ticket.svg"
+    },
+    {
+      "id": "general-flyer-gala",
+      "name": "Una noche especial",
+      "kind": "general",
+      "category": "Elegantes",
+      "description": "Azul noche y líneas en oro",
+      "accent": "#e8cd90",
+      "background": "#1f2b3c",
+      "image": "/previews/templates/general-flyer-gala.svg"
+    },
+    {
+      "id": "general-flyer-launch",
+      "name": "Gran estreno",
+      "kind": "general",
+      "category": "Encuentros",
+      "description": "Un lanzamiento que se anuncia en grande",
+      "accent": "#c1e663",
+      "background": "#222c29",
+      "image": "/previews/templates/general-flyer-launch.svg"
+    },
+    {
+      "id": "general-flyer-brunch",
+      "name": "Alrededor de la mesa",
+      "kind": "general",
+      "category": "Encuentros",
+      "description": "Un encuentro cálido entre ramas y lino",
+      "accent": "#577060",
+      "background": "#faf1e3",
+      "image": "/previews/templates/general-flyer-brunch.svg"
+    },
+    {
+      "id": "general-flyer-dinner",
+      "name": "Cena entre amigos",
+      "kind": "general",
+      "category": "Elegantes",
+      "description": "Terracota y una mesa por compartir",
+      "accent": "#e7ddd6",
+      "background": "#8f422f",
+      "image": "/previews/templates/general-flyer-dinner.svg"
+    },
+    {
+      "id": "general-flyer-opening",
+      "name": "Abrimos las puertas",
+      "kind": "general",
+      "category": "Elegantes",
+      "description": "Una bienvenida bajo un arco azul",
+      "accent": "#f8e8d6",
+      "background": "#274f5e",
+      "image": "/previews/templates/general-flyer-opening.svg"
+    },
+    {
+      "id": "wedding-flyer-gallery",
+      "name": "Álbum de nosotros",
+      "kind": "wedding",
+      "category": "Con fotos",
+      "description": "Nuestra foto abre una historia editorial",
+      "accent": "#6e4e43",
+      "background": "#fff8ef",
+      "image": "/previews/templates/wedding-flyer-gallery.svg"
+    },
+    {
+      "id": "wedding-flyer-split",
+      "name": "A dos voces",
+      "kind": "wedding",
+      "category": "Editoriales",
+      "description": "Retrato lateral y nombres en una columna",
+      "accent": "#3d554d",
+      "background": "#f0f3ed",
+      "image": "/previews/templates/wedding-flyer-split.svg"
+    },
+    {
+      "id": "wedding-flyer-ribbon",
+      "name": "Lazo de seda",
+      "kind": "wedding",
+      "category": "Románticas",
+      "description": "Una fotografía enmarcada por un lazo",
+      "accent": "#8c5366",
+      "background": "#fcf1f4",
+      "image": "/previews/templates/wedding-flyer-ribbon.svg"
+    },
+    {
+      "id": "wedding-flyer-typographic",
+      "name": "Nuestro sí",
+      "kind": "wedding",
+      "category": "Editoriales",
+      "description": "Nombres grandes y retrato de cierre",
+      "accent": "#403b64",
+      "background": "#f6f3ff",
+      "image": "/previews/templates/wedding-flyer-typographic.svg"
+    },
+    {
+      "id": "wedding-flyer-polaroid",
+      "name": "Un recuerdo juntos",
+      "kind": "wedding",
+      "category": "Con fotos",
+      "description": "Una fotografía como recuerdo de papel",
+      "accent": "#85633e",
+      "background": "#fff7e9",
+      "image": "/previews/templates/wedding-flyer-polaroid.svg"
+    },
+    {
+      "id": "wedding-flyer-landscape",
+      "name": "Boda al horizonte",
+      "kind": "wedding",
+      "category": "Naturales",
+      "description": "Una fotografía panorámica entre los detalles",
+      "accent": "#31657a",
+      "background": "#eff8fb",
+      "image": "/previews/templates/wedding-flyer-landscape.svg"
+    },
+    {
+      "id": "wedding-flyer-cinematic",
+      "name": "Cita bajo las estrellas",
+      "kind": "wedding",
+      "category": "De noche",
+      "description": "Retrato cinematográfico sobre azul noche",
+      "accent": "#ead8b5",
+      "background": "#20252f",
+      "image": "/previews/templates/wedding-flyer-cinematic.svg"
+    },
+    {
+      "id": "wedding-flyer-mosaic",
+      "name": "Instantes de amor",
+      "kind": "wedding",
+      "category": "Con fotos",
+      "description": "Retrato y detalles en una composición asimétrica",
+      "accent": "#74614d",
+      "background": "#f6f0e7",
+      "image": "/previews/templates/wedding-flyer-mosaic.svg"
+    },
+    {
+      "id": "wedding-flyer-seal",
+      "name": "Un pacto de amor",
+      "kind": "wedding",
+      "category": "Románticas",
+      "description": "Un sello delicado y una foto al pie",
+      "accent": "#8b544e",
+      "background": "#fcf2ec",
+      "image": "/previews/templates/wedding-flyer-seal.svg"
+    },
+    {
+      "id": "wedding-flyer-waves",
+      "name": "Frente al mar",
+      "kind": "wedding",
+      "category": "Naturales",
+      "description": "Un arco abierto y una imagen del encuentro",
+      "accent": "#38665f",
+      "background": "#edf5f0",
+      "image": "/previews/templates/wedding-flyer-waves.svg"
+    },
+    {
+      "id": "wedding-flyer-confetti",
+      "name": "La alegría del sí",
+      "kind": "wedding",
+      "category": "Románticas",
+      "description": "Destellos y fotografía para celebrar",
+      "accent": "#9b5a36",
+      "background": "#fff3df",
+      "image": "/previews/templates/wedding-flyer-confetti.svg"
+    },
+    {
+      "id": "wedding-flyer-grid",
+      "name": "Una fecha nuestra",
+      "kind": "wedding",
+      "category": "Editoriales",
+      "description": "Una retícula sobria para una historia contemporánea",
+      "accent": "#515860",
+      "background": "#f5f6f7",
+      "image": "/previews/templates/wedding-flyer-grid.svg"
+    },
+    {
+      "id": "general-flyer-gallery",
+      "name": "Galería de momentos",
+      "kind": "general",
+      "category": "Con fotos",
+      "description": "Una gran fotografía para abrir el encuentro",
+      "accent": "#224f86",
+      "background": "#f0f6fc",
+      "image": "/previews/templates/general-flyer-gallery.svg"
+    },
+    {
+      "id": "general-flyer-split",
+      "name": "Encuentro creativo",
+      "kind": "general",
+      "category": "Encuentros",
+      "description": "Fotografía lateral y una columna de mensajes",
+      "accent": "#775127",
+      "background": "#fcf5e8",
+      "image": "/previews/templates/general-flyer-split.svg"
+    },
+    {
+      "id": "general-flyer-ribbon",
+      "name": "Una ocasión especial",
+      "kind": "general",
+      "category": "Celebraciones",
+      "description": "Una imagen central y detalles con lazo",
+      "accent": "#a13e65",
+      "background": "#fff0f5",
+      "image": "/previews/templates/general-flyer-ribbon.svg"
+    },
+    {
+      "id": "general-flyer-typographic",
+      "name": "Hagamos ruido",
+      "kind": "general",
+      "category": "Fiestas",
+      "description": "Tipografía protagonista y un retrato al pie",
+      "accent": "#b8f04b",
+      "background": "#172b27",
+      "image": "/previews/templates/general-flyer-typographic.svg"
+    },
+    {
+      "id": "general-flyer-polaroid",
+      "name": "Recuerdos por crear",
+      "kind": "general",
+      "category": "Con fotos",
+      "description": "Una fotografía instantánea para el próximo recuerdo",
+      "accent": "#8055a6",
+      "background": "#f6efff",
+      "image": "/previews/templates/general-flyer-polaroid.svg"
+    },
+    {
+      "id": "general-flyer-landscape",
+      "name": "Tarde al aire libre",
+      "kind": "general",
+      "category": "Encuentros",
+      "description": "Una panorámica para un encuentro al aire libre",
+      "accent": "#356c48",
+      "background": "#f0f7e8",
+      "image": "/previews/templates/general-flyer-landscape.svg"
+    },
+    {
+      "id": "general-flyer-cinematic",
+      "name": "Noche de estreno",
+      "kind": "general",
+      "category": "Fiestas",
+      "description": "Un cartel nocturno con tu imagen protagonista",
+      "accent": "#f4c965",
+      "background": "#1e2435",
+      "image": "/previews/templates/general-flyer-cinematic.svg"
+    },
+    {
+      "id": "general-flyer-mosaic",
+      "name": "Punto de reunión",
+      "kind": "general",
+      "category": "Encuentros",
+      "description": "Composición asimétrica con foto y detalles",
+      "accent": "#ae5238",
+      "background": "#fff1e7",
+      "image": "/previews/templates/general-flyer-mosaic.svg"
+    },
+    {
+      "id": "general-flyer-seal",
+      "name": "Celebra el logro",
+      "kind": "general",
+      "category": "Celebraciones",
+      "description": "Un marco con carácter para un gran logro",
+      "accent": "#346370",
+      "background": "#edf7f7",
+      "image": "/previews/templates/general-flyer-seal.svg"
+    },
+    {
+      "id": "general-flyer-waves",
+      "name": "Ritmo de verano",
+      "kind": "general",
+      "category": "Fiestas",
+      "description": "Una imagen amplia y trazos de horizonte",
+      "accent": "#175e73",
+      "background": "#e4f7fa",
+      "image": "/previews/templates/general-flyer-waves.svg"
+    },
+    {
+      "id": "general-flyer-confetti",
+      "name": "Que empiece la fiesta",
+      "kind": "general",
+      "category": "Fiestas",
+      "description": "Fotografía, estrellas y mucha celebración",
+      "accent": "#b13e79",
+      "background": "#fff0f8",
+      "image": "/previews/templates/general-flyer-confetti.svg"
+    },
+    {
+      "id": "general-flyer-grid",
+      "name": "Agenda abierta",
+      "kind": "general",
+      "category": "Encuentros",
+      "description": "Retícula editorial para presentar el encuentro",
+      "accent": "#344657",
+      "background": "#f1f4f6",
+      "image": "/previews/templates/general-flyer-grid.svg"
+    }
+  ]
+}

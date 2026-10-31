@@ -13,7 +13,7 @@ const steps = [
   [
     "03",
     "Compartan la emoción",
-    "Publiquen en una dirección propia, compartan por WhatsApp y sigan las confirmaciones desde el estudio.",
+    "Preparen la lista en Invitados. Al enviar, se prepara la web y salen los enlaces por WhatsApp; las respuestas llegan al estudio.",
   ],
 ];
 export default function WeddingStory() {
@@ -50,50 +50,6 @@ export default function WeddingStory() {
               </div>
             </article>
           ))}
-        </div>
-      </section>
-      <section className="vow-guest-section">
-        <div className="shell vow-guest-layout">
-          <div
-            className="vow-guest-preview"
-            aria-label="Ejemplo ilustrativo de organización de invitados"
-          >
-            <span>Su lista, en calma</span>
-            <div>
-              <b>Valeria y familia</b>
-              <small>3 cupos · Confirmados</small>
-              <Icon name="check" />
-            </div>
-            <div>
-              <b>Andrés Rojas</b>
-              <small>1 cupo · Por responder</small>
-              <Icon name="clock" />
-            </div>
-            <div>
-              <b>Camila Torres</b>
-              <small>2 cupos · Mesa 4</small>
-              <Icon name="table" />
-            </div>
-            <p>Vista de ejemplo. Sin datos de invitados reales.</p>
-          </div>
-          <div>
-            <p className="vow-intro">Que nadie se quede fuera</p>
-            <h2>
-              Detrás de cada nombre,
-              <br />
-              alguien que quieren.
-            </h2>
-            <p>
-              Gestionen invitados, acompañantes y cupos. Consulten las
-              respuestas y organicen las mesas sin perder de vista a las
-              personas que hacen especial su boda.
-            </p>
-            <p>
-              El diseño y el guardado están disponibles antes de pagar. La
-              publicación y las herramientas de invitados se habilitan según el
-              evento.
-            </p>
-          </div>
         </div>
       </section>
       <section className="vow-closing shell">

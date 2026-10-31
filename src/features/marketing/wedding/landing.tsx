@@ -1,3 +1,4 @@
+import ProductShowcase from "../product-showcase";
 import BrandEntrance from "../brand-entrance";
 import WeddingHeader from "./header";
 import WeddingHero from "./hero";
@@ -16,6 +17,7 @@ export default function WeddingLanding() {
       <div id="contenido">
         <WeddingHero />
       </div>
+      <ProductShowcase wedding />
       <WeddingStory />
       <MarketingFAQ wedding />
       <WeddingFooter />

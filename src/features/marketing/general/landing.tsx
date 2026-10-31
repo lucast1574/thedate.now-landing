@@ -1,5 +1,5 @@
+import ProductShowcase from "../product-showcase";
 import BrandEntrance from "../brand-entrance";
-import GeneralExperience from "./experience";
 import MarketingFAQ from "../questions";
 import MarketingSchema from "../schema";
 import GeneralHeader from "./header";
@@ -19,7 +19,7 @@ export default function GeneralLanding() {
       <GeneralHero />
       <GeneralMarquee />
       <GeneralOccasions />
-      <GeneralExperience />
+      <ProductShowcase />
       <GeneralHow />
       <MarketingFAQ />
       <GeneralFooter />

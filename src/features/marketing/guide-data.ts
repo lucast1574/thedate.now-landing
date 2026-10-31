@@ -19,7 +19,7 @@ export const guides = {
       ],
       [
         "Cómo compartir el enlace por WhatsApp",
-        "En Save the Date pueden crear, editar, previsualizar y guardar su diseño antes de pagar. Cuando habiliten y publiquen el evento, la invitación tendrá su propia dirección en save.thedate.now. Compartan ese enlace y usen las herramientas de envío del estudio cuando estén habilitadas.",
+        "En Save the Date pueden crear, editar, previsualizar y guardar su diseño antes de pagar. Al terminar el diseño, continúen a Invitados. Con la lista preparada y el evento habilitado, «Enviar invitaciones» prepara y comprueba la web antes de enviar los enlaces personales por WhatsApp.",
       ],
       [
         "Confirmaciones, acompañantes y cupos",
@@ -27,7 +27,7 @@ export const guides = {
       ],
       [
         "La revisión antes de enviar",
-        "Abran la vista previa en móvil y comprueben la fecha, el horario, las ubicaciones y la ortografía. Si modifican el diseño después de publicar, guardarlo conserva la dirección y las respuestas. Consulten las condiciones de publicación y gestión dentro del estudio antes de habilitar el evento.",
+        "Abran la vista previa en móvil y comprueben la fecha, el horario, las ubicaciones y la ortografía. El diseño se guarda automáticamente. Después de publicar, pulsen «Actualizar invitación» para aplicar los cambios a la web, conservando la dirección y las respuestas. Consulten las condiciones de publicación y gestión dentro del estudio antes de habilitar el evento.",
       ],
     ],
   },
@@ -51,7 +51,7 @@ export const guides = {
       ],
       [
         "Compartir una invitación por WhatsApp",
-        "Puedes diseñar y guardar antes de pagar. Cuando habilites y publiques el evento, tendrás un enlace propio dentro de thedate.now para compartir. Las herramientas de envío desde tu espacio requieren que el evento esté habilitado y publicado. Revisa sus condiciones antes de publicar.",
+        "Puedes diseñar y guardar antes de pagar. Al terminar el diseño, continúa a Invitados para preparar la lista. Con el evento habilitado, «Enviar invitaciones» prepara y comprueba la web antes de enviar los enlaces personales por WhatsApp.",
       ],
       [
         "Organizar las confirmaciones de asistencia",
@@ -59,7 +59,7 @@ export const guides = {
       ],
       [
         "Revisa tu invitación desde el celular",
-        "Antes de enviar, abre la vista previa y comprueba nombres, horarios, ubicación y enlaces. Evita depender de texto pequeño dentro de una imagen. Si luego cambias detalles del diseño publicado, conserva la misma dirección para que tus invitados puedan volver a consultar el plan.",
+        "Antes de enviar, abre la vista previa y comprueba nombres, horarios, ubicación y enlaces. Evita depender de texto pequeño dentro de una imagen. El guardado es automático. Si cambias el diseño publicado, pulsa «Actualizar invitación» cuando esté listo: se mantiene la misma dirección y las respuestas de tus invitados.",
       ],
     ],
   },

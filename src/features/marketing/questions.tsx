@@ -1,3 +1,4 @@
+import { productTopics } from "./topic-data";
 import Icon from "@/components/icon";
 export const weddingQuestions = [
   [
@@ -10,11 +11,11 @@ export const weddingQuestions = [
   ],
   [
     "¿Cómo compartimos nuestra invitación de boda?",
-    "Una vez publicada, tendrá una dirección propia dentro de save.thedate.now. Compartan el enlace con sus invitados y usen las herramientas de WhatsApp del estudio cuando estén habilitadas.",
+    "Al terminar el diseño, continúen a Invitados y preparen su lista. Con el evento habilitado, «Enviar invitaciones» prepara y comprueba la web antes de enviar por WhatsApp los enlaces personales de cada grupo.",
   ],
   [
     "¿Podemos cambiar detalles después de publicar?",
-    "Sí. Al guardar cambios del diseño publicado conservan la dirección de su invitación y las respuestas de sus invitados.",
+    "Sí. El trabajo se guarda automáticamente. Cuando quieran aplicar esos cambios a la web, pulsen «Actualizar invitación» en el editor. Conservan su dirección y las respuestas; guardar no vuelve a enviar mensajes.",
   ],
 ];
 export const generalQuestions = [
@@ -28,7 +29,7 @@ export const generalQuestions = [
   ],
   [
     "¿Puedo enviar la invitación por WhatsApp?",
-    "Sí. Una vez publicada puedes compartir su enlace por WhatsApp. Las herramientas de envío desde tu espacio requieren un evento habilitado y publicado.",
+    "Sí. Termina el diseño y prepara la lista en Invitados. Con el evento habilitado, «Enviar invitaciones» primero prepara y comprueba la web y después envía los enlaces personales por WhatsApp.",
   ],
   [
     "¿Cómo organizo las confirmaciones de asistencia?",
@@ -66,6 +67,14 @@ export default function MarketingFAQ({
             ? "Guía para crear y compartir su invitación de boda"
             : "Guía para crear y compartir tu invitación digital"}
         </a>
+        <nav className="topic-links" aria-label="Explorar las herramientas">
+          {productTopics(wedding).map((t) => (
+            <a key={t.slug} href={`/${t.slug}`}>
+              {t.title}
+              <Icon name="arrow" />
+            </a>
+          ))}
+        </nav>
         {(wedding ? weddingQuestions : generalQuestions).map(
           ([question, answer]) => (
             <details key={question}>
