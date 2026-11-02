@@ -117,7 +117,8 @@
 .venue-product-add {
   position: absolute;
   top: 30px;
-  left: 30px;
+  right: 30px;
+  left: auto;
   display: grid;
   place-items: center;
   width: 38px;
@@ -479,7 +480,8 @@
     width: 28px;
     height: 28px;
     top: 17px;
-    left: 17px;
+    right: 17px;
+    left: auto;
   }
   .venue-product-footer {
     font-size: 9px;
