@@ -21,7 +21,7 @@ export default function ProductShowcase({
     >
       <ShowcaseMotion />
       <TemplateShowcase wedding={wedding} />
-      <div className={wedding ? "showcase-surface" : undefined}>
+      <div className="showcase-surface">
         <section className={`product-craft ${base}`} id="diseno">
           <div>
             <h2>
@@ -126,7 +126,7 @@ export default function ProductShowcase({
           </a>
         </div>
       </section>
-      <div className={wedding ? "showcase-surface" : undefined}>
+      <div className="showcase-surface">
         <VenueProductPreview wedding={wedding} />
       </div>
       <GiftsProductPreview wedding={wedding} />

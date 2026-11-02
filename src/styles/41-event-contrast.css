@@ -1,0 +1,67 @@
+/* The Date keeps its violet, pink and gold, with clearer reading surfaces. */
+.festival-site {
+  --festival-violet: #6035a5;
+  --festival-ink: #2f2344;
+  --festival-paper: #f2f0f7;
+  background: var(--festival-paper);
+  color: var(--festival-ink);
+}
+.festival-site .party-header,
+.festival-site .party-footer {
+  border-color: #c9c0d7;
+}
+.festival-site .party-nav-action,
+.festival-site .party-button {
+  background: var(--festival-violet);
+  color: #ffffff;
+}
+.festival-site .party-nav-action:hover,
+.festival-site .party-button:hover,
+.festival-site .party-button:focus-visible {
+  background: #48247f;
+  color: #ffffff;
+}
+.festival-site .festival-copy > p:first-child,
+.festival-site .product-showcase section > div > a,
+.festival-site .product-templates > header > a {
+  color: var(--festival-violet);
+}
+.festival-site .product-showcase section > div > a,
+.festival-site .product-templates > header > a {
+  font-weight: 600;
+}
+.festival-site .showcase-surface {
+  background: #ffffff;
+  border-block: 1px solid #c9c0d7;
+}
+.festival-site .showcase-event {
+  --preview-paper: #ece7f4;
+  --preview-ink: var(--festival-ink);
+  --preview-accent: var(--festival-violet);
+  --preview-soft: #ddd3ec;
+}
+.festival-site .workspace-product-preview {
+  --ui-accent: var(--festival-violet);
+  --manager-accent: var(--festival-violet);
+  --gift-accent: var(--festival-violet);
+  --ui-muted: #484b5c;
+}
+.festival-site .product-showcase figcaption,
+.festival-site .festival-copy > small,
+.festival-site .party-footer > span,
+.festival-site .party-section-head > p {
+  color: #484b5c;
+  opacity: 1;
+}
+.festival-site .party-how {
+  background: #43266f;
+}
+.festival-site .party-how .party-button {
+  background: var(--festival-gold);
+  color: #2f2344;
+}
+.festival-site .party-how .party-button:hover,
+.festival-site .party-how .party-button:focus-visible {
+  background: #ffe09a;
+  color: #2f2344;
+}

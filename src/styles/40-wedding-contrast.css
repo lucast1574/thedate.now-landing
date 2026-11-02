@@ -1,9 +1,9 @@
 /* Paper, white surfaces and a cocoa closing give the wedding story a rhythm. */
 .wedding-atlas {
-  --vow-bg: #f8f7f3;
-  --vow-ink: #292724;
-  --vow-accent: #874d34;
-  --vow-line: #dcd2c6;
+  --vow-bg: #f2f1ec;
+  --vow-ink: #242320;
+  --vow-accent: #79432d;
+  --vow-line: #c9c0b5;
 }
 .wedding-atlas .wedding-mark,
 .wedding-atlas .vow-intro,
@@ -17,7 +17,7 @@
 }
 .wedding-atlas .button:hover,
 .wedding-atlas .button:focus-visible {
-  background: #693b29;
+  background: #5d3222;
 }
 .wedding-atlas .topbar .nav-action {
   border-color: var(--vow-accent);
@@ -48,7 +48,7 @@
 .wedding-atlas .vow-footnote,
 .wedding-atlas .product-showcase figcaption,
 .wedding-atlas .footer > span {
-  color: #655e57;
+  color: #514b45;
 }
 .wedding-atlas .product-showcase figcaption {
   opacity: 1;
@@ -57,7 +57,7 @@
   --ui-accent: var(--vow-accent);
   --manager-accent: var(--vow-accent);
   --gift-accent: var(--vow-accent);
-  --ui-muted: #655e57;
+  --ui-muted: #514b45;
 }
 .wedding-atlas .vow-closing-band {
   background: #352b26;
