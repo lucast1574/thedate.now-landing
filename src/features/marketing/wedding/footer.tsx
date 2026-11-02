@@ -1,3 +1,4 @@
+import LegalLinks from "../legal-links";
 import Icon from "@/components/icon";
 import Brand from "@/components/brand";
 export default function WeddingFooter() {
@@ -8,6 +9,7 @@ export default function WeddingFooter() {
       <a href="https://studio.save.thedate.now">
         Abrir estudio <Icon name="external" />
       </a>
+      <LegalLinks />
     </footer>
   );
 }

@@ -1,3 +1,4 @@
+import LegalLinks from "../legal-links";
 import Icon from "@/components/icon";
 import Brand from "@/components/brand";
 export default function GeneralFooter() {
@@ -8,6 +9,7 @@ export default function GeneralFooter() {
       <a href="https://save.thedate.now">
         Bodas en Save the Date <Icon name="external" />
       </a>
+      <LegalLinks />
     </footer>
   );
 }
