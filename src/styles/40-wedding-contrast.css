@@ -1,0 +1,78 @@
+/* Paper, white surfaces and a cocoa closing give the wedding story a rhythm. */
+.wedding-atlas {
+  --vow-bg: #f8f7f3;
+  --vow-ink: #292724;
+  --vow-accent: #874d34;
+  --vow-line: #dcd2c6;
+}
+.wedding-atlas .wedding-mark,
+.wedding-atlas .vow-intro,
+.wedding-atlas .vow-copy > .vow-intro,
+.wedding-atlas .vow-steps article > span {
+  color: var(--vow-accent);
+}
+.wedding-atlas .button {
+  color: #ffffff;
+  background: var(--vow-accent);
+}
+.wedding-atlas .button:hover,
+.wedding-atlas .button:focus-visible {
+  background: #693b29;
+}
+.wedding-atlas .topbar .nav-action {
+  border-color: var(--vow-accent);
+  color: var(--vow-accent);
+}
+.wedding-atlas .showcase-surface {
+  background: #ffffff;
+  border-block: 1px solid var(--vow-line);
+}
+.wedding-atlas .showcase-wedding {
+  --preview-paper: #eee8df;
+  --preview-ink: var(--vow-ink);
+  --preview-accent: var(--vow-accent);
+  --preview-soft: #e6d7c9;
+}
+.wedding-atlas .product-showcase section > div > a,
+.wedding-atlas .product-templates > header > a {
+  color: var(--vow-accent);
+  font-weight: 600;
+}
+.wedding-atlas .vow-secondary:hover,
+.wedding-atlas .product-showcase a:hover {
+  text-decoration: underline;
+}
+.wedding-atlas .showcase-detail li::marker {
+  color: var(--vow-accent);
+}
+.wedding-atlas .vow-footnote,
+.wedding-atlas .product-showcase figcaption,
+.wedding-atlas .footer > span {
+  color: #655e57;
+}
+.wedding-atlas .product-showcase figcaption {
+  opacity: 1;
+}
+.wedding-atlas .showcase-wedding .workspace-product-preview {
+  --ui-accent: var(--vow-accent);
+  --manager-accent: var(--vow-accent);
+  --gift-accent: var(--vow-accent);
+  --ui-muted: #655e57;
+}
+.wedding-atlas .vow-closing-band {
+  background: #352b26;
+}
+.wedding-atlas .vow-closing {
+  color: #fffbf5;
+}
+.wedding-atlas .vow-closing > .ui-icon {
+  color: #e6b99a;
+}
+.wedding-atlas .vow-closing .button {
+  color: #573729;
+  background: #fffbf5;
+}
+.wedding-atlas .vow-closing .button:hover,
+.wedding-atlas .vow-closing .button:focus-visible {
+  background: #f1dac8;
+}

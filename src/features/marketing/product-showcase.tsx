@@ -21,58 +21,60 @@ export default function ProductShowcase({
     >
       <ShowcaseMotion />
       <TemplateShowcase wedding={wedding} />
-      <section className={`product-craft ${base}`} id="diseno">
-        <div>
-          <h2>
-            {wedding ? (
-              <ResponsiveCopy mobile="Cada detalle, muy suyo.">
-                Su estilo, hasta en el último detalle.
-              </ResponsiveCopy>
-            ) : (
-              <ResponsiveCopy mobile="Tu diseño. Tu estilo.">
-                Cambia el diseño. Conserva lo que cuenta.
-              </ResponsiveCopy>
-            )}
-          </h2>
-          <p>
-            {wedding ? (
-              <ResponsiveCopy mobile="Colores, fotos y secciones a su estilo. Todo se guarda automáticamente.">
-                Cambien la paleta y la tipografía del conjunto, prueben otra
-                plantilla conservando sus textos y fotos, y añadan solo las
-                secciones que necesiten.
-              </ResponsiveCopy>
-            ) : (
-              <ResponsiveCopy mobile="Prueba estilos sin perder tus textos ni fotos. Todo se guarda automáticamente.">
-                Prueba otro diseño sin perder textos ni fotos. Cambia los
-                colores y la tipografía del conjunto y mantén los detalles que
-                personalizaste.
-              </ResponsiveCopy>
-            )}
-          </p>
-          <ul className="showcase-detail">
-            <li>
-              Portada, historia, itinerario, mapa, galería, dress code y
-              confirmación ya adaptados al estilo.
-            </li>
-            <li>
-              Alinear, distribuir, agrupar, bloquear y copiar estilos para
-              cuidar la composición.
-            </li>
-            <li>
-              Nombres largos, fotografías y textos con espacio para respirar.
-            </li>
-            <li>
-              Guardado automático; los cambios de una invitación publicada se
-              aplican cuando decides actualizarla.
-            </li>
-          </ul>
-          <a href={studio}>
-            {wedding ? "Probarlo en el estudio" : "Probarlo en mi espacio"}
-            <Icon name="external" />
-          </a>
-        </div>
-        <EditorPreviewArt wedding={wedding} />
-      </section>
+      <div className={wedding ? "showcase-surface" : undefined}>
+        <section className={`product-craft ${base}`} id="diseno">
+          <div>
+            <h2>
+              {wedding ? (
+                <ResponsiveCopy mobile="Cada detalle, muy suyo.">
+                  Su estilo, hasta en el último detalle.
+                </ResponsiveCopy>
+              ) : (
+                <ResponsiveCopy mobile="Tu diseño. Tu estilo.">
+                  Cambia el diseño. Conserva lo que cuenta.
+                </ResponsiveCopy>
+              )}
+            </h2>
+            <p>
+              {wedding ? (
+                <ResponsiveCopy mobile="Colores, fotos y secciones a su estilo. Todo se guarda automáticamente.">
+                  Cambien la paleta y la tipografía del conjunto, prueben otra
+                  plantilla conservando sus textos y fotos, y añadan solo las
+                  secciones que necesiten.
+                </ResponsiveCopy>
+              ) : (
+                <ResponsiveCopy mobile="Prueba estilos sin perder tus textos ni fotos. Todo se guarda automáticamente.">
+                  Prueba otro diseño sin perder textos ni fotos. Cambia los
+                  colores y la tipografía del conjunto y mantén los detalles que
+                  personalizaste.
+                </ResponsiveCopy>
+              )}
+            </p>
+            <ul className="showcase-detail">
+              <li>
+                Portada, historia, itinerario, mapa, galería, dress code y
+                confirmación ya adaptados al estilo.
+              </li>
+              <li>
+                Alinear, distribuir, agrupar, bloquear y copiar estilos para
+                cuidar la composición.
+              </li>
+              <li>
+                Nombres largos, fotografías y textos con espacio para respirar.
+              </li>
+              <li>
+                Guardado automático; los cambios de una invitación publicada se
+                aplican cuando decides actualizarla.
+              </li>
+            </ul>
+            <a href={studio}>
+              {wedding ? "Probarlo en el estudio" : "Probarlo en mi espacio"}
+              <Icon name="external" />
+            </a>
+          </div>
+          <EditorPreviewArt wedding={wedding} />
+        </section>
+      </div>
       <section className={`product-organize ${base}`}>
         <OrganizationPreviewArt wedding={wedding} />
         <div>
@@ -124,7 +126,9 @@ export default function ProductShowcase({
           </a>
         </div>
       </section>
-      <VenueProductPreview wedding={wedding} />
+      <div className={wedding ? "showcase-surface" : undefined}>
+        <VenueProductPreview wedding={wedding} />
+      </div>
       <GiftsProductPreview wedding={wedding} />
     </div>
   );

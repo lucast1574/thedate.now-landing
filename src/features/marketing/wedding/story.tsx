@@ -52,18 +52,20 @@ export default function WeddingStory() {
           ))}
         </div>
       </section>
-      <section className="vow-closing shell">
-        <Icon name="ring" />
-        <h2>
-          Todo empieza
-          <br />
-          con una fecha.
-        </h2>
-        <p>La suya ya tiene una historia. Ahora denle una invitación.</p>
-        <a className="button" href="https://studio.save.thedate.now">
-          Entrar al estudio de bodas <Icon name="external" />
-        </a>
-      </section>
+      <div className="vow-closing-band">
+        <section className="vow-closing shell">
+          <Icon name="ring" />
+          <h2>
+            Todo empieza
+            <br />
+            con una fecha.
+          </h2>
+          <p>La suya ya tiene una historia. Ahora denle una invitación.</p>
+          <a className="button" href="https://studio.save.thedate.now">
+            Entrar al estudio de bodas <Icon name="external" />
+          </a>
+        </section>
+      </div>
     </>
   );
 }
