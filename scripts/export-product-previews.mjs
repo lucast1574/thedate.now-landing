@@ -22,7 +22,7 @@ const esc = (s) =>
     .replaceAll("<", "&lt;")
     .replaceAll('"', "&quot;");
 const fonts = {};
-for (const name of ["serif", "sans"]) {
+for (const name of ["serif", "sans", "script"]) {
   fonts[name] = (
     await readFile(join(root, `public/fonts/invitation-${name}.woff2`))
   ).toString("base64");
@@ -59,7 +59,14 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
       if (e.type === "image")
         return `<g transform="${rotate}"><rect x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" rx="14" fill="${t.accent}" opacity=".1"/>${renderToStaticMarkup(createElement(Icon, { name: "image" })).replace("<svg ", `<svg x="${centerX - 26}" y="${centerY - 42}" width="52" height="52" color="${t.accent}" `)}<text x="${centerX}" y="${centerY + 38}" font-size="20" text-anchor="middle" fill="${t.accent}">Tu fotografía</text></g>`;
       if (e.type !== "text") return "";
-      const max = Math.max(1, Math.floor(e.width / (e.fontSize * 0.62))),
+      const letterWidth = e.bold
+        ? 0.64
+        : e.font === "script"
+          ? 0.36
+          : e.font === "sans"
+            ? 0.55
+            : 0.53;
+      const max = Math.max(1, Math.floor(e.width / (e.fontSize * letterWidth))),
         lines = [];
       for (const paragraph of (e.text || "").split("\n")) {
         let line = "";
@@ -75,7 +82,7 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
       const longest = Math.max(1, ...lines.map((line) => line.length));
       const size = Math.min(
         e.fontSize,
-        e.width / (longest * 0.66),
+        e.width / (longest * letterWidth),
         e.height / (Math.max(1, lines.length) * 1.2),
       );
       const anchor =
@@ -130,7 +137,7 @@ await writeFile(
   ) + "\n",
 );
 await mkdir(resolve("public/previews/licenses"), { recursive: true });
-for (const name of ["cormorantgaramond", "manrope"])
+for (const name of ["cormorantgaramond", "manrope", "italianno"])
   await copyFile(
     join(root, `public/fonts/${name}-OFL.txt`),
     resolve(`public/previews/licenses/${name}-OFL.txt`),

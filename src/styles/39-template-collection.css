@@ -1,0 +1,162 @@
+.hero-template-scene {
+  margin: 0;
+  min-width: 0;
+}
+.template-catalog-page > article {
+  max-width: 1120px;
+  padding-block: 32px 64px;
+}
+.template-catalog-page h1 {
+  margin: 22px 0 12px;
+  font-size: clamp(38px, 4.5vw, 62px);
+}
+.template-catalog-page .guide-intro {
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+}
+.template-catalog-page article > section {
+  margin-top: 28px;
+}
+.template-catalog-page .topic-template-grid {
+  gap: 36px 24px;
+  margin-top: 0;
+}
+.template-catalog-page .topic-template-grid img {
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+}
+.template-catalog-page .topic-template-grid figcaption {
+  font-size: 15px;
+  line-height: 1.4;
+  margin-top: 12px;
+}
+.template-catalog-page .template-sample-note {
+  font-size: 13px;
+  opacity: 0.7;
+}
+.vow-copy h1,
+.festival-copy h1 {
+  font-size: clamp(44px, 4.7vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+.product-templates .template-stage {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  align-items: center;
+  gap: 32px;
+  height: auto;
+  padding: 40px max(24px, 7%);
+}
+.product-templates .showcase-invitation {
+  position: relative;
+  inset: auto;
+  top: auto;
+  left: auto;
+  width: 100%;
+  transform: none;
+  rotate: 0deg;
+  translate: 0 0;
+  box-shadow: none;
+  animation: none;
+}
+.product-templates .showcase-invitation > span {
+  position: static;
+  display: block;
+  padding: 14px 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.hero-template-pair {
+  display: grid;
+  grid-template-columns: 0.65fr 1fr;
+  align-items: center;
+  gap: 18px;
+}
+.hero-template-pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hero-template-illustrated {
+  transform: translateY(32px);
+}
+.hero-template-scene figcaption {
+  display: grid;
+  gap: 12px;
+  margin-top: 30px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.hero-template-scene figcaption > span {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 25px;
+}
+.festival-site .hero-template-scene figcaption > span {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 19px;
+}
+.hero-template-scene a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  text-underline-offset: 5px;
+}
+.hero-template-scene a:hover {
+  text-decoration: underline;
+}
+.hero-template-scene .ui-icon {
+  width: 18px;
+  height: 18px;
+}
+@media (min-width: 1001px) {
+  .vow-hero,
+  .festival-hero {
+    grid-template-columns: 1fr 1.05fr;
+    gap: 64px;
+    padding-block: 64px 88px;
+  }
+}
+@media (max-width: 760px) {
+  .template-catalog-page > article {
+    padding-top: 24px;
+  }
+  .template-catalog-page .topic-template-grid {
+    gap: 26px 14px;
+  }
+  .template-catalog-page .topic-template-grid figcaption {
+    font-size: 13px;
+  }
+  .vow-copy h1,
+  .festival-copy h1 {
+    font-size: clamp(40px, 10.5vw, 56px);
+  }
+  .product-templates .template-stage {
+    gap: 12px;
+    padding: 24px 12px;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .product-templates .invitation-1 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: min(100%, 270px);
+    justify-self: center;
+  }
+  .product-templates .showcase-invitation > span {
+    font-size: 12px;
+    padding-inline: 2px;
+  }
+  .hero-template-pair {
+    gap: 12px;
+    grid-template-columns: 0.65fr 1fr;
+  }
+  .hero-template-illustrated {
+    transform: translateY(18px);
+  }
+  .hero-template-scene figcaption {
+    margin-top: 24px;
+  }
+}

@@ -7,7 +7,7 @@ export default function TemplateShowcase({ wedding }: { wedding: boolean }) {
   const kind = wedding ? "wedding" : "general",
     templates = catalog.templates.filter((t) => t.kind === kind);
   const choices = wedding
-    ? ["wedding-flyer-olive", "wedding-flyer-cinematic", "wedding-flyer-night"]
+    ? ["wedding-flyer-floral", "wedding-flyer-cinematic", "wedding-flyer-night"]
     : ["general-flyer-party", "general-flyer-cinematic", "general-flyer-gala"];
   const selected = choices.map(
     (id, n) => templates.find((t) => t.id === id) || templates[n],
@@ -19,26 +19,27 @@ export default function TemplateShowcase({ wedding }: { wedding: boolean }) {
         <div>
           <h2>
             {wedding ? (
-              <ResponsiveCopy mobile="Una invitación con vida.">
-                Una invitación que se descubre, poco a poco.
+              <ResponsiveCopy mobile="Una historia. Su estilo.">
+                Una historia. Su propio estilo.
               </ResponsiveCopy>
             ) : (
-              <ResponsiveCopy mobile="Tu plan empieza aquí.">
-                Dale al plan una entrada a lo grande.
+              <ResponsiveCopy mobile="Tu plan tiene su estilo.">
+                Tu plan tiene su propio estilo.
               </ResponsiveCopy>
             )}
           </h2>
           <p>
             {wedding ? (
-              <ResponsiveCopy mobile="24 diseños con movimiento para hacer su historia única.">
-                24 plantillas de boda para contar su historia con movimiento,
-                fotos y detalles que se sienten suyos.
+              <ResponsiveCopy mobile="24 diseños: fotos a toda pantalla, flores ilustradas y letras con personalidad.">
+                Fotografías a toda pantalla, flores ilustradas y letras que
+                acompañan sus nombres. 24 diseños para contar su historia, desde
+                la portada hasta el último detalle.
               </ResponsiveCopy>
             ) : (
-              <ResponsiveCopy mobile="24 diseños con movimiento para cada ocasión.">
-                24 plantillas para cumpleaños, fiestas y encuentros. Diseños con
-                movimiento, fotografía y una personalidad distinta para cada
-                ocasión.
+              <ResponsiveCopy mobile="24 diseños: portadas fotográficas, carteles expresivos y noches de gala.">
+                Portadas fotográficas, carteles expresivos y noches de gala. 24
+                diseños con personalidad para cumpleaños, fiestas y encuentros,
+                listos para hacerlos tuyos.
               </ResponsiveCopy>
             )}
           </p>
@@ -73,9 +74,6 @@ export default function TemplateShowcase({ wedding }: { wedding: boolean }) {
               <span>{t.name}</span>
             </div>
           ))}
-          <div className="scene-envelope" data-animated>
-            <Icon name={wedding ? "flower" : "sparkle"} />
-          </div>
         </div>
         <figcaption>
           Composiciones del catálogo real. Nombres de ejemplo; cada persona

@@ -1,12 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
+import TemplateCatalogGallery from "./template-catalog-gallery";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Brand from "@/components/brand";
 import Icon from "@/components/icon";
 import { publicOrigin } from "./public-origin";
 import { topics, productTopics, contentUpdated } from "./topic-data";
-import catalog from "./template-preview-data.json";
 
 async function resolveTopic(slug: string) {
   const origin = await publicOrigin();
@@ -59,7 +58,8 @@ export default async function TopicPage({ slug }: { slug: string }) {
     studio = wedding
       ? "https://studio.save.thedate.now"
       : "https://crea.thedate.now",
-    url = `${origin}/${slug}`;
+    url = `${origin}/${slug}`,
+    isCatalog = slug.startsWith("plantillas-");
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -79,7 +79,7 @@ export default async function TopicPage({ slug }: { slug: string }) {
   };
   return (
     <main
-      className={`guide-page ${wedding ? "wedding-atlas" : "festival-site"}`}
+      className={`guide-page ${isCatalog ? "template-catalog-page" : ""} ${wedding ? "wedding-atlas" : "festival-site"}`}
     >
       <header>
         <Link href="/" aria-label={`${name}, inicio`}>
@@ -94,68 +94,51 @@ export default async function TopicPage({ slug }: { slug: string }) {
         <nav aria-label="Ruta de navegación">
           <Link href="/">{name}</Link>
           <Icon name="arrow" />
-          <span>{item.title}</span>
+          <span>{isCatalog ? "Plantillas" : item.title}</span>
         </nav>
-        <h1>{item.title}</h1>
-        <p className="guide-intro">{item.intro}</p>
-        {item.sections.map(([title, text]) => (
-          <section key={title}>
-            <h2>{title}</h2>
-            <p>{text}</p>
-          </section>
-        ))}
-        {slug.startsWith("plantillas-") && (
-          <section>
-            <h2>
-              {wedding
-                ? "El catálogo de bodas"
-                : "Diseños para tu próximo evento"}
-            </h2>
-            <p>
-              24 composiciones del catálogo del estudio. Estas muestras usan
-              nombres de ejemplo y espacios de fotografía ilustrativos.
-            </p>
-            <div className="topic-template-grid">
-              {catalog.templates
-                .filter((t) => t.kind === item.kind)
-                .map((t) => (
-                  <figure key={t.id}>
-                    <Image
-                      unoptimized
-                      src={t.image}
-                      width={t.width}
-                      height={t.height}
-                      loading="lazy"
-                      decoding="async"
-                      alt={`Composición ${t.name}`}
-                    />
-                    <figcaption>{t.name}</figcaption>
-                  </figure>
-                ))}
-            </div>
-          </section>
+        <h1>
+          {isCatalog
+            ? wedding
+              ? "Su historia, su estilo."
+              : "Elige cómo empieza."
+            : item.title}
+        </h1>
+        <p className="guide-intro">
+          {isCatalog
+            ? "24 diseños para hacer tuyos con tus fotos, colores y palabras."
+            : item.intro}
+        </p>
+        {!isCatalog &&
+          item.sections.map(([title, text]) => (
+            <section key={title}>
+              <h2>{title}</h2>
+              <p>{text}</p>
+            </section>
+          ))}
+        {isCatalog && <TemplateCatalogGallery wedding={wedding} />}
+        {!isCatalog && (
+          <aside className="topic-related">
+            <h2>Más para preparar {wedding ? "su boda" : "el encuentro"}</h2>
+            <a
+              href={
+                wedding
+                  ? "/invitaciones-digitales-de-boda"
+                  : "/invitaciones-digitales-para-eventos"
+              }
+            >
+              Guía para crear y compartir la invitación
+              <Icon name="arrow" />
+            </a>
+            {productTopics(wedding)
+              .filter((t) => t.slug !== slug)
+              .map((t) => (
+                <a href={`/${t.slug}`} key={t.slug}>
+                  {t.title}
+                  <Icon name="arrow" />
+                </a>
+              ))}
+          </aside>
         )}
-        <aside className="topic-related">
-          <h2>Más para preparar {wedding ? "su boda" : "el encuentro"}</h2>
-          <a
-            href={
-              wedding
-                ? "/invitaciones-digitales-de-boda"
-                : "/invitaciones-digitales-para-eventos"
-            }
-          >
-            Guía para crear y compartir la invitación
-            <Icon name="arrow" />
-          </a>
-          {productTopics(wedding)
-            .filter((t) => t.slug !== slug)
-            .map((t) => (
-              <a href={`/${t.slug}`} key={t.slug}>
-                {t.title}
-                <Icon name="arrow" />
-              </a>
-            ))}
-        </aside>
         <div className="guide-action">
           <h2>
             {wedding
