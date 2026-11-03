@@ -1,3 +1,4 @@
+import { previewPhoto } from "./preview-photo.mjs";
 import { createRequire } from "node:module";
 import { resolve, join } from "node:path";
 import { mkdir, writeFile, readFile, copyFile } from "node:fs/promises";
@@ -12,6 +13,8 @@ const load = (file) =>
   loadSource(file, { root, globals: { crypto: webcrypto } });
 const { invitationTemplates } = load("src/lib/events/template-catalog.ts");
 const { templateCanvas } = load("src/features/designer/template-canvas.ts");
+const { templateSequence } = load("src/features/designer/template-sequence.ts");
+const { fitInvitationText } = load("src/lib/events/fit-invitation-text.ts");
 const { default: Artwork } = load("src/components/invitation-artwork.tsx");
 const { default: Icon } = load("src/components/icon.tsx");
 const folder = resolve("public/previews/templates");
@@ -41,29 +44,31 @@ for (const kind of ["wedding", "general"]) {
     /* Keep the export usable without marketing photographs. */
   }
 }
-const entries = [];
-for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
-  const canvas = templateCanvas(t),
-    art = renderToStaticMarkup(
-      createElement(Artwork, {
-        style: canvas.artEditable ? undefined : canvas.art,
-        color: t.accent,
-        canvas,
-      }),
-    ).replace("<svg ", `<svg width="720" height="${canvas.height}" `);
+const floralAssets = {};
+for (const name of ["floral-corner", "floral-stem"]) {
+  floralAssets[`/templates/art/${name}.png`] =
+    `data:image/png;base64,${(await readFile(join(root, `public/templates/art/${name}.png`))).toString("base64")}`;
+}
+function renderPreview(t, canvas) {
+  const art = renderToStaticMarkup(
+    createElement(Artwork, {
+      style: canvas.artEditable ? undefined : canvas.art,
+      color: t.accent,
+      canvas,
+    }),
+  ).replace("<svg ", `<svg width="720" height="${canvas.height}" `);
   const draw = canvas.elements
-    .map((e) => {
+    .map((raw) => {
+      const e = { ...raw, fontSize: fitInvitationText(raw) };
       const centerX = e.x + e.width / 2,
         centerY = e.y + e.height / 2,
         rotate = `rotate(${e.rotation} ${centerX} ${centerY})`;
-      if (e.type === "image" && samples[t.kind]) {
-        const mask = `photo-${t.id}-${e.id}`;
-        return `<g transform="${rotate}"><defs><linearGradient id="${mask}"><stop offset="0" stop-color="white"/><stop offset="1" stop-color="white"/></linearGradient><linearGradient id="${mask}-fade" x2="0" y2="1"><stop offset=".65" stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient><mask id="${mask}-mask"><rect x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" fill="url(#${mask}-fade)"/></mask></defs><image x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" preserveAspectRatio="xMidYMid slice" href="data:image/jpeg;base64,${samples[t.kind]}" ${e.photoTreatment === "fade" ? 'mask="url(#' + mask + '-mask)"' : ""}/>${e.photoTreatment === "cinema" ? `<rect x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" fill="#000" opacity=".35"/>` : ""}</g>`;
-      }
+      if (e.type === "image" && samples[t.kind])
+        return previewPhoto(e, samples[t.kind], `${t.id}-${e.id}`);
       if (e.type === "image")
         return `<g transform="${rotate}"><rect x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" rx="14" fill="${t.accent}" opacity=".1"/>${renderToStaticMarkup(createElement(Icon, { name: "image" })).replace("<svg ", `<svg x="${centerX - 26}" y="${centerY - 42}" width="52" height="52" color="${t.accent}" `)}<text x="${centerX}" y="${centerY + 38}" font-size="20" text-anchor="middle" fill="${t.accent}">Tu fotografía</text></g>`;
       if (e.type === "icon")
-        return `<g transform="${rotate}" opacity="${e.opacity ?? 1}">${renderToStaticMarkup(createElement(Icon, { name: e.icon })).replace("<svg ", `<svg x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" color="${e.color}" `)}</g>`;
+        return `<g transform="${rotate}" opacity="${e.opacity ?? 1}">${renderToStaticMarkup(createElement(Icon, { name: e.icon }), { identifierPrefix: `${t.id}-${e.id}-` }).replace("<svg ", `<svg x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" color="${e.color}" `)}</g>`;
       if (e.type !== "text") return "";
       const letterWidth = e.bold
         ? 0.64
@@ -74,7 +79,9 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
             : 0.53;
       const max = Math.max(1, Math.floor(e.width / (e.fontSize * letterWidth))),
         lines = [];
-      for (const paragraph of (e.text || "").split("\n")) {
+      for (const paragraph of (e.text || "")
+        .replace("{{nombre_invitado}}", "María")
+        .split("\n")) {
         let line = "";
         for (const word of paragraph.split(/\s+/)) {
           if (line && line.length + word.length + 1 > max) {
@@ -89,7 +96,7 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
       const size = Math.min(
         e.fontSize,
         e.width / (longest * letterWidth),
-        e.height / (Math.max(1, lines.length) * 1.2),
+        e.height / (Math.max(1, lines.length) * (e.lineHeight || 1.2)),
       );
       const anchor =
           e.align === "left" ? "start" : e.align === "right" ? "end" : "middle",
@@ -99,7 +106,7 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
             : e.align === "right"
               ? e.x + e.width
               : centerX;
-      return `<g transform="${rotate}"><text x="${x}" y="${centerY - (lines.length - 1) * size * 0.6}" font-family="Preview-${e.font},Georgia,serif" font-size="${size}" font-weight="${e.bold ? 700 : 400}" text-anchor="${anchor}" dominant-baseline="middle" fill="${e.color}">${lines.map((line, n) => `<tspan x="${x}" dy="${n ? size * 1.2 : 0}">${esc(line)}</tspan>`).join("")}</text></g>`;
+      return `<g transform="${rotate}"><text x="${x}" y="${centerY - (lines.length - 1) * size * 0.6}" font-family="Preview-${e.font},Georgia,serif" font-size="${size}" font-style="${e.italic ? "italic" : "normal"}" letter-spacing="${(e.letterSpacing || 0) * size}" font-weight="${e.bold ? 700 : 400}" text-anchor="${anchor}" dominant-baseline="middle" fill="${e.color}">${lines.map((line, n) => `<tspan x="${x}" dy="${n ? size * (e.lineHeight || 1.2) : 0}">${esc(line)}</tspan>`).join("")}</text></g>`;
     })
     .join("");
   const used = new Set(
@@ -113,7 +120,34 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
     )
     .join("");
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="720" height="${canvas.height}" viewBox="0 0 720 ${canvas.height}" role="img" aria-label="${esc(t.name)}"><style>${css}</style><rect width="720" height="${canvas.height}" fill="${canvas.background}"/>${art}${draw}</svg>`;
+  return Object.entries(floralAssets).reduce(
+    (result, [url, data]) => result.replaceAll(url, data),
+    svg,
+  );
+}
+const entries = [];
+for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
+  const canvas = templateCanvas(t),
+    svg = renderPreview(t, canvas);
   await writeFile(join(folder, t.id + ".svg"), svg);
+  const sections = templateSequence(t, {
+    startAt: "2027-06-12T21:00:00Z",
+    timeZone: "America/Bogota",
+    location:
+      t.kind === "wedding" ? "Jardín de la celebración" : "Lugar del encuentro",
+  }).filter((s) =>
+    [
+      "Nuestra historia",
+      "Nos reunimos",
+      "Fecha y hora",
+      "Lista de regalos",
+    ].includes(s.heading),
+  );
+  const panels = sections.map((s, i) =>
+    renderPreview(t, s.canvas).replace("<svg ", `<svg x="${i * 744}" y="0" `),
+  );
+  const inside = `<svg xmlns="http://www.w3.org/2000/svg" width="${sections.length * 744 - 24}" height="${Math.max(...sections.map((s) => s.canvas.height))}" viewBox="0 0 ${sections.length * 744 - 24} ${Math.max(...sections.map((s) => s.canvas.height))}">${panels.join("")}</svg>`;
+  await writeFile(join(folder, t.id + "-interior.svg"), inside);
   entries.push({
     id: t.id,
     name: t.name,
@@ -124,6 +158,8 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
     accent: t.accent,
     background: t.background,
     image: `/previews/templates/${t.id}.svg?v=${createHash("sha256").update(svg).digest("hex").slice(0, 12)}`,
+    interior: `/previews/templates/${t.id}-interior.svg?v=${createHash("sha256").update(inside).digest("hex").slice(0, 12)}`,
+    interiorHeight: Math.max(...sections.map((s) => s.canvas.height)),
     width: 720,
     height: canvas.height,
   });

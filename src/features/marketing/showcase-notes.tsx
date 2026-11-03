@@ -7,8 +7,8 @@ export default function ShowcaseNotes() {
         <span>
           <strong>Adornos que puedes hacer tuyos</strong>
           <span className="showcase-detail">
-            Doce piezas en seis colecciones. Muévelas, cambia su color y ajusta
-            su intensidad.
+            Catorce piezas en seis colecciones. Muévelas, cambia su color y
+            ajusta su intensidad.
           </span>
         </span>
       </p>

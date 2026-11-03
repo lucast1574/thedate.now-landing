@@ -173,3 +173,62 @@
     margin-top: 24px;
   }
 }
+.template-interior-button,
+.template-interior-preview button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 10px 0;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  cursor: pointer;
+}
+.template-interior-button:focus-visible,
+.template-interior-preview button:focus-visible {
+  outline: none;
+  background: #e6dfd5;
+}
+.template-interior-preview {
+  padding: 24px;
+  margin-bottom: 32px;
+  background: #e9e4dd;
+}
+.template-interior-preview header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.template-interior-preview h2 {
+  margin: 0;
+}
+.template-interior-preview p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.template-interior-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 24px 0;
+}
+.template-interior-preview > a {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+@media (max-width: 600px) {
+  .template-interior-preview {
+    padding: 16px;
+  }
+  .template-interior-panels {
+    overflow-x: auto;
+  }
+  .template-interior-preview header {
+    display: block;
+  }
+  .template-interior-preview img {
+    width: 870px;
+    max-width: none;
+  }
+}

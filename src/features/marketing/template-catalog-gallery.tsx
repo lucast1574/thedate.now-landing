@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import catalog from "./template-preview-data.json";
 
@@ -23,6 +23,12 @@ export default function TemplateCatalogGallery({
   wedding: boolean;
 }) {
   const [collection, setCollection] = useState("all");
+  const [selected, setSelected] = useState<string>();
+  const preview = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (selected) preview.current?.scrollIntoView({ block: "start" });
+  }, [selected]);
+  const detail = catalog.templates.find((t) => t.id === selected);
   const collections = [
     ["all", "Todas"],
     ["botanical", "Jardín botánico"],
@@ -49,7 +55,10 @@ export default function TemplateCatalogGallery({
             key={id}
             type="button"
             aria-pressed={collection === id}
-            onClick={() => setCollection(id)}
+            onClick={() => {
+              setCollection(id);
+              setSelected(undefined);
+            }}
           >
             {label}
           </button>
@@ -58,6 +67,45 @@ export default function TemplateCatalogGallery({
       <p className="template-collection-count" aria-live="polite">
         {templates.length} diseños · Todos personalizables en el editor
       </p>
+      {detail && (
+        <section
+          ref={preview}
+          className="template-interior-preview"
+          aria-label={`Interior de ${detail.name}`}
+        >
+          <header>
+            <div>
+              <h2>{detail.name}</h2>
+              <p>
+                Una muestra del interior. Cada plantilla incluye bienvenida,
+                fecha, ubicación, vestimenta, restricciones, regalos, programa y
+                confirmación, con la misma identidad de principio a fin.
+              </p>
+            </div>
+            <button type="button" onClick={() => setSelected(undefined)}>
+              Cerrar interior
+            </button>
+          </header>
+          <div className="template-interior-panels">
+            <Image
+              unoptimized
+              src={detail.interior}
+              width={2208}
+              height={detail.interiorHeight}
+              alt={`Secciones interiores de ${detail.name}`}
+            />
+          </div>
+          <a
+            href={
+              wedding
+                ? "https://studio.save.thedate.now/"
+                : "https://crea.thedate.now/"
+            }
+          >
+            Personalizar en el estudio
+          </a>
+        </section>
+      )}
       <div className="topic-template-grid">
         {templates.map((t, index) => (
           <figure key={t.id}>
@@ -76,6 +124,14 @@ export default function TemplateCatalogGallery({
                 {collections.find(([id]) => id === t.collection)?.[1]}
               </span>
             </figcaption>
+            <button
+              className="template-interior-button"
+              type="button"
+              aria-pressed={selected === t.id}
+              onClick={() => setSelected(selected === t.id ? undefined : t.id)}
+            >
+              Ver interior
+            </button>
           </figure>
         ))}
       </div>
