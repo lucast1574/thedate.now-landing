@@ -2,6 +2,37 @@
   margin: 0;
   min-width: 0;
 }
+.template-collection-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 20px;
+}
+.template-collection-filters button {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  padding: 10px 0;
+  font: inherit;
+  cursor: pointer;
+  text-underline-offset: 7px;
+}
+.template-collection-filters button[aria-pressed="true"],
+.template-collection-filters button:hover,
+.template-collection-filters button:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+.template-collection-count {
+  margin: 0 0 24px;
+  font-size: 14px;
+}
+.template-collection-name {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.75;
+}
 .template-catalog-page > article {
   max-width: 1120px;
   padding-block: 32px 64px;

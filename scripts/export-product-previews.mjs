@@ -45,7 +45,11 @@ const entries = [];
 for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
   const canvas = templateCanvas(t),
     art = renderToStaticMarkup(
-      createElement(Artwork, { style: canvas.art, color: t.accent, canvas }),
+      createElement(Artwork, {
+        style: canvas.artEditable ? undefined : canvas.art,
+        color: t.accent,
+        canvas,
+      }),
     ).replace("<svg ", `<svg width="720" height="${canvas.height}" `);
   const draw = canvas.elements
     .map((e) => {
@@ -58,6 +62,8 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
       }
       if (e.type === "image")
         return `<g transform="${rotate}"><rect x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" rx="14" fill="${t.accent}" opacity=".1"/>${renderToStaticMarkup(createElement(Icon, { name: "image" })).replace("<svg ", `<svg x="${centerX - 26}" y="${centerY - 42}" width="52" height="52" color="${t.accent}" `)}<text x="${centerX}" y="${centerY + 38}" font-size="20" text-anchor="middle" fill="${t.accent}">Tu fotografía</text></g>`;
+      if (e.type === "icon")
+        return `<g transform="${rotate}" opacity="${e.opacity ?? 1}">${renderToStaticMarkup(createElement(Icon, { name: e.icon })).replace("<svg ", `<svg x="${e.x}" y="${e.y}" width="${e.width}" height="${e.height}" color="${e.color}" `)}</g>`;
       if (e.type !== "text") return "";
       const letterWidth = e.bold
         ? 0.64
@@ -113,6 +119,7 @@ for (const t of invitationTemplates.filter((t) => t.mode === "flyer")) {
     name: t.name,
     kind: t.kind,
     category: t.category,
+    collection: canvas.art || "editorial",
     description: t.tagline,
     accent: t.accent,
     background: t.background,

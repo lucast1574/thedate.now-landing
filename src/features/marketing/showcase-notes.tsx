@@ -3,12 +3,12 @@ export default function ShowcaseNotes() {
   return (
     <div className="showcase-notes">
       <p>
-        <Icon name="mail" />
+        <Icon name="leaf" />
         <span>
-          <strong>Un comienzo con emoción</strong>
+          <strong>Adornos que puedes hacer tuyos</strong>
           <span className="showcase-detail">
-            Seis aperturas animadas: carta, jardín, ticket, telón, flor y
-            constelación.
+            Doce piezas en seis colecciones. Muévelas, cambia su color y ajusta
+            su intensidad.
           </span>
         </span>
       </p>
@@ -17,16 +17,18 @@ export default function ShowcaseNotes() {
         <span>
           <strong>Fotos que forman parte del diseño</strong>
           <span className="showcase-detail">
-            Portadas a sangre, arcos y bordes suaves que se funden con el fondo.
+            Arcos, bordes suaves y portadas fotográficas. Ajusta el encuadre
+            para conservar lo importante.
           </span>
         </span>
       </p>
       <p>
-        <Icon name="music" />
+        <Icon name="layout" />
         <span>
-          <strong>También tiene su canción</strong>
+          <strong>Las letras también cuentan</strong>
           <span className="showcase-detail">
-            Música con un archivo MP3 propio o un enlace de YouTube.
+            Siete opciones tipográficas, cursiva e interlineado. Edita los
+            textos libres directamente sobre el diseño.
           </span>
         </span>
       </p>

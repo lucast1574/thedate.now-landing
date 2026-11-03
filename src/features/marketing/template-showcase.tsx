@@ -30,16 +30,16 @@ export default function TemplateShowcase({ wedding }: { wedding: boolean }) {
           </h2>
           <p>
             {wedding ? (
-              <ResponsiveCopy mobile="24 diseños: fotos a toda pantalla, flores ilustradas y letras con personalidad.">
-                Fotografías a toda pantalla, flores ilustradas y letras que
-                acompañan sus nombres. 24 diseños para contar su historia, desde
-                la portada hasta el último detalle.
+              <ResponsiveCopy mobile="24 diseños en seis colecciones. Adornos, letras y fotos que pueden hacer suyos.">
+                Jardines botánicos, lazos románticos y detalles de gala. 24
+                diseños en seis colecciones, con adornos editables y
+                composiciones que acompañan su historia de principio a fin.
               </ResponsiveCopy>
             ) : (
-              <ResponsiveCopy mobile="24 diseños: portadas fotográficas, carteles expresivos y noches de gala.">
-                Portadas fotográficas, carteles expresivos y noches de gala. 24
-                diseños con personalidad para cumpleaños, fiestas y encuentros,
-                listos para hacerlos tuyos.
+              <ResponsiveCopy mobile="24 diseños en seis colecciones. Cambia las letras, mueve los adornos y encuadra tus fotos.">
+                Fiesta gráfica, composiciones editoriales y noches de gala. 24
+                diseños en seis colecciones para cumpleaños y encuentros. Cambia
+                las letras, mueve los adornos y encuadra tus fotos.
               </ResponsiveCopy>
             )}
           </p>
