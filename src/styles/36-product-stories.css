@@ -489,18 +489,13 @@
   }
   .gift-product-preview {
     padding: 20px;
-    overflow: hidden;
   }
   .gift-product-grid {
-    display: flex;
-    width: calc(160% + 20px);
+    grid-template-columns: minmax(0, 1fr);
     gap: 14px;
   }
   .gift-product-item {
-    flex: 1;
-  }
-  .gift-product-item:last-child {
-    display: none;
+    animation: none;
   }
   .gift-product-heading > strong {
     font-size: 26px;
@@ -513,7 +508,7 @@
     font-size: 15px;
   }
   .workspace-product-preview .gift-image {
-    aspect-ratio: 1.2;
+    aspect-ratio: 1.8;
   }
   .workspace-product-preview .gift-card-meta {
     gap: 5px;
