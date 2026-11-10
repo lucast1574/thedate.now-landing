@@ -50,7 +50,7 @@ export default async function LegalPage({ kind }: { kind: LegalKind }) {
         {kind === "privacidad" && <PrivacyContent name={name} email={email} />}
         {kind === "terminos" && <TermsContent name={name} email={email} />}
         {kind === "eliminar-cuenta" && (
-          <DeletionContent name={name} email={email} />
+          <DeletionContent name={name} email={email} studio={studio} />
         )}
         {kind === "soporte" && (
           <SupportContent name={name} email={email} studio={studio} />
