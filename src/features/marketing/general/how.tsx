@@ -1,41 +1,51 @@
+import { useTranslator } from "@/lib/i18n/react";
 import Icon from "@/components/icon";
 export default function GeneralHow() {
+  const i18n = useTranslator();
+
   return (
     <section className="party-how" id="como-funciona">
       <div className="party-shell">
         <div className="party-how-intro">
-          <p className="party-eyebrow">DE LA IDEA AL “¡ALLÁ ESTARÉ!”</p>
+          <p className="party-eyebrow">
+            {i18n("DE LA IDEA AL “¡ALLÁ ESTARÉ!”")}
+          </p>
           <h2>
-            Todo fluye
-            <br />
-            <em>mejor junto.</em>
+            {i18n("Todo fluye")} <br />
+            <em>{i18n("mejor junto.")}</em>
           </h2>
         </div>
         <div className="party-steps">
           <article>
             <span>01</span>
-            <h3>Hazla tuya</h3>
+            <h3>{i18n("Hazla tuya")}</h3>
             <p>
-              Elige el estilo, agrega fotos y escribe los detalles con tu voz.
+              {i18n(
+                "Elige el estilo, agrega fotos y escribe los detalles con tu voz.",
+              )}
             </p>
           </article>
           <article>
             <span>02</span>
-            <h3>Invita fácil</h3>
+            <h3>{i18n("Invita fácil")}</h3>
             <p>
-              Comparte una dirección única y envía invitaciones por WhatsApp.
+              {i18n(
+                "Comparte una dirección única y envía invitaciones por WhatsApp.",
+              )}
             </p>
           </article>
           <article>
             <span>03</span>
-            <h3>Disfruta el plan</h3>
-            <p>Mira quién confirmó y lleva el aforo desde tu espacio.</p>
+            <h3>{i18n("Disfruta el plan")}</h3>
+            <p>
+              {i18n("Mira quién confirmó y lleva el aforo desde tu espacio.")}
+            </p>
           </article>
         </div>
         <div className="party-final">
-          <span>¿Ya tienes una fecha?</span>
+          <span>{i18n("¿Ya tienes una fecha?")}</span>
           <a className="party-button" href="https://crea.thedate.now">
-            Hagamos que pase <Icon name="external" />
+            {i18n("Hagamos que pase")} <Icon name="external" />
           </a>
         </div>
       </div>

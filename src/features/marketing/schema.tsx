@@ -1,14 +1,22 @@
+import { useTranslator } from "@/lib/i18n/react";
 export default function MarketingSchema({
   wedding = false,
 }: {
   wedding?: boolean;
 }) {
+  const i18n = useTranslator();
+
   const name = wedding ? "Save the Date" : "The Date";
   const url = wedding ? "https://save.thedate.now/" : "https://thedate.now/";
   const data = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Organization", "@id": `${url}#organization`, name, url },
+      {
+        "@type": "Organization",
+        "@id": `${url}#organization`,
+        name,
+        url,
+      },
       {
         "@type": "WebApplication",
         "@id": `${url}#application`,
@@ -18,16 +26,16 @@ export default function MarketingSchema({
           : "https://crea.thedate.now",
         applicationCategory: "DesignApplication",
         operatingSystem: "Web",
-        inLanguage: "es",
+        inLanguage: i18n.locale,
         publisher: { "@id": `${url}#organization` },
         featureList: [
-          "24 plantillas de invitaciones",
-          "Aperturas animadas y música",
-          "Estilos globales y biblioteca de secciones",
-          "Envío por WhatsApp",
-          "Confirmaciones de asistencia",
-          "Organización de mesas",
-          "Lista de regalos con reservas",
+          i18n("24 plantillas de invitaciones"),
+          i18n("Aperturas animadas y música"),
+          i18n("Estilos globales y biblioteca de secciones"),
+          i18n("Envío por WhatsApp"),
+          i18n("Confirmaciones de asistencia"),
+          i18n("Organización de mesas"),
+          i18n("Lista de regalos con reservas"),
         ],
       },
       {
@@ -43,8 +51,8 @@ export default function MarketingSchema({
         "@id": `${url}#webpage`,
         url,
         name: wedding
-          ? "Invitaciones digitales de boda"
-          : "Invitaciones digitales para eventos",
+          ? i18n("Invitaciones digitales de boda")
+          : i18n("Invitaciones digitales para eventos"),
         isPartOf: { "@id": `${url}#website` },
         inLanguage: "es",
         primaryImageOfPage: {
@@ -54,14 +62,18 @@ export default function MarketingSchema({
           height: 630,
         },
         about: {
-          "@type": "Thing",
+          "@type": i18n("Thing"),
           name: wedding
-            ? "Invitaciones digitales de boda"
-            : "Invitaciones digitales para eventos",
+            ? i18n("Invitaciones digitales de boda")
+            : i18n("Invitaciones digitales para eventos"),
         },
         description: wedding
-          ? "Diseñen su invitación de boda, compartan los detalles y organicen invitados y confirmaciones."
-          : "Crea invitaciones para cumpleaños, fiestas y reuniones. Comparte tu evento y organiza confirmaciones.",
+          ? i18n(
+              "Diseñen su invitación de boda, compartan los detalles y organicen invitados y confirmaciones.",
+            )
+          : i18n(
+              "Crea invitaciones para cumpleaños, fiestas y reuniones. Comparte tu evento y organiza confirmaciones.",
+            ),
       },
     ],
   };

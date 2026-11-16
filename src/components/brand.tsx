@@ -1,3 +1,4 @@
+import { useTranslator } from "@/lib/i18n/react";
 export function WeddingMark({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -21,13 +22,17 @@ export function WeddingMark({ className = "" }: { className?: string }) {
 }
 
 export default function Brand({ wedding = false }: { wedding?: boolean }) {
+  const i18n = useTranslator();
+
   if (wedding)
     return (
       <span className="brand brand-wedding">
         <WeddingMark className="wedding-mark" />
         <span className="brand-wedding-type">
-          <span className="brand-wedding-title">SAVE THE DATE</span>
-          <span className="brand-wedding-subtitle">INVITACIONES DE BODA</span>
+          <span className="brand-wedding-title">{"SAVE THE DATE"}</span>
+          <span className="brand-wedding-subtitle">
+            {i18n("INVITACIONES DE BODA")}
+          </span>
         </span>
       </span>
     );
@@ -51,7 +56,8 @@ export default function Brand({ wedding = false }: { wedding?: boolean }) {
         <circle className="party-dot party-dot-purple" cx="18" cy="9" r="1.8" />
       </svg>
       <span className="brand-wordmark">
-        the date<span className="dot">.</span>
+        {"the date"}
+        <span className="dot">.</span>
       </span>
     </span>
   );

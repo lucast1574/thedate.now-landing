@@ -1,56 +1,57 @@
+import { useTranslator } from "@/lib/i18n/react";
 import Icon from "@/components/icon";
 import { WeddingMark } from "@/components/brand";
 export default function WeddingHero() {
+  const i18n = useTranslator();
+
   return (
     <section className="vow-hero shell">
       <div className="vow-copy">
-        <p className="vow-intro">Invitaciones digitales de boda</p>
+        <p className="vow-intro">{i18n("Invitaciones digitales de boda")}</p>
         <h1>
-          Su historia merece
-          <br />
-          una invitación
-          <br />
-          inolvidable.
+          {i18n("Su historia merece")} <br />
+          {i18n("una invitación")} <br />
+          {i18n("inolvidable.")}
         </h1>
         <p>
-          Antes del gran día, llega ese primer «sí, ahí estaremos». Creen una
-          invitación con sus fotos, los detalles de la boda y un lugar para cada
-          invitado.
+          {i18n(
+            "Antes del gran día, llega ese primer «sí, ahí estaremos». Creen una invitación con sus fotos, los detalles de la boda y un lugar para cada invitado.",
+          )}
         </p>
         <a className="button" href="https://studio.save.thedate.now">
-          Diseñar nuestra invitación <Icon name="external" />
+          {i18n("Diseñar nuestra invitación")} <Icon name="external" />
         </a>
         <a className="vow-secondary" href="#como-funciona">
-          Conocer la experiencia <Icon name="down" />
+          {i18n("Conocer la experiencia")} <Icon name="down" />
         </a>
         <span className="vow-footnote">
-          Diseñen y guarden gratis. Publiquen cuando esté lista.
+          {i18n("Diseñen y guarden gratis. Publiquen cuando esté lista.")}
         </span>
       </div>
       <figure className="vow-scene">
         <div className="vow-envelope" aria-hidden="true" />
         <div className="vow-invitation">
           <WeddingMark className="vow-flower" />
-          <span>Con ustedes, siempre</span>
+          <span>{i18n("Con ustedes, siempre")}</span>
           <strong>
-            Sofía
-            <br />
-            <i>&</i> Mateo
+            {i18n("Sofía")} <br />
+            <i>&</i> {i18n("Mateo")}
           </strong>
-          <div className="vow-date">21 de junio de 2027</div>
+          <div className="vow-date">{i18n("21 de junio de 2027")}</div>
           <p>
-            Una vida por compartir.
-            <br />
-            Un día para celebrar.
+            {i18n("Una vida por compartir.")} <br />
+            {i18n("Un día para celebrar.")}
           </p>
           <span className="vow-invitation-bottom">
-            Nos encantará verlos allí
+            {i18n("Nos encantará verlos allí")}
           </span>
         </div>
         <span className="vow-seal" aria-hidden="true">
           <WeddingMark />
         </span>
-        <figcaption>Una muestra de lo que pueden crear juntos.</figcaption>
+        <figcaption>
+          {i18n("Una muestra de lo que pueden crear juntos.")}
+        </figcaption>
       </figure>
     </section>
   );

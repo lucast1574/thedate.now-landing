@@ -62,7 +62,7 @@ test("the two brands have distinct canonical URLs and social images", () => {
 
 test("topic metadata and pages stay on their product host", async () => {
   const { topics } = loadSource("src/features/marketing/topic-data.ts");
-  for (const item of topics) {
+  for (const item of topics()) {
     const host = item.kind === "wedding" ? "save.thedate.now" : "thedate.now";
     const options = context(host);
     options.mocks["next/navigation"] = {

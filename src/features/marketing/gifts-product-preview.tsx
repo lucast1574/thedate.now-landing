@@ -1,7 +1,11 @@
+import { useTranslator } from "@/lib/i18n/react";
 import ResponsiveCopy from "./responsive-copy";
 import Icon from "@/components/icon";
-import preview from "./workspace-preview-data.json";
+import { useWorkspacePreview } from "./workspace-preview";
 export default function GiftsProductPreview({ wedding }: { wedding: boolean }) {
+  const i18n = useTranslator();
+  const preview = useWorkspacePreview();
+
   return (
     <section
       className={`product-gifts ${wedding ? "shell" : "party-shell"}`}
@@ -10,19 +14,24 @@ export default function GiftsProductPreview({ wedding }: { wedding: boolean }) {
       <div>
         <h2>
           {wedding
-            ? "Un detalle elegido con cariño."
-            : "Regalos que sí van contigo."}
+            ? i18n("Un detalle elegido con cariño.")
+            : i18n("Regalos que sí van contigo.")}
         </h2>
         <p>
           <ResponsiveCopy mobile="Una lista dentro de la invitación. Cada regalo se reserva una sola vez.">
             {wedding
-              ? "Reúnan sus ideas en una lista que forma parte de la invitación. Cada invitado puede elegir un regalo y ver cuáles ya están reservados."
-              : "Reúne tus ideas en una lista dentro de la invitación. Tu gente puede elegir un regalo y ver qué opciones siguen disponibles."}
+              ? i18n(
+                  "Reúnan sus ideas en una lista que forma parte de la invitación. Cada invitado puede elegir un regalo y ver cuáles ya están reservados.",
+                )
+              : i18n(
+                  "Reúne tus ideas en una lista dentro de la invitación. Tu gente puede elegir un regalo y ver qué opciones siguen disponibles.",
+                )}
           </ResponsiveCopy>
         </p>
         <p className="showcase-detail">
-          Una elección personal, sin regalos repetidos. La compra se hace por
-          separado en la tienda.
+          {i18n(
+            "Una elección personal, sin regalos repetidos. La compra se hace por separado en la tienda.",
+          )}
         </p>
       </div>
       <figure className="workspace-product-preview gift-product-preview">
@@ -31,10 +40,10 @@ export default function GiftsProductPreview({ wedding }: { wedding: boolean }) {
             <Icon name="lucide:gift" />
             <strong>
               {wedding
-                ? "Un detalle para nuestra nueva etapa"
-                : "Detalles para celebrar"}
+                ? i18n("Un detalle para nuestra nueva etapa")
+                : i18n("Detalles para celebrar")}
             </strong>
-            <span>Tu compañía es el mejor regalo.</span>
+            <span>{i18n("Tu compañía es el mejor regalo.")}</span>
           </div>
           <div className="gift-product-grid">
             {preview.gifts.map((html, index) => (
@@ -67,14 +76,15 @@ export default function GiftsProductPreview({ wedding }: { wedding: boolean }) {
           <span className="gift-product-receipt" data-animated>
             <Icon name="check" />
             <span>
-              <strong>Tu elección está reservada</strong>Los demás invitados
-              verán que ya la elegiste.
+              <strong>{i18n("Tu elección está reservada")}</strong>
+              {i18n("Los demás invitados verán que ya la elegiste.")}
             </span>
           </span>
         </div>
         <figcaption>
-          Una muestra de la lista que reciben los invitados, con regalos de
-          ejemplo.
+          {i18n(
+            "Una muestra de la lista que reciben los invitados, con regalos de ejemplo.",
+          )}
         </figcaption>
       </figure>
     </section>

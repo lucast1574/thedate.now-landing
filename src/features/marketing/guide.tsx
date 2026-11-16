@@ -1,3 +1,5 @@
+import { type Translator, spanishTranslator } from "@/lib/i18n/translator";
+import { getTranslator } from "@/lib/i18n/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Brand from "@/components/brand";
@@ -5,14 +7,17 @@ import Icon from "@/components/icon";
 import { productTopics, contentUpdated } from "./topic-data";
 import { guides } from "./guide-data";
 import { publicOrigin } from "./public-origin";
-export async function guideMetadata(wedding: boolean): Promise<Metadata> {
-  const item = wedding ? guides.wedding : guides.general;
+export async function guideMetadata(
+  wedding: boolean,
+  i18n: Translator = spanishTranslator,
+): Promise<Metadata> {
+  const item = wedding ? guides(i18n).wedding : guides(i18n).general;
   if ((await publicOrigin()) !== item.host)
     return { robots: { index: false, follow: false } };
   const url = `${item.host}/${item.slug}`;
   const image = `${item.host}/${wedding ? "wedding" : "event"}-social.png`;
   return {
-    title: `${item.title} | ${item.name}`,
+    title: i18n("{v0} | {v1}", { v0: item.title, v1: item.name }),
     description: item.description,
     alternates: { canonical: url },
     robots: { index: true, follow: true },
@@ -22,7 +27,12 @@ export async function guideMetadata(wedding: boolean): Promise<Metadata> {
       description: item.description,
       url,
       siteName: item.name,
-      locale: "es_PE",
+      locale:
+        i18n.locale === "pt"
+          ? "pt_BR"
+          : i18n.locale === "en"
+            ? "en_US"
+            : "es_PE",
       images: [{ url: image, width: 1200, height: 630 }],
     },
     twitter: {
@@ -38,7 +48,9 @@ export default async function InvitationGuide({
 }: {
   wedding?: boolean;
 }) {
-  const item = wedding ? guides.wedding : guides.general;
+  const i18n = await getTranslator();
+
+  const item = wedding ? guides(i18n).wedding : guides(i18n).general;
   if ((await publicOrigin()) !== item.host) notFound();
   const studio = wedding
     ? "https://studio.save.thedate.now"
@@ -50,13 +62,18 @@ export default async function InvitationGuide({
     url,
     name: item.title,
     description: item.description,
-    inLanguage: "es",
+    inLanguage: i18n.locale,
     dateModified: contentUpdated,
     isPartOf: { "@id": `${item.host}/#website` },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: item.name, item: item.host },
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: item.name,
+          item: item.host,
+        },
         { "@type": "ListItem", position: 2, name: item.title, item: url },
       ],
     },
@@ -70,15 +87,15 @@ export default async function InvitationGuide({
           <Brand wedding={wedding} />
         </a>
         <a href={studio}>
-          Abrir {wedding ? "estudio" : "mi espacio"}
+          {i18n("Abrir")} {wedding ? i18n("estudio") : i18n("mi espacio")}
           <Icon name="external" />
         </a>
       </header>
       <article>
-        <nav aria-label="Ruta de navegación">
+        <nav aria-label={i18n("Ruta de navegación")}>
           <a href={item.host}>{item.name}</a>
           <Icon name="arrow" />
-          <span>Guía de invitaciones</span>
+          <span>{i18n("Guía de invitaciones")}</span>
         </nav>
         <h1>{item.title}</h1>
         <p className="guide-intro">{item.intro}</p>
@@ -88,8 +105,11 @@ export default async function InvitationGuide({
             <p>{text}</p>
           </section>
         ))}
-        <nav className="topic-related" aria-label="Más sobre las invitaciones">
-          {productTopics(wedding).map((t) => (
+        <nav
+          className="topic-related"
+          aria-label={i18n("Más sobre las invitaciones")}
+        >
+          {productTopics(wedding, i18n).map((t) => (
             <a key={t.slug} href={`/${t.slug}`}>
               {t.title}
               <Icon name="arrow" />
@@ -99,21 +119,27 @@ export default async function InvitationGuide({
         <div className="guide-action">
           <h2>
             {wedding
-              ? "Denle forma a su invitación"
-              : "¿Listo para crear tu invitación?"}
+              ? i18n("Denle forma a su invitación")
+              : i18n("¿Listo para crear tu invitación?")}
           </h2>
           <p>
             {wedding
-              ? "Reúnan los detalles y empiecen por el diseño. Pueden guardarlo y volver cuando quieran."
-              : "Reúne los detalles del plan y entra a tu espacio para comenzar."}
+              ? i18n(
+                  "Reúnan los detalles y empiecen por el diseño. Pueden guardarlo y volver cuando quieran.",
+                )
+              : i18n(
+                  "Reúne los detalles del plan y entra a tu espacio para comenzar.",
+                )}
           </p>
           <a href={studio}>
-            {wedding ? "Entrar al estudio de bodas" : "Crear mi invitación"}
+            {wedding
+              ? i18n("Entrar al estudio de bodas")
+              : i18n("Crear mi invitación")}
             <Icon name="external" />
           </a>
         </div>
         <a className="guide-back" href={item.host}>
-          Volver a {item.name}
+          {i18n("Volver a")} {item.name}
         </a>
       </article>
       <script

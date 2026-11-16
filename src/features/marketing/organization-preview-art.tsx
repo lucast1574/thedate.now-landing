@@ -1,19 +1,24 @@
+import { useTranslator } from "@/lib/i18n/react";
 import Icon from "@/components/icon";
 export default function OrganizationPreviewArt({
   wedding,
 }: {
   wedding: boolean;
 }) {
+  const i18n = useTranslator();
+
   return (
     <figure className="organization-scene">
       <div className="scene-guest-list" aria-hidden="true">
         <span>
-          {wedding ? "Su lista de invitados" : "Tu lista de invitados"}
+          {wedding
+            ? i18n("Su lista de invitados")
+            : i18n("Tu lista de invitados")}
         </span>
         {[
-          ["Valeria y familia", "3 personas"],
-          ["Andrés Rojas", "1 persona"],
-          ["Camila Torres", "2 personas"],
+          [i18n("Valeria y familia"), "3 personas"],
+          [i18n("Andrés Rojas"), "1 persona"],
+          [i18n("Camila Torres"), "2 personas"],
         ].map(([name, people], n) => (
           <div key={name}>
             <span>
@@ -22,13 +27,13 @@ export default function OrganizationPreviewArt({
             </span>
             <span className={`scene-response response-${n}`} data-animated>
               <Icon name="check" />
-              Confirmado
+              {i18n("Confirmado")}
             </span>
           </div>
         ))}
       </div>
       <figcaption>
-        Una muestra de la lista de invitados y sus respuestas.
+        {i18n("Una muestra de la lista de invitados y sus respuestas.")}
       </figcaption>
     </figure>
   );

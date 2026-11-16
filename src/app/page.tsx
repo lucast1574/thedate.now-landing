@@ -1,3 +1,4 @@
+import { getTranslator } from "@/lib/i18n/server";
 import { publicOrigin } from "@/features/marketing/public-origin";
 import { headers } from "next/headers";
 import { landingMetadata } from "@/features/marketing/metadata";
@@ -11,8 +12,10 @@ async function weddingHost() {
   return host === "save.thedate.now";
 }
 export async function generateMetadata() {
+  const i18n = await getTranslator();
+
   return {
-    ...landingMetadata(await weddingHost()),
+    ...landingMetadata(await weddingHost(), i18n),
     robots: {
       index: !!(await publicOrigin()),
       follow: !!(await publicOrigin()),

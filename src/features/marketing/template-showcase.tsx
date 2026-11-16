@@ -1,9 +1,12 @@
+import { useTranslator } from "@/lib/i18n/react";
 import ResponsiveCopy from "./responsive-copy";
 import ShowcaseNotes from "./showcase-notes";
 import Image from "next/image";
 import Icon from "@/components/icon";
 import catalog from "./template-preview-data.json";
 export default function TemplateShowcase({ wedding }: { wedding: boolean }) {
+  const i18n = useTranslator();
+
   const kind = wedding ? "wedding" : "general",
     templates = catalog.templates.filter((t) => t.kind === kind);
   const choices = wedding
@@ -20,26 +23,26 @@ export default function TemplateShowcase({ wedding }: { wedding: boolean }) {
           <h2>
             {wedding ? (
               <ResponsiveCopy mobile="Una historia. Su estilo.">
-                Una historia. Su propio estilo.
+                {i18n("Una historia. Su propio estilo.")}
               </ResponsiveCopy>
             ) : (
               <ResponsiveCopy mobile="Tu plan tiene su estilo.">
-                Tu plan tiene su propio estilo.
+                {i18n("Tu plan tiene su propio estilo.")}
               </ResponsiveCopy>
             )}
           </h2>
           <p>
             {wedding ? (
               <ResponsiveCopy mobile="24 diseños en seis colecciones. Adornos, letras y fotos que pueden hacer suyos.">
-                Jardines botánicos, lazos románticos y detalles de gala. 24
-                diseños en seis colecciones, con adornos editables y
-                composiciones que acompañan su historia de principio a fin.
+                {i18n(
+                  "Jardines botánicos, lazos románticos y detalles de gala. 24 diseños en seis colecciones, con adornos editables y composiciones que acompañan su historia de principio a fin.",
+                )}
               </ResponsiveCopy>
             ) : (
               <ResponsiveCopy mobile="24 diseños en seis colecciones. Cambia las letras, mueve los adornos y encuadra tus fotos.">
-                Fiesta gráfica, composiciones editoriales y noches de gala. 24
-                diseños en seis colecciones para cumpleaños y encuentros. Cambia
-                las letras, mueve los adornos y encuadra tus fotos.
+                {i18n(
+                  "Fiesta gráfica, composiciones editoriales y noches de gala. 24 diseños en seis colecciones para cumpleaños y encuentros. Cambia las letras, mueve los adornos y encuadra tus fotos.",
+                )}
               </ResponsiveCopy>
             )}
           </p>
@@ -51,7 +54,7 @@ export default function TemplateShowcase({ wedding }: { wedding: boolean }) {
               : "/plantillas-invitaciones-para-eventos"
           }
         >
-          Conocer las plantillas <Icon name="arrow" />
+          {i18n("Conocer las plantillas")} <Icon name="arrow" />
         </a>
       </header>
       <figure className="template-theatre">
@@ -76,8 +79,9 @@ export default function TemplateShowcase({ wedding }: { wedding: boolean }) {
           ))}
         </div>
         <figcaption>
-          Composiciones del catálogo real. Nombres de ejemplo; cada persona
-          elige sus fotografías.
+          {i18n(
+            "Composiciones del catálogo real. Nombres de ejemplo; cada persona elige sus fotografías.",
+          )}
         </figcaption>
       </figure>
       <ShowcaseNotes />

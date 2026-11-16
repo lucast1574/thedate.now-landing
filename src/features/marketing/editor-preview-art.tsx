@@ -1,10 +1,13 @@
+import { useTranslator } from "@/lib/i18n/react";
 import Icon from "@/components/icon";
 export default function EditorPreviewArt({ wedding }: { wedding: boolean }) {
+  const i18n = useTranslator();
+
   return (
     <figure className="editor-scene">
       <div className="editor-scene-window" aria-hidden="true">
         <div className="scene-toolbar">
-          <span>Tu invitación</span>
+          <span>{i18n("Tu invitación")}</span>
           <span>
             <Icon name="undo" />
             <Icon name="redo" />
@@ -14,10 +17,10 @@ export default function EditorPreviewArt({ wedding }: { wedding: boolean }) {
         <div className="scene-workspace">
           <div className="scene-section-list">
             {[
-              ["layout", "Portada"],
-              ["clock", "Itinerario"],
-              ["image", "Galería"],
-              ["users", "Dress code"],
+              ["layout", i18n("Portada")],
+              ["clock", i18n("Itinerario")],
+              ["image", i18n("Galería")],
+              ["users", i18n("Dress code")],
             ].map(([icon, name]) => (
               <span key={name}>
                 <Icon name={icon} />
@@ -26,14 +29,16 @@ export default function EditorPreviewArt({ wedding }: { wedding: boolean }) {
             ))}
             <span className="scene-add">
               <Icon name="plus" />
-              Sección
+              {i18n("Sección")}
             </span>
           </div>
           <div className="scene-paper" data-animated>
             <Icon name={wedding ? "flower" : "sparkle"} />
             <div className="scene-selected" data-animated>
               <strong>
-                {wedding ? "Camila y Sebastián" : "Nos vemos para celebrar"}
+                {wedding
+                  ? i18n("Camila y Sebastián")
+                  : i18n("Nos vemos para celebrar")}
               </strong>
               <svg
                 className="scene-pointer"
@@ -49,7 +54,7 @@ export default function EditorPreviewArt({ wedding }: { wedding: boolean }) {
                 />
               </svg>
             </div>
-            <span>Un día para recordar</span>
+            <span>{i18n("Un día para recordar")}</span>
             <div className="scene-palette">
               <i />
               <i />
@@ -58,23 +63,23 @@ export default function EditorPreviewArt({ wedding }: { wedding: boolean }) {
           </div>
         </div>
         <div className="scene-tools">
-          <span>Alinear</span>
-          <span>Agrupar</span>
+          <span>{i18n("Alinear")}</span>
+          <span>{i18n("Agrupar")}</span>
           <span>
             <Icon name="lock" />
-            Bloquear
+            {i18n("Bloquear")}
           </span>
         </div>
       </div>
       <div className="scene-dress" data-animated aria-hidden="true">
         <Icon name="lucide:shirt" />
-        <strong>Elegante</strong>
-        <span>Preferimos evitar estos tonos</span>
+        <strong>{i18n("Elegante")}</strong>
+        <span>{i18n("Preferimos evitar estos tonos")}</span>
         <div>
           {[
-            ["Blanco", "#ffffff"],
-            ["Marfil", "#eee5d6"],
-            ["Champán", "#d1b98a"],
+            [i18n("Blanco"), "#ffffff"],
+            [i18n("Marfil"), "#eee5d6"],
+            [i18n("Champán"), "#d1b98a"],
           ].map(([name, color]) => (
             <span key={name}>
               <i style={{ background: color }} />
@@ -84,8 +89,9 @@ export default function EditorPreviewArt({ wedding }: { wedding: boolean }) {
         </div>
       </div>
       <figcaption>
-        Preview animado de composición, estilos y dress code. La edición se hace
-        en el estudio.
+        {i18n(
+          "Preview animado de composición, estilos y dress code. La edición se hace en el estudio.",
+        )}
       </figcaption>
     </figure>
   );

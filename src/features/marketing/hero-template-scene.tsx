@@ -1,8 +1,11 @@
+import { useTranslator } from "@/lib/i18n/react";
 import Image from "next/image";
 import Icon from "@/components/icon";
 import catalog from "./template-preview-data.json";
 
 export default function HeroTemplateScene({ wedding }: { wedding: boolean }) {
+  const i18n = useTranslator();
+
   const prefix = wedding ? "wedding" : "general";
   const photograph = catalog.templates.find(
     (t) => t.id === `${prefix}-flyer-cinematic`,
@@ -17,7 +20,10 @@ export default function HeroTemplateScene({ wedding }: { wedding: boolean }) {
           className="hero-template-illustrated"
           unoptimized
           src={illustration.image}
-          alt={`Plantilla ${illustration.name}, con ilustración y tipografía personalizada`}
+          alt={i18n(
+            "Plantilla {v0}, con ilustración y tipografía personalizada",
+            { v0: illustration.name },
+          )}
           width={illustration.width}
           height={illustration.height}
         />
@@ -25,7 +31,9 @@ export default function HeroTemplateScene({ wedding }: { wedding: boolean }) {
           className="hero-template-photograph"
           unoptimized
           src={photograph.image}
-          alt={`Plantilla ${photograph.name}, con fotografía a pantalla completa`}
+          alt={i18n("Plantilla {v0}, con fotografía a pantalla completa", {
+            v0: photograph.name,
+          })}
           width={photograph.width}
           height={photograph.height}
           preload
@@ -34,11 +42,11 @@ export default function HeroTemplateScene({ wedding }: { wedding: boolean }) {
       <figcaption>
         <span>
           {wedding
-            ? "Su historia, a su manera."
-            : "Tu celebración tiene su estilo."}
+            ? i18n("Su historia, a su manera.")
+            : i18n("Tu celebración tiene su estilo.")}
         </span>
         <a href="#plantillas">
-          Explorar los 24 diseños <Icon name="arrow" />
+          {i18n("Explorar los 24 diseños")} <Icon name="arrow" />
         </a>
       </figcaption>
     </figure>

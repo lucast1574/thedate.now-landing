@@ -28,6 +28,9 @@ function loadSource(
     }).outputText;
     function resolve(specifier) {
       if (Object.hasOwn(mocks, specifier)) return mocks[specifier];
+      if (specifier === "next-intl") return { useLocale: () => "es" };
+      if (specifier === "next-intl/server")
+        return { getLocale: async () => "es" };
       if (specifier === "server-only" || specifier.endsWith(".css")) return {};
       if (specifier.startsWith("@/") || specifier.startsWith(".")) {
         const base = specifier.startsWith("@/")

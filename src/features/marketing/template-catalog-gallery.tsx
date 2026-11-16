@@ -1,7 +1,9 @@
 "use client";
+import { useTranslator } from "@/lib/i18n/react";
+
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import catalog from "./template-preview-data.json";
+import sourceCatalog from "./template-preview-data.json";
 
 const photoOrder = [
   "cinematic",
@@ -22,6 +24,17 @@ export default function TemplateCatalogGallery({
 }: {
   wedding: boolean;
 }) {
+  const i18n = useTranslator();
+  const catalog = {
+    ...sourceCatalog,
+    templates: sourceCatalog.templates.map((item) => ({
+      ...item,
+      name: i18n(item.name),
+      description: i18n(item.description),
+      category: i18n(item.category),
+    })),
+  };
+
   const [collection, setCollection] = useState("all");
   const [selected, setSelected] = useState<string>();
   const preview = useRef<HTMLElement>(null);
@@ -30,13 +43,13 @@ export default function TemplateCatalogGallery({
   }, [selected]);
   const detail = catalog.templates.find((t) => t.id === selected);
   const collections = [
-    ["all", "Todas"],
-    ["botanical", "Jardín botánico"],
-    ["romance", "Romance"],
-    ["gala", "Gala"],
-    ["editorial", "Editorial"],
-    ["fiesta", "Fiesta gráfica"],
-    ["coastal", "Costa"],
+    ["all", i18n("Todas")],
+    ["botanical", i18n("Jardín botánico")],
+    ["romance", i18n("Romance")],
+    ["gala", i18n("Gala")],
+    ["editorial", i18n("Editorial")],
+    ["fiesta", i18n("Fiesta gráfica")],
+    ["coastal", i18n("Costa")],
   ];
   const templates = catalog.templates
     .filter((t) => t.kind === (wedding ? "wedding" : "general"))
@@ -44,11 +57,13 @@ export default function TemplateCatalogGallery({
     .sort((a, b) => priority(a.id) - priority(b.id));
   return (
     <section
-      aria-label={wedding ? "Plantillas de boda" : "Plantillas para eventos"}
+      aria-label={
+        wedding ? i18n("Plantillas de boda") : i18n("Plantillas para eventos")
+      }
     >
       <div
         className="template-collection-filters"
-        aria-label="Filtrar por colección"
+        aria-label={i18n("Filtrar por colección")}
       >
         {collections.map(([id, label]) => (
           <button
@@ -65,25 +80,26 @@ export default function TemplateCatalogGallery({
         ))}
       </div>
       <p className="template-collection-count" aria-live="polite">
-        {templates.length} diseños · Todos personalizables en el editor
+        {templates.length}{" "}
+        {i18n("diseños · Todos personalizables en el editor")}
       </p>
       {detail && (
         <section
           ref={preview}
           className="template-interior-preview"
-          aria-label={`Interior de ${detail.name}`}
+          aria-label={i18n("Interior de {v0}", { v0: detail.name })}
         >
           <header>
             <div>
               <h2>{detail.name}</h2>
               <p>
-                Una muestra del interior. Cada plantilla incluye bienvenida,
-                fecha, ubicación, vestimenta, restricciones, regalos, programa y
-                confirmación, con la misma identidad de principio a fin.
+                {i18n(
+                  "Una muestra del interior. Cada plantilla incluye bienvenida, fecha, ubicación, vestimenta, restricciones, regalos, programa y confirmación, con la misma identidad de principio a fin.",
+                )}
               </p>
             </div>
             <button type="button" onClick={() => setSelected(undefined)}>
-              Cerrar interior
+              {i18n("Cerrar interior")}
             </button>
           </header>
           <div className="template-interior-panels">
@@ -92,7 +108,7 @@ export default function TemplateCatalogGallery({
               src={detail.interior}
               width={2208}
               height={detail.interiorHeight}
-              alt={`Secciones interiores de ${detail.name}`}
+              alt={i18n("Secciones interiores de {v0}", { v0: detail.name })}
             />
           </div>
           <a
@@ -102,7 +118,7 @@ export default function TemplateCatalogGallery({
                 : "https://crea.thedate.now/"
             }
           >
-            Personalizar en el estudio
+            {i18n("Personalizar en el estudio")}
           </a>
         </section>
       )}
@@ -116,7 +132,7 @@ export default function TemplateCatalogGallery({
               height={t.height}
               loading={index < 3 ? "eager" : "lazy"}
               decoding="async"
-              alt={`Composición ${t.name}`}
+              alt={i18n("Composición {v0}", { v0: t.name })}
             />
             <figcaption>
               {t.name}
@@ -130,13 +146,13 @@ export default function TemplateCatalogGallery({
               aria-pressed={selected === t.id}
               onClick={() => setSelected(selected === t.id ? undefined : t.id)}
             >
-              Ver interior
+              {i18n("Ver interior")}
             </button>
           </figure>
         ))}
       </div>
       <p className="template-sample-note">
-        Fotos y nombres de ejemplo. Tú eliges los tuyos.
+        {i18n("Fotos y nombres de ejemplo. Tú eliges los tuyos.")}
       </p>
     </section>
   );

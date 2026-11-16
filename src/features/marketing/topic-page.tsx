@@ -1,3 +1,5 @@
+import { type Translator, spanishTranslator } from "@/lib/i18n/translator";
+import { getTranslator } from "@/lib/i18n/server";
 import Link from "next/link";
 import TemplateCatalogGallery from "./template-catalog-gallery";
 import type { Metadata } from "next";
@@ -7,9 +9,12 @@ import Icon from "@/components/icon";
 import { publicOrigin } from "./public-origin";
 import { topics, productTopics, contentUpdated } from "./topic-data";
 
-async function resolveTopic(slug: string) {
+async function resolveTopic(
+  slug: string,
+  i18n: Translator = spanishTranslator,
+) {
   const origin = await publicOrigin();
-  return topics.find(
+  return topics(i18n).find(
     (t) =>
       t.slug === slug &&
       origin ===
@@ -18,8 +23,11 @@ async function resolveTopic(slug: string) {
           : "https://thedate.now"),
   );
 }
-export async function topicMetadata(slug: string): Promise<Metadata> {
-  const item = await resolveTopic(slug);
+export async function topicMetadata(
+  slug: string,
+  i18n: Translator = spanishTranslator,
+): Promise<Metadata> {
+  const item = await resolveTopic(slug, i18n);
   if (!item) return { robots: { index: false, follow: false } };
   const wedding = item.kind === "wedding",
     origin = wedding ? "https://save.thedate.now" : "https://thedate.now",
@@ -27,7 +35,7 @@ export async function topicMetadata(slug: string): Promise<Metadata> {
     url = `${origin}/${item.slug}`,
     image = `${origin}/${wedding ? "wedding" : "event"}-social.png`;
   return {
-    title: `${item.title} | ${name}`,
+    title: i18n("{v0} | {v1}", { v0: item.title, v1: name }),
     description: item.description,
     alternates: { canonical: url },
     robots: { index: true, follow: true },
@@ -37,7 +45,12 @@ export async function topicMetadata(slug: string): Promise<Metadata> {
       title: item.title,
       description: item.description,
       siteName: name,
-      locale: "es_PE",
+      locale:
+        i18n.locale === "pt"
+          ? "pt_BR"
+          : i18n.locale === "en"
+            ? "en_US"
+            : "es_PE",
       modifiedTime: contentUpdated,
       images: [{ url: image, width: 1200, height: 630 }],
     },
@@ -50,7 +63,9 @@ export async function topicMetadata(slug: string): Promise<Metadata> {
   };
 }
 export default async function TopicPage({ slug }: { slug: string }) {
-  const item = await resolveTopic(slug);
+  const i18n = await getTranslator();
+
+  const item = await resolveTopic(slug, i18n);
   if (!item) notFound();
   const wedding = item.kind === "wedding",
     origin = wedding ? "https://save.thedate.now" : "https://thedate.now",
@@ -66,7 +81,7 @@ export default async function TopicPage({ slug }: { slug: string }) {
     url,
     name: item.title,
     description: item.description,
-    inLanguage: "es",
+    inLanguage: i18n.locale,
     dateModified: contentUpdated,
     isPartOf: { "@id": `${origin}/#website` },
     breadcrumb: {
@@ -86,26 +101,28 @@ export default async function TopicPage({ slug }: { slug: string }) {
           <Brand wedding={wedding} />
         </Link>
         <a href={studio}>
-          Abrir {wedding ? "estudio" : "mi espacio"}
+          {i18n("Abrir")} {wedding ? i18n("estudio") : i18n("mi espacio")}
           <Icon name="external" />
         </a>
       </header>
       <article>
-        <nav aria-label="Ruta de navegación">
+        <nav aria-label={i18n("Ruta de navegación")}>
           <Link href="/">{name}</Link>
           <Icon name="arrow" />
-          <span>{isCatalog ? "Plantillas" : item.title}</span>
+          <span>{isCatalog ? i18n("Plantillas") : item.title}</span>
         </nav>
         <h1>
           {isCatalog
             ? wedding
-              ? "Su historia, su estilo."
-              : "Elige cómo empieza."
+              ? i18n("Su historia, su estilo.")
+              : i18n("Elige cómo empieza.")
             : item.title}
         </h1>
         <p className="guide-intro">
           {isCatalog
-            ? "24 diseños para hacer tuyos con tus fotos, colores y palabras."
+            ? i18n(
+                "24 diseños para hacer tuyos con tus fotos, colores y palabras.",
+              )
             : item.intro}
         </p>
         {!isCatalog &&
@@ -118,7 +135,10 @@ export default async function TopicPage({ slug }: { slug: string }) {
         {isCatalog && <TemplateCatalogGallery wedding={wedding} />}
         {!isCatalog && (
           <aside className="topic-related">
-            <h2>Más para preparar {wedding ? "su boda" : "el encuentro"}</h2>
+            <h2>
+              {i18n("Más para preparar")}{" "}
+              {wedding ? i18n("su boda") : i18n("el encuentro")}
+            </h2>
             <a
               href={
                 wedding
@@ -126,10 +146,10 @@ export default async function TopicPage({ slug }: { slug: string }) {
                   : "/invitaciones-digitales-para-eventos"
               }
             >
-              Guía para crear y compartir la invitación
+              {i18n("Guía para crear y compartir la invitación")}{" "}
               <Icon name="arrow" />
             </a>
-            {productTopics(wedding)
+            {productTopics(wedding, i18n)
               .filter((t) => t.slug !== slug)
               .map((t) => (
                 <a href={`/${t.slug}`} key={t.slug}>
@@ -142,16 +162,20 @@ export default async function TopicPage({ slug }: { slug: string }) {
         <div className="guide-action">
           <h2>
             {wedding
-              ? "Su historia empieza aquí"
-              : "Dale forma a tu próximo plan"}
+              ? i18n("Su historia empieza aquí")
+              : i18n("Dale forma a tu próximo plan")}
           </h2>
           <p>
             {wedding
-              ? "Prueben las plantillas y preparen su invitación en el estudio."
-              : "Elige una plantilla y prepara tu invitación desde tu espacio."}
+              ? i18n(
+                  "Prueben las plantillas y preparen su invitación en el estudio.",
+                )
+              : i18n(
+                  "Elige una plantilla y prepara tu invitación desde tu espacio.",
+                )}
           </p>
           <a href={studio}>
-            {wedding ? "Entrar al estudio" : "Crear mi invitación"}
+            {wedding ? i18n("Entrar al estudio") : i18n("Crear mi invitación")}
             <Icon name="external" />
           </a>
         </div>

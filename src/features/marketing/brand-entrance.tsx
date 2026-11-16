@@ -1,4 +1,6 @@
 "use client";
+import { useTranslator } from "@/lib/i18n/react";
+
 import Brand from "@/components/brand";
 import Icon from "@/components/icon";
 export default function BrandEntrance({
@@ -6,6 +8,8 @@ export default function BrandEntrance({
 }: {
   wedding?: boolean;
 }) {
+  const i18n = useTranslator();
+
   return (
     <div
       className={`brand-entrance ${wedding ? "entrance-wedding" : "entrance-event"}`}
@@ -18,8 +22,8 @@ export default function BrandEntrance({
         </div>
         <p className="brand-entrance-caption">
           {wedding
-            ? "El comienzo de su gran historia."
-            : "Una invitación. Mil posibilidades."}
+            ? i18n("El comienzo de su gran historia.")
+            : i18n("Una invitación. Mil posibilidades.")}
         </p>
         <span className="brand-entrance-line" />
       </div>
@@ -30,7 +34,7 @@ export default function BrandEntrance({
           document.documentElement.removeAttribute("data-brand-arrival")
         }
       >
-        Entrar al sitio <Icon name="arrow" />
+        {i18n("Entrar al sitio")} <Icon name="arrow" />
       </button>
     </div>
   );

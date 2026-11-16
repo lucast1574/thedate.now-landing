@@ -1,14 +1,16 @@
+import { useTranslator } from "@/lib/i18n/react";
 import Icon from "@/components/icon";
 export default function WeddingFeatures() {
+  const i18n = useTranslator();
+
   return (
     <section className="features" id="como-funciona">
       <div className="shell features-layout">
         <div>
-          <p className="eyebrow">01 / LA EXPERIENCIA</p>
+          <p className="eyebrow">{i18n("01 / LA EXPERIENCIA")}</p>
           <h2>
-            Invitar debería ser
-            <br />
-            <em>parte de la emoción.</em>
+            {i18n("Invitar debería ser")} <br />
+            <em>{i18n("parte de la emoción.")}</em>
           </h2>
         </div>
         <div className="cards">
@@ -17,10 +19,11 @@ export default function WeddingFeatures() {
               <Icon name="external" />
             </span>
             <small>01</small>
-            <h3>Diseña a tu manera</h3>
+            <h3>{i18n("Diseña a tu manera")}</h3>
             <p>
-              Elige una plantilla, agrega fotos y cuenta los detalles de tu día
-              con tu propia voz.
+              {i18n(
+                "Elige una plantilla, agrega fotos y cuenta los detalles de tu día con tu propia voz.",
+              )}
             </p>
           </article>
           <article>
@@ -28,10 +31,11 @@ export default function WeddingFeatures() {
               <Icon name="circle" />
             </span>
             <small>02</small>
-            <h3>Cada invitado, al día</h3>
+            <h3>{i18n("Cada invitado, al día")}</h3>
             <p>
-              Invita por WhatsApp y sigue las respuestas y los cupos desde un
-              solo panel.
+              {i18n(
+                "Invita por WhatsApp y sigue las respuestas y los cupos desde un solo panel.",
+              )}
             </p>
           </article>
           <article>
@@ -39,10 +43,11 @@ export default function WeddingFeatures() {
               <Icon name="sparkle" />
             </span>
             <small>03</small>
-            <h3>Un lugar para recordar</h3>
+            <h3>{i18n("Un lugar para recordar")}</h3>
             <p>
-              Comparte una dirección tan especial como el evento:
-              sofiaymateo.save.thedate.now.
+              {i18n(
+                "Comparte una dirección tan especial como el evento: sofiaymateo.save.thedate.now.",
+              )}
             </p>
           </article>
         </div>

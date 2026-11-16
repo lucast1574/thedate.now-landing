@@ -1,5 +1,8 @@
+import { useTranslator } from "@/lib/i18n/react";
 import Icon from "@/components/icon";
 export default function GeneralMarquee() {
+  const i18n = useTranslator();
+
   return (
     <div className="party-marquee" aria-hidden="true">
       <div className="party-marquee-track">
@@ -7,8 +10,9 @@ export default function GeneralMarquee() {
           <span key={copy}>
             {Array.from({ length: 5 }, (_, n) => (
               <span className="ribbon-words" key={n}>
-                INVITA <Icon name="sparkle" /> CELEBRA <Icon name="sparkle" />{" "}
-                REÚNE <Icon name="sparkle" /> REPITE <Icon name="sparkle" />
+                {i18n("INVITA")} <Icon name="sparkle" /> {i18n("CELEBRA")}{" "}
+                <Icon name="sparkle" /> {i18n("REÚNE")} <Icon name="sparkle" />{" "}
+                {i18n("REPITE")} <Icon name="sparkle" />
               </span>
             ))}
           </span>
