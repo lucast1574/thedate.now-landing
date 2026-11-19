@@ -1,74 +1,150 @@
 .mobile-app {
-  --app-ink: #32234a;
-  --app-surface: #fff9f0;
-  --app-stage: #eddefa;
-  --app-active: #eaddf4;
+  --app-ink: #33254a;
+  --app-accent: #68509b;
+  --app-paper: #f2edf9;
+  --app-active: #e8def5;
+  --app-rule: #d7cbe6;
+  --app-frame: #291e3e;
+  margin-block: 32px 48px;
+  background: var(--app-paper);
   color: var(--app-ink);
-  background: var(--app-surface);
-  margin-block: 24px 40px;
   scroll-margin-top: 24px;
 }
 
 .wedding-atlas .mobile-app {
   --app-ink: #302720;
-  --app-surface: #faf6f0;
-  --app-stage: #ead8c7;
-  --app-active: #efe0d4;
+  --app-accent: #81503a;
+  --app-paper: #f6f0e8;
+  --app-active: #eee1d5;
+  --app-rule: #dfd0c3;
+  --app-frame: #342820;
 }
 
 .mobile-app-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(32px, 6vw, 88px);
-  padding-block: clamp(48px, 6vw, 88px);
+  gap: clamp(40px, 7vw, 112px);
+  padding-block: clamp(52px, 6.5vw, 104px);
 }
 
 .mobile-app-copy {
   display: grid;
   gap: 24px;
-  justify-items: start;
+  max-inline-size: 460px;
 }
 
-.mobile-app-copy h2 {
-  max-width: 14ch;
-  margin: 0;
+.mobile-app-intro h2 {
+  max-inline-size: 12ch;
+  margin: 16px 0;
   font-family: var(--font-party), sans-serif;
-  font-size: clamp(2.5rem, 5.4vw, 4.8rem);
-  font-weight: 800;
+  font-size: clamp(2.75rem, 5.65vw, 5rem);
+  font-weight: 900;
   line-height: 0.98;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.055em;
   text-wrap: balance;
 }
 
-.wedding-atlas .mobile-app-copy h2 {
+.wedding-atlas .mobile-app-intro h2 {
   font-family: var(--font-serif), serif;
+  font-size: clamp(3.15rem, 6.5vw, 5.9rem);
   font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
 }
 
-.mobile-app-copy p {
-  max-width: 42ch;
+.mobile-app-intro p {
+  max-inline-size: 36ch;
   margin: 0;
-  font-size: clamp(1rem, 1.65vw, 1.18rem);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
   line-height: 1.55;
 }
 
+.mobile-app-intro .mobile-app-brand {
+  color: var(--app-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.mobile-app-selector {
+  display: grid;
+}
+
+.mobile-app-selector button {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) 16px;
+  min-block-size: 50px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 4px;
+  border: 0;
+  border-block-end: 1px solid var(--app-rule);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.9375rem;
+  text-align: start;
+  cursor: pointer;
+}
+
+.mobile-app-selector button[aria-pressed="true"] {
+  font-weight: 750;
+}
+
+.mobile-app-selector button:is(:hover, :focus-visible) {
+  outline: none;
+  background: var(--app-active);
+}
+
+.mobile-app-selector button:focus-visible span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mobile-app-selector button > .ui-icon:first-child {
+  width: 19px;
+  height: 19px;
+}
+
+.mobile-app-selector button > .ui-icon:last-child {
+  width: 16px;
+  height: 16px;
+  visibility: hidden;
+}
+
+.mobile-app-selector button[aria-pressed="true"] > .ui-icon {
+  color: var(--app-accent);
+  visibility: visible;
+}
+
 .mobile-app-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 174px));
+  gap: 12px;
 }
 
 .mobile-app-links a {
   display: flex;
-  min-height: 56px;
+  min-height: 58px;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 99px;
+  gap: 8px;
+  padding: 10px clamp(12px, 1.4vw, 20px);
+  border-radius: 12px;
   background: var(--app-ink);
-  color: #fff;
+  color: white;
   line-height: 1.2;
+}
+
+.wedding-atlas .mobile-app-links a {
+  border-radius: 6px;
+}
+
+.mobile-app-links a:is(:hover, :focus-visible) {
+  outline: none;
+  background: var(--app-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .mobile-app-links small,
@@ -77,211 +153,121 @@
 }
 
 .mobile-app-links small {
-  font-size: 0.73rem;
+  font-size: 0.6875rem;
 }
 
 .mobile-app-links strong {
-  margin-top: 2px;
-  font-size: 1rem;
+  margin-block-start: 2px;
+  font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
   white-space: nowrap;
 }
 
-.mobile-app-store-mark {
-  flex: none;
-}
-
 .mobile-app-links .ui-icon {
-  width: 15px;
-  height: 15px;
-  margin-inline-start: 4px;
-}
-
-.mobile-app-links a:is(:hover, :focus-visible) {
-  background: #5b3e79;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.wedding-atlas .mobile-app-links a:is(:hover, :focus-visible) {
-  background: #754a38;
-}
-
-.mobile-app-selector {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.mobile-app-selector button {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 13px;
-  border: 0;
-  border-radius: 99px;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  font-size: 0.9rem;
-  font-weight: 650;
-  cursor: pointer;
-}
-
-.mobile-app-selector button:is([aria-pressed="true"], :hover, :focus-visible) {
-  background: var(--app-active);
-}
-
-.mobile-app-selector button:focus-visible {
-  outline: none;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
 }
 
 .mobile-app-visual {
   display: grid;
-  min-width: 0;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 16px;
+  justify-items: center;
+  gap: 28px;
+  min-inline-size: 0;
   margin: 0;
-  padding: clamp(28px, 4.2vw, 62px) clamp(24px, 4.2vw, 52px);
-  border-radius: 24px;
-  overflow: clip;
-  background: var(--app-stage);
+  padding-block-start: 8px;
 }
 
 .mobile-app-phone {
   display: grid;
-  justify-self: center;
-  width: 100%;
-  max-width: 280px;
-  aspect-ratio: 600 / 1301;
-  border: 6px solid var(--app-ink);
-  border-radius: clamp(22px, 4vw, 36px);
-  background: var(--app-ink);
-  overflow: hidden;
-  transform: rotate(-6deg);
+  inline-size: clamp(198px, 19vw, 252px);
+  padding: 5px;
+  border: 1px solid var(--app-frame);
+  border-radius: clamp(26px, 3.2vw, 36px);
+  background: var(--app-frame);
+  box-shadow:
+    12px 17px 0 #30203f0d,
+    0 22px 40px #30203f1c;
+  transform: rotate(4deg);
 }
 
 .mobile-app-phone img {
   grid-area: 1 / 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: #fff;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 600 / 1301;
+  border-radius: clamp(20px, 2.8vw, 30px);
   opacity: 0;
 }
 
 .mobile-app-phone img[aria-hidden="false"] {
+  z-index: 1;
   opacity: 1;
 }
 
 .mobile-app-visual figcaption {
-  position: relative;
-  margin-top: 55%;
+  inline-size: min(100%, 35ch);
+  min-block-size: 4lh;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
 }
 
-.mobile-app-note {
-  display: flex;
-  align-items: flex-start;
-  min-height: 122px;
-  gap: 10px;
-  padding: 16px;
-  border-radius: 16px;
-  background: var(--app-ink);
-  color: var(--app-surface);
+.mobile-app-visual figcaption strong {
+  font-size: 1rem;
 }
 
-.mobile-app-note > .ui-icon {
-  flex: 0 0 20px;
-  width: 20px;
-  height: 20px;
-}
-
-.mobile-app-note strong,
-.mobile-app-note span {
-  display: block;
-}
-
-.mobile-app-note span {
-  margin-top: 4px;
-  font-size: 0.82rem;
-  line-height: 1.4;
+.mobile-app-description {
+  margin: 4px 0 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .mobile-app-visual .mobile-app-phone {
-    animation: mobile-app-float 5.8s ease-in-out infinite paused;
-  }
-
-  .mobile-app-visual[data-in-view="true"] .mobile-app-phone {
-    animation-play-state: running;
-  }
-
-  .mobile-app-phone img {
-    transform: translateX(12px) scale(1.025);
-    transition:
-      opacity 480ms ease,
-      transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
   .mobile-app-phone img[aria-hidden="false"] {
-    transform: none;
-  }
-
-  .mobile-app-visual[data-in-view="true"] .mobile-app-note {
-    animation: mobile-app-note-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: mobile-app-screen-in 220ms ease-out both;
   }
 }
 
-@keyframes mobile-app-float {
-  50% {
-    transform: translateY(-14px) rotate(-2deg);
-  }
-}
-
-@keyframes mobile-app-note-in {
+@keyframes mobile-app-screen-in {
   from {
-    opacity: 0;
-    transform: translate(12px, 10px) rotate(3deg);
+    opacity: 0.55;
   }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 760px) {
+  .mobile-app-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding-block: 40px;
+  }
+
+  .mobile-app-copy {
+    display: contents;
+  }
+
+  .mobile-app-intro h2 {
+    font-size: clamp(2.75rem, 9.5vw, 4rem);
+  }
+
+  .wedding-atlas .mobile-app-intro h2 {
+    font-size: clamp(3.15rem, 11.25vw, 4.5rem);
+  }
+
   .mobile-app-visual {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-row: 2;
+    gap: 24px;
+    margin-block: 8px 0;
   }
 
   .mobile-app-phone {
-    width: min(80%, 228px);
+    inline-size: clamp(166px, 50vw, 216px);
+    transform: rotate(3deg);
   }
 
-  .mobile-app-visual figcaption {
-    width: min(100%, 310px);
-    justify-self: center;
-    margin: 0;
-  }
-
-  .mobile-app-note {
-    min-height: 108px;
+  .mobile-app-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 700px) {
-  .mobile-app-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .mobile-app-copy {
-    gap: 20px;
-  }
-
-  .mobile-app-links {
-    gap: 12px;
-  }
-
   .festival-site .party-header nav .mobile-app-nav,
   .wedding-atlas .topbar nav .mobile-app-nav {
     display: inline-flex;
@@ -289,47 +275,5 @@
     align-items: center;
     margin-inline-end: 12px;
     white-space: nowrap;
-  }
-}
-
-@media (max-width: 480px) {
-  .mobile-app-links {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .mobile-app-links a {
-    gap: 7px;
-    justify-content: center;
-    padding-inline: 8px;
-  }
-
-  .mobile-app-store-mark {
-    width: 20px;
-    height: 20px;
-  }
-
-  .mobile-app-links strong {
-    font-size: 0.9rem;
-  }
-
-  .mobile-app-links .ui-icon {
-    display: none;
-  }
-
-  .mobile-app-selector {
-    gap: 4px;
-  }
-
-  .mobile-app-selector button {
-    gap: 5px;
-    padding-inline: 8px;
-    font-size: 0.82rem;
-  }
-
-  .mobile-app-selector .ui-icon {
-    width: 14px;
-    height: 14px;
   }
 }
