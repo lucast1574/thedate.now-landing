@@ -12,6 +12,9 @@ export default function WeddingHeader() {
       <nav>
         <a href="#como-funciona">{i18n("Cómo funciona")}</a>
         <a href="https://thedate.now">{i18n("Otros eventos")}</a>
+        <a className="mobile-app-nav" href="#app">
+          {i18n("La app")}
+        </a>
         <a className="nav-action" href="https://studio.save.thedate.now">
           {i18n("Estudio")} <Icon name="external" />
         </a>

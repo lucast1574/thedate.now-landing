@@ -1,0 +1,112 @@
+.mobile-app {
+  --app-field: var(--festival-ink);
+  --app-ink: #fff9ed;
+  --app-action: #fff9ed;
+  --app-action-ink: #463466;
+  --app-action-hover: #f4b93c;
+  background: var(--app-field);
+  color: var(--app-ink);
+  margin-block-end: 32px;
+  scroll-margin-top: 24px;
+}
+
+.wedding-atlas .mobile-app {
+  --app-field: #e9d7c6;
+  --app-ink: var(--vow-ink);
+  --app-action: var(--vow-ink);
+  --app-action-ink: #fff;
+  --app-action-hover: var(--vow-accent);
+}
+
+.mobile-app-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(32px, 7vw, 96px);
+  padding-block: clamp(48px, 8vw, 96px);
+}
+
+.mobile-app-copy {
+  display: grid;
+  gap: 24px;
+  justify-items: start;
+}
+
+.mobile-app-copy h2 {
+  margin: 0;
+  max-width: 12ch;
+  font-family: var(--font-party), sans-serif;
+  font-size: clamp(2.65rem, 5.6vw, 5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.wedding-atlas .mobile-app-copy h2 {
+  font-family: var(--font-serif), serif;
+  font-weight: 600;
+}
+
+.mobile-app-copy p {
+  margin: 0;
+  max-width: 42ch;
+  font-size: clamp(1rem, 1.65vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.mobile-app-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mobile-app-links a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 99px;
+  background: var(--app-action);
+  color: var(--app-action-ink);
+  font-weight: 700;
+}
+
+.mobile-app-links a:is(:hover, :focus-visible) {
+  background: var(--app-action-hover);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mobile-app-visual img {
+  display: block;
+  width: min(100%, 250px);
+  height: auto;
+  margin-inline: auto;
+  border: 8px solid var(--app-action-ink);
+  border-radius: 32px;
+}
+
+.wedding-atlas .mobile-app-visual img {
+  border-color: var(--app-ink);
+}
+
+@media (max-width: 700px) {
+  .mobile-app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-app-visual img {
+    width: min(100%, 216px);
+  }
+
+  .festival-site .party-header nav .mobile-app-nav,
+  .wedding-atlas .topbar nav .mobile-app-nav {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    margin-inline-end: 12px;
+    white-space: nowrap;
+  }
+}

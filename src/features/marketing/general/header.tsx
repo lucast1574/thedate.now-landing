@@ -13,6 +13,9 @@ export default function GeneralHeader() {
         <a href="#ideas">{i18n("Para cada ocasión")}</a>
         <a href="#como-funciona">{i18n("Cómo funciona")}</a>
         <a href="https://save.thedate.now">{i18n("¿Una boda?")}</a>
+        <a className="mobile-app-nav" href="#app">
+          {i18n("La app")}
+        </a>
         <a className="party-nav-action" href="https://crea.thedate.now">
           {i18n("Mi espacio")} <Icon name="external" />
         </a>

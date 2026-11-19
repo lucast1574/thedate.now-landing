@@ -1,6 +1,7 @@
 import { useTranslator } from "@/lib/i18n/react";
 import ResourceLinks from "../resource-links";
 import ProductShowcase from "../product-showcase";
+import MobileApp from "../mobile-app";
 import BrandEntrance from "../brand-entrance";
 import MarketingFAQ from "../questions";
 import MarketingSchema from "../schema";
@@ -24,6 +25,7 @@ export default function GeneralLanding() {
       <GeneralMarquee />
       <GeneralOccasions />
       <ProductShowcase />
+      <MobileApp />
       <GeneralHow />
       <MarketingFAQ />
       <GeneralFooter />

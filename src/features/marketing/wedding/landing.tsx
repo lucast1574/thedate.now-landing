@@ -1,6 +1,7 @@
 import { useTranslator } from "@/lib/i18n/react";
 import ResourceLinks from "../resource-links";
 import ProductShowcase from "../product-showcase";
+import MobileApp from "../mobile-app";
 import BrandEntrance from "../brand-entrance";
 import WeddingHeader from "./header";
 import WeddingHero from "./hero";
@@ -23,6 +24,7 @@ export default function WeddingLanding() {
       </div>
       <ProductShowcase wedding />
       <WeddingStory />
+      <MobileApp wedding />
       <MarketingFAQ wedding />
       <WeddingFooter />
       <ResourceLinks wedding />
