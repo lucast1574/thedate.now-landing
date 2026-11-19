@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Icon from "@/components/icon";
 import { useTranslator } from "@/lib/i18n/react";
@@ -56,16 +56,46 @@ export default function MobileApp({ wedding = false }: { wedding?: boolean }) {
   const i18n = useTranslator();
   const app = apps[wedding ? "wedding" : "event"];
   const [active, setActive] = useState(0);
+  const [inView, setInView] = useState(false);
+  const [manual, setManual] = useState(false);
+  const preview = useRef<HTMLElement>(null);
   const screen = screens[active];
-  const next = screens[(active + 1) % screens.length];
+
+  useEffect(() => {
+    if (!preview.current || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.intersectionRatio >= 0.25),
+      { threshold: 0.25 },
+    );
+    observer.observe(preview.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView || manual) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let timer: number | undefined;
+    const sync = () => {
+      window.clearInterval(timer);
+      if (!reduced.matches && !document.hidden) {
+        timer = window.setInterval(() => {
+          setActive((current) => (current + 1) % screens.length);
+        }, 4600);
+      }
+    };
+    sync();
+    reduced.addEventListener("change", sync);
+    document.addEventListener("visibilitychange", sync);
+    return () => {
+      window.clearInterval(timer);
+      reduced.removeEventListener("change", sync);
+      document.removeEventListener("visibilitychange", sync);
+    };
+  }, [inView, manual]);
   const captions = [
-    i18n(
-      "Revisa quién confirmó, quién está pendiente y las respuestas de tus invitados.",
-    ),
-    i18n(
-      "Consulta los regalos de tu lista y cuáles ya reservaron tus invitados.",
-    ),
-    i18n("Consulta tu perfil y ajusta tus preferencias desde la app."),
+    "Revisa quién confirmó, quién está pendiente y las respuestas de tus invitados.",
+    "Consulta los regalos de tu lista y cuáles ya reservaron tus invitados.",
+    "Consulta tu perfil y ajusta tus preferencias desde la app.",
   ];
   const imagePath = (id: (typeof screens)[number]["id"]) =>
     "/previews/mobile/" +
@@ -121,6 +151,8 @@ export default function MobileApp({ wedding = false }: { wedding?: boolean }) {
             className="mobile-app-selector"
             role="group"
             aria-label={i18n("Explora la app móvil")}
+            onFocusCapture={() => setManual(true)}
+            onPointerEnter={() => setManual(true)}
           >
             {screens.map(({ id, label, icon }, index) => (
               <button
@@ -128,7 +160,10 @@ export default function MobileApp({ wedding = false }: { wedding?: boolean }) {
                 type="button"
                 aria-pressed={active === index}
                 aria-controls="mobile-app-preview"
-                onClick={() => setActive(index)}
+                onClick={() => {
+                  setManual(true);
+                  setActive(index);
+                }}
               >
                 <Icon name={icon} />
                 <span>{i18n(label)}</span>
@@ -137,37 +172,36 @@ export default function MobileApp({ wedding = false }: { wedding?: boolean }) {
           </div>
         </div>
 
-        <figure className="mobile-app-visual" id="mobile-app-preview">
-          <div className="mobile-app-devices">
-            <div
-              className="mobile-app-phone mobile-app-phone-rear"
-              aria-hidden="true"
-            >
+        <figure
+          ref={preview}
+          className="mobile-app-visual"
+          id="mobile-app-preview"
+          data-in-view={inView}
+        >
+          <div className="mobile-app-phone">
+            {screens.map(({ id, label }, index) => (
               <Image
-                src={imagePath(next.id)}
-                alt=""
-                width={600}
-                height={1301}
-                sizes="(max-width: 700px) 156px, 220px"
-              />
-            </div>
-            <div className="mobile-app-phone mobile-app-phone-main">
-              <Image
-                key={screen.id}
-                src={imagePath(screen.id)}
+                key={id}
+                src={imagePath(id)}
                 alt={i18n("Pantalla de {v0} en {v1}", {
-                  v0: i18n(screen.label),
+                  v0: i18n(label),
                   v1: app.name,
                 })}
+                aria-hidden={active !== index}
                 width={600}
                 height={1301}
-                sizes="(max-width: 700px) 190px, 270px"
+                sizes="(max-width: 700px) 228px, 270px"
               />
-            </div>
+            ))}
           </div>
-          <figcaption aria-live="polite">
-            <strong>{i18n(screen.label)}</strong>
-            <span>{captions[active]}</span>
+          <figcaption aria-live={manual ? "polite" : "off"}>
+            <div className="mobile-app-note" key={screen.id}>
+              <Icon name={screen.icon} />
+              <div>
+                <strong>{i18n(screen.label)}</strong>
+                <span>{i18n(captions[active])}</span>
+              </div>
+            </div>
           </figcaption>
         </figure>
       </div>

@@ -141,73 +141,131 @@
 .mobile-app-visual {
   display: grid;
   min-width: 0;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
   gap: 16px;
   margin: 0;
-}
-
-.mobile-app-devices {
-  display: grid;
-  min-width: 0;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  padding: clamp(28px, 4.2vw, 62px) clamp(24px, 4.2vw, 52px);
+  border-radius: 24px;
   overflow: clip;
-  padding: clamp(24px, 4vw, 52px) clamp(16px, 4vw, 48px);
   background: var(--app-stage);
 }
 
 .mobile-app-phone {
-  grid-row: 1;
+  display: grid;
+  justify-self: center;
   width: 100%;
-  max-width: 270px;
-  padding: 6px;
-  border-radius: clamp(19px, 4vw, 32px);
+  max-width: 280px;
+  aspect-ratio: 600 / 1301;
+  border: 6px solid var(--app-ink);
+  border-radius: clamp(22px, 4vw, 36px);
   background: var(--app-ink);
-}
-
-.mobile-app-phone-main {
-  z-index: 1;
-  grid-column: 1;
-  justify-self: end;
-  transform: translateX(10%);
-}
-
-.mobile-app-phone-rear {
-  grid-column: 2;
-  justify-self: start;
-  width: 88%;
-  transform: translate(-14%, 4%) rotate(8deg);
+  overflow: hidden;
+  transform: rotate(-6deg);
 }
 
 .mobile-app-phone img {
-  display: block;
+  grid-area: 1 / 1;
   width: 100%;
-  height: auto;
-  border-radius: clamp(14px, 3vw, 26px);
+  height: 100%;
+  object-fit: cover;
   background: #fff;
+  opacity: 0;
+}
+
+.mobile-app-phone img[aria-hidden="false"] {
+  opacity: 1;
 }
 
 .mobile-app-visual figcaption {
-  display: grid;
-  align-content: start;
-  gap: 4px;
-  min-height: 4.5rem;
-  font-size: 0.95rem;
-  line-height: 1.45;
+  position: relative;
+  margin-top: 55%;
 }
 
-.mobile-app-visual figcaption strong {
-  font-size: 1.1rem;
+.mobile-app-note {
+  display: flex;
+  align-items: flex-start;
+  min-height: 122px;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--app-ink);
+  color: var(--app-surface);
+}
+
+.mobile-app-note > .ui-icon {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-app-note strong,
+.mobile-app-note span {
+  display: block;
+}
+
+.mobile-app-note span {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  line-height: 1.4;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .mobile-app-phone-main img {
-    animation: mobile-app-screen-in 210ms ease-out;
+  .mobile-app-visual .mobile-app-phone {
+    animation: mobile-app-float 5.8s ease-in-out infinite paused;
+  }
+
+  .mobile-app-visual[data-in-view="true"] .mobile-app-phone {
+    animation-play-state: running;
+  }
+
+  .mobile-app-phone img {
+    transform: translateX(12px) scale(1.025);
+    transition:
+      opacity 480ms ease,
+      transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-app-phone img[aria-hidden="false"] {
+    transform: none;
+  }
+
+  .mobile-app-visual[data-in-view="true"] .mobile-app-note {
+    animation: mobile-app-note-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 
-@keyframes mobile-app-screen-in {
+@keyframes mobile-app-float {
+  50% {
+    transform: translateY(-14px) rotate(-2deg);
+  }
+}
+
+@keyframes mobile-app-note-in {
   from {
-    opacity: 0.65;
+    opacity: 0;
+    transform: translate(12px, 10px) rotate(3deg);
+  }
+}
+
+@media (max-width: 1050px) {
+  .mobile-app-visual {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .mobile-app-phone {
+    width: min(80%, 228px);
+  }
+
+  .mobile-app-visual figcaption {
+    width: min(100%, 310px);
+    justify-self: center;
+    margin: 0;
+  }
+
+  .mobile-app-note {
+    min-height: 108px;
   }
 }
 
