@@ -22,9 +22,9 @@ export default function WeddingLanding() {
       <div id="contenido">
         <WeddingHero />
       </div>
+      <MobileApp wedding />
       <ProductShowcase wedding />
       <WeddingStory />
-      <MobileApp wedding />
       <MarketingFAQ wedding />
       <WeddingFooter />
       <ResourceLinks wedding />

@@ -633,5 +633,13 @@
   "Con la app de Save the Date puedes revisar las confirmaciones de tu boda y gestionar tu lista de regalos desde el celular.": "Use the Save the Date app to check your wedding RSVPs and manage your gift list from your phone.",
   "Con la app de The Date puedes revisar quién confirmó, consultar las respuestas y gestionar tu lista de regalos desde el celular.": "Use The Date to see who’s coming, check guest responses, and manage your gift list from your phone.",
   "Descargar {v0} en {v1}": "Download {v0} on {v1}",
-  "Pantalla de confirmaciones de {v0}": "{v0} RSVP screen"
+  "Pantalla de confirmaciones de {v0}": "{v0} RSVP screen",
+  "Confirmaciones": "RSVPs",
+  "Regalos": "Gifts",
+  "Descárgala en": "Download on",
+  "Explora la app móvil": "Explore the mobile app",
+  "Pantalla de {v0} en {v1}": "{v0} screen in {v1}",
+  "Revisa quién confirmó, quién está pendiente y las respuestas de tus invitados.": "See who has confirmed, who’s still pending, and how guests responded.",
+  "Consulta los regalos de tu lista y cuáles ya reservaron tus invitados.": "See your gift list and which items your guests have reserved.",
+  "Consulta tu perfil y ajusta tus preferencias desde la app.": "View your profile and adjust your preferences in the app."
 }

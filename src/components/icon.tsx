@@ -29,6 +29,7 @@ const paths = {
   cake: "M4 13h16v8H4v-8Zm0 3c2 3 4-3 6 0s4-3 6 0 4 0 4 0M8 13V9m4 4V9m4 4V9M8 6V4m4 2V3m4 3V4",
   users:
     "M9 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-6 16v-2a6 6 0 0 1 12 0v2M16 4a3 3 0 0 1 0 6m1 4a5 5 0 0 1 4 4v2",
+  user: "M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM5 21v-1a7 7 0 0 1 14 0v1",
   check: "m5 12 4 4L19 6",
   arrow: "M5 12h14m-6-6 6 6-6 6",
   external: "M7 17 17 7M7 7h10v10",

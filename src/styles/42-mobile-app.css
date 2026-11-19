@@ -1,29 +1,27 @@
 .mobile-app {
-  --app-field: var(--festival-ink);
-  --app-ink: #fff9ed;
-  --app-action: #fff9ed;
-  --app-action-ink: #463466;
-  --app-action-hover: #f4b93c;
-  background: var(--app-field);
+  --app-ink: #32234a;
+  --app-surface: #fff9f0;
+  --app-stage: #eddefa;
+  --app-active: #eaddf4;
   color: var(--app-ink);
-  margin-block-end: 32px;
+  background: var(--app-surface);
+  margin-block: 24px 40px;
   scroll-margin-top: 24px;
 }
 
 .wedding-atlas .mobile-app {
-  --app-field: #e9d7c6;
-  --app-ink: var(--vow-ink);
-  --app-action: var(--vow-ink);
-  --app-action-ink: #fff;
-  --app-action-hover: var(--vow-accent);
+  --app-ink: #302720;
+  --app-surface: #faf6f0;
+  --app-stage: #ead8c7;
+  --app-active: #efe0d4;
 }
 
 .mobile-app-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: center;
-  gap: clamp(32px, 7vw, 96px);
-  padding-block: clamp(48px, 8vw, 96px);
+  gap: clamp(32px, 6vw, 88px);
+  padding-block: clamp(48px, 6vw, 88px);
 }
 
 .mobile-app-copy {
@@ -33,13 +31,13 @@
 }
 
 .mobile-app-copy h2 {
+  max-width: 14ch;
   margin: 0;
-  max-width: 12ch;
   font-family: var(--font-party), sans-serif;
-  font-size: clamp(2.65rem, 5.6vw, 5rem);
+  font-size: clamp(2.5rem, 5.4vw, 4.8rem);
   font-weight: 800;
   line-height: 0.98;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.05em;
   text-wrap: balance;
 }
 
@@ -49,10 +47,10 @@
 }
 
 .mobile-app-copy p {
-  margin: 0;
   max-width: 42ch;
-  font-size: clamp(1rem, 1.65vw, 1.2rem);
-  line-height: 1.6;
+  margin: 0;
+  font-size: clamp(1rem, 1.65vw, 1.18rem);
+  line-height: 1.55;
 }
 
 .mobile-app-links {
@@ -62,34 +60,155 @@
 }
 
 .mobile-app-links a {
-  display: inline-flex;
-  min-height: 48px;
+  display: flex;
+  min-height: 56px;
   align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
+  gap: 10px;
+  padding: 10px 14px;
   border-radius: 99px;
-  background: var(--app-action);
-  color: var(--app-action-ink);
-  font-weight: 700;
+  background: var(--app-ink);
+  color: #fff;
+  line-height: 1.2;
+}
+
+.mobile-app-links small,
+.mobile-app-links strong {
+  display: block;
+}
+
+.mobile-app-links small {
+  font-size: 0.73rem;
+}
+
+.mobile-app-links strong {
+  margin-top: 2px;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.mobile-app-store-mark {
+  flex: none;
+}
+
+.mobile-app-links .ui-icon {
+  width: 15px;
+  height: 15px;
+  margin-inline-start: 4px;
 }
 
 .mobile-app-links a:is(:hover, :focus-visible) {
-  background: var(--app-action-hover);
+  background: #5b3e79;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-.mobile-app-visual img {
-  display: block;
-  width: min(100%, 250px);
-  height: auto;
-  margin-inline: auto;
-  border: 8px solid var(--app-action-ink);
-  border-radius: 32px;
+.wedding-atlas .mobile-app-links a:is(:hover, :focus-visible) {
+  background: #754a38;
 }
 
-.wedding-atlas .mobile-app-visual img {
-  border-color: var(--app-ink);
+.mobile-app-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mobile-app-selector button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  border: 0;
+  border-radius: 99px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.mobile-app-selector button:is([aria-pressed="true"], :hover, :focus-visible) {
+  background: var(--app-active);
+}
+
+.mobile-app-selector button:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mobile-app-visual {
+  display: grid;
+  min-width: 0;
+  gap: 16px;
+  margin: 0;
+}
+
+.mobile-app-devices {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  overflow: clip;
+  padding: clamp(24px, 4vw, 52px) clamp(16px, 4vw, 48px);
+  background: var(--app-stage);
+}
+
+.mobile-app-phone {
+  grid-row: 1;
+  width: 100%;
+  max-width: 270px;
+  padding: 6px;
+  border-radius: clamp(19px, 4vw, 32px);
+  background: var(--app-ink);
+}
+
+.mobile-app-phone-main {
+  z-index: 1;
+  grid-column: 1;
+  justify-self: end;
+  transform: translateX(10%);
+}
+
+.mobile-app-phone-rear {
+  grid-column: 2;
+  justify-self: start;
+  width: 88%;
+  transform: translate(-14%, 4%) rotate(8deg);
+}
+
+.mobile-app-phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: clamp(14px, 3vw, 26px);
+  background: #fff;
+}
+
+.mobile-app-visual figcaption {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  min-height: 4.5rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.mobile-app-visual figcaption strong {
+  font-size: 1.1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-app-phone-main img {
+    animation: mobile-app-screen-in 210ms ease-out;
+  }
+}
+
+@keyframes mobile-app-screen-in {
+  from {
+    opacity: 0.65;
+  }
 }
 
 @media (max-width: 700px) {
@@ -97,8 +216,12 @@
     grid-template-columns: 1fr;
   }
 
-  .mobile-app-visual img {
-    width: min(100%, 216px);
+  .mobile-app-copy {
+    gap: 20px;
+  }
+
+  .mobile-app-links {
+    gap: 12px;
   }
 
   .festival-site .party-header nav .mobile-app-nav,
@@ -108,5 +231,47 @@
     align-items: center;
     margin-inline-end: 12px;
     white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-app-links {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mobile-app-links a {
+    gap: 7px;
+    justify-content: center;
+    padding-inline: 8px;
+  }
+
+  .mobile-app-store-mark {
+    width: 20px;
+    height: 20px;
+  }
+
+  .mobile-app-links strong {
+    font-size: 0.9rem;
+  }
+
+  .mobile-app-links .ui-icon {
+    display: none;
+  }
+
+  .mobile-app-selector {
+    gap: 4px;
+  }
+
+  .mobile-app-selector button {
+    gap: 5px;
+    padding-inline: 8px;
+    font-size: 0.82rem;
+  }
+
+  .mobile-app-selector .ui-icon {
+    width: 14px;
+    height: 14px;
   }
 }

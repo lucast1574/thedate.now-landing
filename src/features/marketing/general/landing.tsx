@@ -22,10 +22,10 @@ export default function GeneralLanding() {
       </a>
       <GeneralHeader />
       <GeneralHero />
+      <MobileApp />
       <GeneralMarquee />
       <GeneralOccasions />
       <ProductShowcase />
-      <MobileApp />
       <GeneralHow />
       <MarketingFAQ />
       <GeneralFooter />
